@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
+    .card-icon:nth-child(2) { background: color-mix(in srgb, var(--accent) 15%, transparent) !important; }
+  </style>
+</head>
+<body class="theme-teal">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html" class="active">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>👤 Profil</h1>
+    <p>Futur ingénieur en génie logiciel & développement systèmes</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Profil</span>
+      <h2>Qui je suis</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon" style="background:color-mix(in srgb,var(--accent) 15%,transparent)">⚙️</div>
+          <h3>Génie Logiciel & Systèmes</h3>
+          <p>Ma priorité : maîtriser le génie logiciel, l'architecture des systèmes, le back-end scalable et les principes SOLID pour construire des logiciels robustes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:color-mix(in srgb,var(--accent) 15%,transparent)">🎓</div>
+          <h3>Étudiant Licence 3</h3>
+          <p>Bientôt diplômé en Licence Fondamentale en code. Je construis une base solide pour un Master en génie logiciel ou IA.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:color-mix(in srgb,var(--accent) 15%,transparent)">💻</div>
+          <h3>Designer & Vidéaste</h3>
+          <p>Design graphique, montage vidéo, UI/UX. Un atout complémentaire pour mieux concevoir l'expérience utilisateur des systèmes.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:24px;border-color:#4ade8040">
+        <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+          <div style="font-size:2rem">🚀</div>
+          <div style="flex:1;min-width:200px">
+            <h3 style="color:var(--text-heading);margin-bottom:8px">En formation active — Été 2026</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px">
+              <span style="background:color-mix(in srgb,#4ade80 12%,transparent);color:#4ade80;padding:6px 14px;border-radius:8px;font-size:0.82rem;font-weight:600;border:1px solid #14532d">Tech4Africans (26 juin → sept.)</span>
+              <span style="background:color-mix(in srgb,#38bdf8 12%,transparent);color:#38bdf8;padding:6px 14px;border-radius:8px;font-size:0.82rem;font-weight:600;border:1px solid #075985">FlutterFire Summer Camp (6 juil. → oct.)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a href="plan4.html" class="btn btn-primary">Voir mon Plan PRO →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objectifs — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
+    .card ul { list-style: none; padding: 0; }
+    .card ul li { color: #94a3b8; font-size: 0.88rem; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+    .card ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  </style>
+</head>
+<body class="theme-amber">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html" class="active">Objectifs</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>🎯 Objectifs</h1>
+    <p>Devenir ingénieur en génie logiciel & développement systèmes</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Objectifs</span>
+      <h2>Ma feuille de route</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon" style="background:#2563eb20">🎯</div>
+          <h3>Urgent (0-6 mois)</h3>
+          <ul>
+            <li>✅ Tech4Africans — dev/data/IA (juin-sept.)</li>
+            <li>✅ FlutterFire Summer Camp (juil.-oct.)</li>
+            <li>Maîtriser algorithmes & structures de données</li>
+            <li>Concevoir un système backend complet (API, DB, déploiement)</li>
+            <li>Construire un portfolio génie logiciel sur GitHub</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#7c3aed20">🚀</div>
+          <h3>Moyen terme (6-12 mois)</h3>
+          <ul>
+            <li>Maîtriser l'architecture logicielle (SOLID, patterns)</li>
+            <li>Certification AWS Cloud / Azure / Google</li>
+            <li>Systèmes distribués & DevOps (Docker, CI/CD)</li>
+            <li>Décrocher des missions en génie logiciel (1000$+/mois)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#05966920">🌟</div>
+          <h3>Long terme (1-2 ans)</h3>
+          <ul>
+            <li>Ingénieur logiciel reconnu</li>
+            <li>Master en génie logiciel ou systèmes</li>
+            <li>Contribuer à des projets open source majeurs</li>
+            <li>Devenir référent tech au Tchad</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="plan4.html" class="btn btn-primary">Plan PRO détaillé →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+</body>
+</html>

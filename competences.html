@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compétences — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .skill-bar { margin-bottom: 18px; }
+    .skill-bar .info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.85rem; }
+    .skill-bar .info span:first-child { color: #cbd5e1; }
+    .skill-bar .info span:last-child { color: var(--accent); font-weight: 600; }
+    .skill-bar .track { height: 7px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+    .skill-bar .fill { height: 100%; border-radius: 4px; background: var(--gradient); width: 0; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  </style>
+</head>
+<body class="theme-violet">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html">Profil</a>
+        <a href="competences.html" class="active">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>⚡ Compétences</h1>
+    <p>Génie logiciel & développement systèmes</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Compétences</span>
+      <h2>Génie logiciel</h2>
+      <div style="max-width:600px">
+        <div class="skill-bar">
+          <div class="info"><span>Algorithmes & Structures de données</span><span>50%</span></div>
+          <div class="track"><div class="fill" data-w="50"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Architecture logicielle (SOLID, Design Patterns)</span><span>35%</span></div>
+          <div class="track"><div class="fill" data-w="35"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Conception de Systèmes (System Design)</span><span>30%</span></div>
+          <div class="track"><div class="fill" data-w="30"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Bases de données (SQL, Modélisation)</span><span>50%</span></div>
+          <div class="track"><div class="fill" data-w="50"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Python / PHP</span><span>55%</span></div>
+          <div class="track"><div class="fill" data-w="55"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>JavaScript / TypeScript</span><span>65%</span></div>
+          <div class="track"><div class="fill" data-w="65"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Git / GitHub / CI/CD</span><span>50%</span></div>
+          <div class="track"><div class="fill" data-w="50"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>HTML / CSS</span><span>85%</span></div>
+          <div class="track"><div class="fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="info"><span>Systèmes d'exploitation & Réseaux</span><span>35%</span></div>
+          <div class="track"><div class="fill" data-w="35"></div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="plan4.html" class="btn btn-primary">Voir le Plan PRO →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-bar').forEach(el => observer.observe(el));
+    window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});
+  </script>
+</body>
+</html>

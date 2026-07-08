@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan PRO — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    h3 { color: var(--text-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .step { background: var(--bg-card); border-radius: 14px; padding: 32px 28px; border: 1px solid var(--border); position: relative; transition: all 0.3s; }
+    .step:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 50%, transparent); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+    .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .step h3 { font-size: 1rem; }
+    .step p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; }
+    .step .dur { display: inline-block; background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent); padding: 2px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-top: 10px; }
+    .step ul { list-style: none; padding: 0; margin-top: 10px; }
+    .step ul li { color: var(--text-muted); font-size: 0.84rem; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+    .step ul li::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0; }
+  </style>
+</head>
+<body class="theme-blue">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="plan4.html" class="active">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>📋 Plan PRO — Génie Logiciel & Systèmes</h1>
+    <p>Devenir ingénieur logiciel depuis le Tchad — roadmap intensive</p>
+  </div>
+
+  <section style="padding:40px 24px 24px">
+    <div class="container">
+      <div style="background:color-mix(in srgb,#4ade80 6%,transparent);border:1px solid #14532d;border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:1.8rem">✅</span>
+        <div style="flex:1;min-width:200px">
+          <p style="color:#4ade80;font-weight:700;font-size:0.95rem">Tu es déjà en route !</p>
+          <p style="color:var(--text-muted);font-size:0.85rem">Sélectionné à <strong>Tech4Africans</strong> (dév/data/IA) et <strong>FlutterFire Summer Camp</strong> (Flutter+Firebase) — été 2026</p>
+        </div>
+        <a href="urgent.html" class="btn btn-primary" style="font-size:0.82rem;padding:10px 20px">Voir les urgences</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étape 1 -->
+  <section>
+    <div class="container">
+      <span class="section-label">Étape 1 — Urgente</span>
+      <h2>⚙️ Fondations en génie logiciel & algorithmique</h2>
+      <p style="color:#94a3b8;margin-bottom:24px;max-width:700px">
+        Objectif : maîtriser les bases universelles du génie logiciel — algorithmes, structures de données, architecture. <strong>Tech4Africans + FlutterFire Summer Camp en parallèle</strong>.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>✅ Tech4Africans — dev/data/IA</h3>
+          <p>3 mois intensifs en ligne. Dev full-stack, data, IA. Complète avec des projets concrets sur GitHub.</p>
+          <span class="dur">26 juin → sept. 2026</span>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>✅ FlutterFire Summer Camp</h3>
+          <p>90 jours Flutter + Firebase. Développement d'applications mobiles multiplateformes. Français.</p>
+          <span class="dur">6 juil. → oct. 2026</span>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Algorithmes & Structures de données</h3>
+          <p>Résoudre 100 problèmes sur LeetCode/HackerRank. Maîtriser la complexité (Big O), les tris, les arbres, les graphes.</p>
+          <span class="dur">3 mois — en continu</span>
+        </div>
+      </div>
+      <div style="margin-top:24px;background:#131a2b;border-radius:12px;padding:20px 24px;border:1px solid #1e293b">
+        <p style="color:#94a3b8;font-size:0.88rem">
+          <strong style="color:#60a5fa">🚀 Livrables :</strong> 2 programmes terminés, 100 problèmes résolus, base algorithmique solide.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étape 2 -->
+  <section class="alt">
+    <div class="container">
+      <span class="section-label">Étape 2</span>
+      <h2>🏗️ Concevoir des systèmes logiciels</h2>
+      <p style="color:#94a3b8;margin-bottom:24px;max-width:700px">
+        Objectif : passer du code qui marche au logiciel bien conçu — architecture, design patterns, clean code, systèmes backend.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Architecture logicielle</h3>
+          <p>SOLID, Design Patterns (Singleton, Factory, Observer, MVC), Clean Architecture. Appliquer sur des projets concrets.</p>
+          <span class="dur">Mois 2-4</span>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Backend systems & API</h3>
+          <p>Concevoir une API REST complète avec auth, rate limiting, tests, documentation. Node.js / Python / PHP au choix.</p>
+          <span class="dur">Mois 3-5</span>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Base de données & modélisation</h3>
+          <p>SQL avancé, indexation, optimisation, schémas relationnels, MongoDB. Conception de systèmes de données.</p>
+          <span class="dur">Mois 4-6</span>
+        </div>
+      </div>
+      <div style="margin-top:24px;background:#131a2b;border-radius:12px;padding:20px 24px;border:1px solid #1e293b">
+        <p style="color:#94a3b8;font-size:0.88rem">
+          <strong style="color:#60a5fa">🚀 Livrables :</strong> 1 système backend complet sur GitHub, schéma DB optimisé, patterns appliqués.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étape 3 -->
+  <section>
+    <div class="container">
+      <span class="section-label">Étape 3</span>
+      <h2>☁️ DevOps, Cloud & certifications pro</h2>
+      <p style="color:#94a3b8;margin-bottom:24px;max-width:700px">
+        Objectif : maîtriser le déploiement, l'infrastructure et décrocher des certifications recherchées par les entreprises.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>AWS Cloud Practitioner (~100$)</h3>
+          <p>Certification cloud la plus accessible. Comprendre le cloud, les services AWS, la sécurité, la tarification.</p>
+          <span class="dur">Mois 5-6</span>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>DevOps & CI/CD</h3>
+          <p>Docker, GitHub Actions, déploiement automatisé. Infrastructure as Code. Monitoring et logging.</p>
+          <span class="dur">Mois 6-8</span>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Systèmes distribués</h3>
+          <p>Microservices, files d'attente (RabbitMQ/Kafka), caching (Redis), load balancing, architectures scalables.</p>
+          <span class="dur">Mois 8-10</span>
+        </div>
+      </div>
+      <div style="margin-top:24px;background:#131a2b;border-radius:12px;padding:20px 24px;border:1px solid #1e293b">
+        <p style="color:#94a3b8;font-size:0.88rem">
+          <strong style="color:#60a5fa">🚀 Livrables :</strong> Certification AWS, pipeline CI/CD fonctionnel, déploiement automatisé.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étape 4 -->
+  <section class="alt">
+    <div class="container">
+      <span class="section-label">Étape 4</span>
+      <h2>💼 Ingénieur logiciel freelance & open source</h2>
+      <p style="color:#94a3b8;margin-bottom:24px;max-width:700px">
+        Objectif : monétiser ses compétences en génie logiciel — missions haut niveau, contributions open source, réseau professionnel.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Contributions open source</h3>
+          <p>Contribuer à des projets majeurs (React, Node, Django, etc.). Se faire remarquer, build son réseau GitHub.</p>
+          <span class="dur">Mois 6+</span>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Freelance génie logiciel</h3>
+          <p>Upwork, Malt, Toptal. Viser des missions en développement systèmes, backend, architecture — pas du simple web.</p>
+          <span class="dur">Mois 8-12</span>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Réseau & mentoring</h3>
+          <p>LinkedIn actif, blog technique, conférences (en ligne). Devenir référent génie logiciel au Tchad.</p>
+          <span class="dur">Continu</span>
+        </div>
+      </div>
+      <div style="margin-top:24px;background:#131a2b;border-radius:12px;padding:20px 24px;border:1px solid #1e293b">
+        <p style="color:#94a3b8;font-size:0.88rem">
+          <strong style="color:#60a5fa">🚀 Livrables :</strong> Contributions open source, missions régulières 1500$+/mois, réseau professionnel.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section>
+    <div class="container" style="text-align:center">
+      <span class="section-label">Résumé</span>
+      <h2>Les 4 étapes en un coup d'œil</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:left">
+        <div style="background:#131a2b;border-radius:12px;padding:20px;border:1px solid #1e293b">
+          <div style="font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent">1</div>
+          <h3 style="font-size:0.95rem;margin:8px 0 4px;color:#f1f5f9">Algorithmes</h3>
+          <p style="color:#94a3b8;font-size:0.82rem">Tech4Africans + LeetCode + CS</p>
+        </div>
+        <div style="background:#131a2b;border-radius:12px;padding:20px;border:1px solid #1e293b">
+          <div style="font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent">2</div>
+          <h3 style="font-size:0.95rem;margin:8px 0 4px;color:#f1f5f9">Architecture</h3>
+          <p style="color:#94a3b8;font-size:0.82rem">API, DB, Design Patterns, SOLID</p>
+        </div>
+        <div style="background:#131a2b;border-radius:12px;padding:20px;border:1px solid #1e293b">
+          <div style="font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent">3</div>
+          <h3 style="font-size:0.95rem;margin:8px 0 4px;color:#f1f5f9">Cloud & DevOps</h3>
+          <p style="color:#94a3b8;font-size:0.82rem">AWS, Docker, CI/CD, scale</p>
+        </div>
+        <div style="background:#131a2b;border-radius:12px;padding:20px;border:1px solid #1e293b">
+          <div style="font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent">4</div>
+          <h3 style="font-size:0.95rem;margin:8px 0 4px;color:#f1f5f9">Carrière</h3>
+          <p style="color:#94a3b8;font-size:0.82rem">Open source, freelance, réseau</p>
+        </div>
+      </div>
+      <div style="margin-top:28px">
+        <a href="urgent.html" class="btn btn-primary">Voir les opportunités →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .timeline { position: relative; padding-left: 36px; }
+    .timeline::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 28px; padding: 22px 24px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s; }
+    .timeline-item:hover { border-color: var(--border-hover); }
+    .timeline-item::before { content: ''; position: absolute; left: -29px; top: 26px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+    .timeline-item .date { display: inline-block; background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent); padding: 3px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-bottom: 8px; }
+    .timeline-item h3 { color: var(--text-heading); font-size: 1rem; margin-bottom: 6px; }
+    .timeline-item p { color: var(--text-muted); font-size: 0.88rem; }
+  </style>
+</head>
+<body class="theme-orange">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html" class="active">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>📅 Timeline 2026-2027</h1>
+    <p>Les prochaines étapes dans le temps</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Plan d'action</span>
+      <h2>Les prochaines étapes</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="date">Juin 2026</span>
+          <h3>Finaliser la Licence 3 + préparer le terrain</h3>
+          <p>Terminer l'université. Mettre à jour CV et LinkedIn. Postuler Tech4Africans (26 juin).</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">Juillet 2026</span>
+          <h3>FlutterFire Summer Camp + début freeCodeCamp</h3>
+          <p>Camp gratuit de 90 jours (français). Commencer les certifications freeCodeCamp en parallèle.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">Août - Septembre 2026</span>
+          <h3>Portfolio + premiers projets GitHub</h3>
+          <p>Lancer le site personnel. 3 projets sur GitHub. Commencer Harvard CS50.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">Octobre - Décembre 2026</span>
+          <h3>Certifications + recherche clients</h3>
+          <p>Passer les certifs freeCodeCamp. Créer profil Upwork/Malt. Premières candidatures.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">2027</span>
+          <h3>Développeur pro à temps plein</h3>
+          <p>Revenus réguliers en freelance. Certification Meta/IBM + AWS. Spécialisation technique.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="plan4.html" class="btn btn-primary">Voir le Plan PRO →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+</body>
+</html>
