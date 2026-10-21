@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mbaihornom Willifred — Plan de Carrière</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero {
+      min-height: 85vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 24px 60px;
+      background:
+        radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, color-mix(in srgb, var(--accent2) 10%, transparent) 0%, transparent 50%),
+        var(--bg);
+    }
+    .hero-content { max-width: 720px; }
+    .hero-badge { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+    .hero-badge span { background: var(--border); color: var(--accent); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--border-hover); }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--text-heading) 0%, var(--accent) 50%, var(--accent2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 32px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 10px; }
+    .nav-card { background: var(--bg-card); border-radius: 14px; padding: 28px 20px; border: 1px solid var(--border); text-align: center; text-decoration: none; transition: all 0.3s; }
+    .nav-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, transparent); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .nav-card .ico { font-size: 2rem; margin-bottom: 10px; }
+    .nav-card h3 { color: var(--text-heading); font-size: 0.95rem; font-weight: 600; }
+    .nav-card p { color: var(--text-dim); font-size: 0.78rem; margin-top: 4px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .step { background: var(--bg-card); border-radius: 14px; padding: 28px; border: 1px solid var(--border); text-align: center; position: relative; transition: all 0.3s; }
+    .step:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 800; font-size: 1.1rem; color: #fff; }
+    .step h3 { color: var(--text-heading); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .step p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+    .step .dur { color: var(--accent); font-size: 0.75rem; font-weight: 600; margin-top: 8px; }
+    .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
+    .cta { text-align: center; padding: 60px 24px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 60%); }
+    .cta h2 { margin-bottom: 12px; }
+    .cta p { color: var(--text-muted); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    @media (max-width: 640px) { .hero h1 { font-size: 2rem; } .hero p { font-size: 1em; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="index.html" style="text-decoration:none"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="index.html">Dashboard</a>
+        <a href="profil.html">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="orientation.html">Orientation</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>Génie Logiciel</span>
+        <span>Développement Systèmes</span>
+        <span>Tchad</span>
+        <span>Licence 3</span>
+        <span style="background:color-mix(in srgb,#4ade80 15%,transparent);color:#4ade80;border-color:#166534">✅ Tech4Africans</span>
+        <span style="background:color-mix(in srgb,#38bdf8 15%,transparent);color:#38bdf8;border-color:#075985">🔥 FlutterFire Camp</span>
+        <span style="background:color-mix(in srgb,#4ade80 15%,transparent);color:#4ade80;border-color:#166534">✅ Codveda Validé</span>
+        <span style="background:color-mix(in srgb,#ef4444 15%,transparent);color:#ef4444;border-color:#7f1d1d">⚠️ AIMS Master 4 nov</span>
+        <span style="background:color-mix(in srgb,#f59e0b 15%,transparent);color:#f59e0b;border-color:#92400e">🆕 Bourse Eiffel 2027</span>
+        <span style="background:color-mix(in srgb,#f59e0b 15%,transparent);color:#f59e0b;border-color:#92400e">🆕 Erasmus Mundus</span>
+        <span style="background:color-mix(in srgb,#34d399 15%,transparent);color:#34d399;border-color:#065f46">🧭 Quelle voie choisir ?</span>
+      </div>
+      <h1>Mbaihornom Willifred<br/>Génie Logiciel & Systèmes</h1>
+      <p>
+        Étudiant en Licence 3, je me forme en urgence au génie logiciel<br/>
+        et au développement des systèmes pour devenir ingénieur logiciel depuis le Tchad.
+      </p>
+      <div class="hero-actions">
+        <a href="orientation.html" class="btn btn-primary">🧭 Trouver ma voie →</a>
+        <a href="index.html" class="btn btn-outline">📊 Dashboard</a>
+        <a href="plan4.html" class="btn btn-outline">Mon Plan PRO</a>
+        <a href="urgent.html" class="btn btn-outline">Opportunités</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Plan PRO section on home -->
+  <section>
+    <div class="container">
+      <span class="section-label">Le Plan</span>
+      <h2>4 étapes pour devenir pro</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>📚 Fondations génie logiciel</h3>
+          <p>Algorithmes, structures de données, architecture logicielle, systèmes d'exploitation, bases de données.</p>
+          <div class="dur">Mois 1-3</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>🛠️ Développement systèmes</h3>
+          <p>Concevoir et construire des systèmes back-end, API, CI/CD, architectures scalables, DevOps.</p>
+          <div class="dur">Mois 3-6</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>🏅 Certifications pros</h3>
+          <p>AWS, Azure, Meta Backend, Google Cloud. Compétences recherchées par les entreprises.</p>
+          <div class="dur">Mois 6-9</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>💼 Ingénieur logiciel</h3>
+          <p>Freelance haut niveau, missions en génie logiciel, contributions open source, réseau pro.</p>
+          <div class="dur">Mois 9-12</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a href="plan4.html" class="btn btn-primary">Voir le détail →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation grid -->
+  <section class="alt">
+    <div class="container">
+      <span class="section-label">Navigation</span>
+      <h2>Tout le plan en un coup d'œil</h2>
+      <div class="nav-grid">
+        <a href="profil.html" class="nav-card">
+          <div class="ico">👤</div>
+          <h3>Profil</h3>
+          <p>Qui je suis, mon parcours</p>
+        </a>
+        <a href="competences.html" class="nav-card">
+          <div class="ico">⚡</div>
+          <h3>Compétences</h3>
+          <p>Mes acquis techniques</p>
+        </a>
+        <a href="objectifs.html" class="nav-card">
+          <div class="ico">🎯</div>
+          <h3>Objectifs</h3>
+          <p>Court, moyen, long terme</p>
+        </a>
+        <a href="orientation.html" class="nav-card">
+          <div class="ico">🧭</div>
+          <h3>Orientation</h3>
+          <p>Test : quelle voie en informatique</p>
+        </a>
+        <a href="plan4.html" class="nav-card">
+          <div class="ico">📋</div>
+          <h3>Plan PRO</h3>
+          <p>4 étapes vers le pro</p>
+        </a>
+        <a href="plan.html" class="nav-card">
+          <div class="ico">📅</div>
+          <h3>Timeline</h3>
+          <p>Calendrier 2026-2027</p>
+        </a>
+        <a href="plateformes.html" class="nav-card">
+          <div class="ico">📚</div>
+          <h3>Plateformes</h3>
+          <p>Ressources d'apprentissage</p>
+        </a>
+        <a href="certifications.html" class="nav-card">
+          <div class="ico">🏅</div>
+          <h3>Certifications</h3>
+          <p>Pas chères & reconnues</p>
+        </a>
+        <a href="urgent.html" class="nav-card">
+          <div class="ico">🔴</div>
+          <h3>Urgent</h3>
+          <p>Opportunités à saisir</p>
+        </a>
+        <a href="ecoles.html" class="nav-card">
+          <div class="ico">🏫</div>
+          <h3>Écoles gratuites</h3>
+          <p>Formations en Afrique</p>
+        </a>
+        <a href="grants.html" class="nav-card">
+          <div class="ico">💰</div>
+          <h3>Grants</h3>
+          <p>Financement startup</p>
+        </a>
+        <a href="bourses.html" class="nav-card">
+          <div class="ico">🌍</div>
+          <h3>Bourses</h3>
+          <p>Étudier gratuitement</p>
+        </a>
+        <a href="masters.html" class="nav-card">
+          <div class="ico">🎓</div>
+          <h3>Masters</h3>
+          <p>Programmes post-Licence</p>
+        </a>
+        <a href="freelance.html" class="nav-card">
+          <div class="ico">💼</div>
+          <h3>Freelance</h3>
+          <p>Plateformes pour clients</p>
+        </a>
+        <a href="ressources.html" class="nav-card">
+          <div class="ico">🔗</div>
+          <h3>Ressources</h3>
+          <p>Liens & coordonnées</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="text-align:center">
+      <span class="section-label">Priorité</span>
+      <h2>Actions immédiates</h2>
+      <div class="grid-3" style="text-align:left">
+        <div class="card">
+          <div class="card-icon" style="background:#2563eb20">1</div>
+          <h3>🧭 Choisir ma voie</h3>
+          <p>Faire le <a href="orientation.html" style="color:var(--accent)">test d'orientation</a>, puis tester 2 voies pendant 2 semaines chacune.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#7c3aed20">2</div>
+          <h3>AIMS Structured Master</h3>
+          <p>Deadline <strong>4 novembre 2026</strong> — Master 100% financé, rentrée janvier 2027.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#05966920">3</div>
+          <h3>DAAD In-Region & Ashesi</h3>
+          <p>Deadlines <strong>12 et 16 novembre 2026</strong> — Bourses complètes en Afrique.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f59e0b20">4</div>
+          <h3>Bourse Eiffel 2027</h3>
+          <p>Contacter les écoles françaises <strong>avant fin novembre</strong> — jusqu'à 2 100€/mois.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro. Mis à jour Octobre 2026.
+  </footer>
+
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('top-btn').classList.toggle('show', window.scrollY > 400);
+    });
+  </script>
+
+</body>
+</html>

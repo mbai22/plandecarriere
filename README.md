@@ -10,7 +10,8 @@ Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel*
 
 | Page | Description |
 |---|---|
-| `index.html` | Accueil et navigation |
+| `index.html` | Dashboard : deadlines, suivi des candidatures, compétences |
+| `accueil.html` | Ancienne page d'accueil (site classique) |
 | `profil.html` | Profil personnel |
 | `competences.html` | Compétences techniques |
 | `objectifs.html` | Objectifs court/moyen/long terme |

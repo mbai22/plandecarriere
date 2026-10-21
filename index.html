@@ -3,262 +3,431 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mbaihornom Willifred — Plan de Carrière</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dashboard — Mbaihornom Willifred</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    .hero {
-      min-height: 85vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 100px 24px 60px;
-      background:
-        radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--accent) 10%, transparent) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, color-mix(in srgb, var(--accent2) 10%, transparent) 0%, transparent 50%),
-        var(--bg);
+    :root {
+      --bg: #eef0ec;
+      --panel: #ffffff;
+      --side: #0f3a2b;
+      --side-2: #164a37;
+      --lime: #b4e04a;
+      --lime-soft: #e7f5c4;
+      --green: #1f5c45;
+      --text: #12201a;
+      --muted: #6b7570;
+      --line: #e6e9e4;
+      --orange: #e98a3f;
+      --red: #d9534f;
     }
-    .hero-content { max-width: 720px; }
-    .hero-badge { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
-    .hero-badge span { background: var(--border); color: var(--accent); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--border-hover); }
-    .hero h1 {
-      font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px;
-      background: linear-gradient(135deg, var(--text-heading) 0%, var(--accent) 50%, var(--accent2) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+    a { color: inherit; text-decoration: none; }
+
+    .app { display: grid; grid-template-columns: 236px 1fr; min-height: 100vh; }
+
+    /* Sidebar */
+    .side { background: var(--side); color: #cfe0d6; padding: 26px 18px; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 1.05rem; padding: 0 8px 28px; }
+    .brand svg { flex-shrink: 0; }
+    .side h4 { font-size: 0.68rem; letter-spacing: 1.4px; color: #8fb3a1; font-weight: 600; margin: 8px 10px 10px; }
+    .side nav a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; color: #cfe0d6; font-size: 0.88rem; margin-bottom: 2px; transition: background .2s; }
+    .side nav a:hover { background: var(--side-2); color: #fff; }
+    .side nav a.on { background: var(--side-2); color: #fff; font-weight: 600; box-shadow: inset 3px 0 0 var(--lime); }
+    .side nav a .ic { width: 18px; text-align: center; }
+    .side nav a .pill { margin-left: auto; background: var(--lime); color: var(--side); font-size: 0.68rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; }
+    .side hr { border: 0; border-top: 1px solid #23523f; margin: 18px 6px; }
+    .me { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 14px 8px 0; border-top: 1px solid #23523f; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--lime); color: var(--side); display: grid; place-items: center; font-weight: 800; }
+    .me b { color: #fff; font-size: 0.85rem; display: block; }
+    .me span { font-size: 0.72rem; color: #8fb3a1; }
+
+    /* Main */
+    main { padding: 0 28px 28px; min-width: 0; }
+    .topbar { display: flex; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); margin-bottom: 22px; flex-wrap: wrap; }
+    .topbar h1 { font-size: 1.15rem; font-weight: 700; margin-right: auto; }
+    .search { display: flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; width: 300px; max-width: 100%; }
+    .search input { border: 0; outline: 0; font: inherit; font-size: 0.82rem; width: 100%; background: transparent; color: var(--text); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 22px; padding: 9px 16px; font-weight: 600; font-size: 0.82rem; border: 1px solid var(--line); background: var(--panel); cursor: pointer; font-family: inherit; color: var(--text); }
+    .btn.dark { background: var(--green); color: #fff; border-color: var(--green); }
+    .btn .plus { width: 18px; height: 18px; border-radius: 50%; background: var(--text); color: #fff; display: grid; place-items: center; font-size: 0.8rem; }
+
+    .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+    .head h2 { font-size: 1.35rem; font-weight: 700; }
+    .head p { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
+    .range { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; font-size: 0.8rem; font-weight: 500; }
+
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; }
+    .col { display: grid; gap: 18px; align-content: start; min-width: 0; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; min-width: 0; }
+    .card h3 { font-size: 0.95rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 8px; }
+    .card h3 small { font-weight: 500; color: var(--muted); font-size: 0.75rem; }
+
+    .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .kpi .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 14px; font-weight: 500; }
+    .kpi .val { font-size: 2.1rem; font-weight: 700; letter-spacing: -1px; }
+    .kpi .val sup { font-size: 1rem; vertical-align: top; margin-right: 2px; }
+    .kpi .delta { margin-top: 12px; font-size: 0.76rem; color: var(--muted); }
+    .kpi .delta b { color: var(--green); }
+    .kpi.hero { background: var(--side); color: #fff; border-color: var(--side); }
+    .kpi.hero .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; background: #ffffff1a; padding: 4px 10px; border-radius: 12px; }
+    .kpi.hero .tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+    .kpi.hero .when { font-size: 0.72rem; color: #8fb3a1; margin: 16px 0 4px; }
+    .kpi.hero .what { font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
+    .kpi.hero .what em { color: var(--lime); font-style: normal; }
+    .kpi.hero a { display: inline-block; margin-top: 14px; font-size: 0.76rem; color: #cfe0d6; }
+
+    .split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 18px; }
+
+    /* Deadline list */
+    .list { display: grid; gap: 4px; max-height: 470px; overflow-y: auto; margin-right: -8px; padding-right: 8px; }
+    .row { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row .ico { width: 36px; height: 36px; border-radius: 10px; background: #f1f4ef; display: grid; place-items: center; font-size: 1.05rem; }
+    .row b { font-size: 0.84rem; font-weight: 600; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .row span { font-size: 0.72rem; color: var(--muted); }
+    .row .right { text-align: right; }
+    .status { border: 0; background: none; font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; padding: 2px 0; }
+    .status.todo { color: var(--orange); }
+    .status.prep { color: #2f7dd1; }
+    .status.sent { color: var(--green); }
+    .status.skip { color: #a3aaa6; text-decoration: line-through; }
+    .days { display: block; font-size: 0.7rem; color: var(--muted); }
+    .days.hot { color: var(--red); font-weight: 600; }
+    .hint { font-size: 0.72rem; color: var(--muted); margin-top: 10px; }
+    .empty { color: var(--muted); font-size: 0.82rem; padding: 20px 0; text-align: center; }
+
+    /* Bar chart */
+    .legend { display: flex; gap: 12px; font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+    .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+    .big { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+    .big small { font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-left: 6px; }
+    .bars { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; height: 170px; align-items: end; margin-top: 18px; border-bottom: 1px solid var(--line); }
+    .bars .m { display: flex; gap: 4px; align-items: end; justify-content: center; height: 100%; position: relative; }
+    .bars .b { width: 12px; border-radius: 3px 3px 0 0; min-height: 3px; transition: height .8s cubic-bezier(.22,1,.36,1); }
+    .bars .b1 { background: var(--green); }
+    .bars .b2 { background: var(--lime); }
+    .months { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 6px; }
+
+    /* Skills */
+    .skill { margin-bottom: 12px; }
+    .skill .t { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 5px; }
+    .skill .t b { font-weight: 600; color: var(--orange); }
+    .skill .track { height: 14px; background: #f1f4ef; border-radius: 4px; overflow: hidden; }
+    .skill .fill { height: 100%; background: var(--lime); border-radius: 4px; width: 0; transition: width .9s cubic-bezier(.22,1,.36,1); }
+
+    /* Donut */
+    .donut-wrap { position: relative; width: 210px; height: 210px; margin: 6px auto 10px; }
+    .donut-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .donut-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+    .donut-center span { font-size: 0.75rem; color: var(--muted); }
+    .donut-center b { font-size: 1.9rem; font-weight: 800; }
+    .dlegend { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; font-size: 0.72rem; color: var(--muted); margin-top: 12px; }
+    .dlegend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+    .tip { text-align: center; color: var(--muted); font-size: 0.78rem; margin: 6px 12px 12px; }
+    .wide { width: 100%; justify-content: center; }
+
+    .promo { background: linear-gradient(160deg, #eef7da, #dcefb6); border-color: #d3e8a6; position: relative; overflow: hidden; }
+    .promo h3 { display: block; font-size: 1.2rem; font-weight: 700; line-height: 1.25; margin: 26px 0 8px; max-width: 220px; }
+    .promo p { font-size: 0.78rem; color: #4d5a52; margin-bottom: 16px; }
+    .promo .burst { position: absolute; right: -14px; top: -14px; }
+
+    .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .quick a { background: #f6f8f4; border: 1px solid var(--line); border-radius: 12px; padding: 10px; font-size: 0.78rem; font-weight: 500; display: flex; gap: 8px; align-items: center; }
+    .quick a:hover { border-color: var(--green); }
+
+    @media (max-width: 1180px) {
+      .grid { grid-template-columns: 1fr; }
+      .grid > .col:last-child { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
     }
-    .hero p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 32px; line-height: 1.7; }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 10px; }
-    .nav-card { background: var(--bg-card); border-radius: 14px; padding: 28px 20px; border: 1px solid var(--border); text-align: center; text-decoration: none; transition: all 0.3s; }
-    .nav-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, transparent); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-    .nav-card .ico { font-size: 2rem; margin-bottom: 10px; }
-    .nav-card h3 { color: var(--text-heading); font-size: 0.95rem; font-weight: 600; }
-    .nav-card p { color: var(--text-dim); font-size: 0.78rem; margin-top: 4px; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .step { background: var(--bg-card); border-radius: 14px; padding: 28px; border: 1px solid var(--border); text-align: center; position: relative; transition: all 0.3s; }
-    .step:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
-    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 800; font-size: 1.1rem; color: #fff; }
-    .step h3 { color: var(--text-heading); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-    .step p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
-    .step .dur { color: var(--accent); font-size: 0.75rem; font-weight: 600; margin-top: 8px; }
-    .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
-    .cta { text-align: center; padding: 60px 24px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 60%); }
-    .cta h2 { margin-bottom: 12px; }
-    .cta p { color: var(--text-muted); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    @media (max-width: 640px) { .hero h1 { font-size: 2rem; } .hero p { font-size: 1em; } }
+    @media (max-width: 860px) {
+      .app { grid-template-columns: minmax(0, 1fr); }
+      .side { position: static; height: auto; padding: 14px 16px; min-width: 0; }
+      .side .brand { padding: 0 4px 10px; }
+      .side h4, .side hr, .me { display: none; }
+      .side nav { display: flex; gap: 4px; overflow-x: auto; }
+      .side nav a { white-space: nowrap; margin: 0; }
+      .side nav a.on { box-shadow: inset 0 -3px 0 var(--lime); }
+      main { padding: 0 16px 20px; }
+      .kpis, .split { grid-template-columns: 1fr; }
+      .search { width: 100%; order: 3; }
+    }
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="inner">
-      <a href="index.html" style="text-decoration:none"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html">Urgent</a>
-        <a href="ecoles.html">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
+<div class="app">
+  <aside class="side">
+    <a href="index.html" class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b4e04a" stroke-width="2.4" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></svg>
+      Willifred
+    </a>
+    <h4>MENU</h4>
+    <nav>
+      <a href="index.html" class="on"><span class="ic">▦</span>Vue d'ensemble</a>
+      <a href="orientation.html"><span class="ic">🧭</span>Orientation</a>
+      <a href="urgent.html"><span class="ic">⏱</span>Opportunités <span class="pill" id="nav-count"></span></a>
+      <a href="bourses.html"><span class="ic">🌍</span>Bourses</a>
+      <a href="masters.html"><span class="ic">🎓</span>Masters</a>
+      <a href="competences.html"><span class="ic">⚡</span>Compétences</a>
+      <a href="plan4.html"><span class="ic">📋</span>Plan PRO</a>
+    </nav>
+    <hr />
+    <h4>GÉNÉRAL</h4>
+    <nav>
+      <a href="profil.html"><span class="ic">👤</span>Profil</a>
+      <a href="ressources.html"><span class="ic">🔗</span>Ressources</a>
+      <a href="accueil.html"><span class="ic">↩</span>Site classique</a>
+    </nav>
+    <div class="me">
+      <div class="avatar">MW</div>
+      <div><b>Mbaihornom Willifred</b><span>Tchad · Licence 3</span></div>
     </div>
-  </nav>
+  </aside>
 
-  <header class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span>Génie Logiciel</span>
-        <span>Développement Systèmes</span>
-        <span>Tchad</span>
-        <span>Licence 3</span>
-        <span style="background:color-mix(in srgb,#4ade80 15%,transparent);color:#4ade80;border-color:#166534">✅ Tech4Africans</span>
-        <span style="background:color-mix(in srgb,#38bdf8 15%,transparent);color:#38bdf8;border-color:#075985">🔥 FlutterFire Camp</span>
-        <span style="background:color-mix(in srgb,#4ade80 15%,transparent);color:#4ade80;border-color:#166534">✅ Codveda Validé</span>
-        <span style="background:color-mix(in srgb,#ef4444 15%,transparent);color:#ef4444;border-color:#7f1d1d">⚠️ AIMS Master 4 nov</span>
-        <span style="background:color-mix(in srgb,#f59e0b 15%,transparent);color:#f59e0b;border-color:#92400e">🆕 Bourse Eiffel 2027</span>
-        <span style="background:color-mix(in srgb,#f59e0b 15%,transparent);color:#f59e0b;border-color:#92400e">🆕 Erasmus Mundus</span>
-        <span style="background:color-mix(in srgb,#34d399 15%,transparent);color:#34d399;border-color:#065f46">🧭 Quelle voie choisir ?</span>
-      </div>
-      <h1>Mbaihornom Willifred<br/>Génie Logiciel & Systèmes</h1>
-      <p>
-        Étudiant en Licence 3, je me forme en urgence au génie logiciel<br/>
-        et au développement des systèmes pour devenir ingénieur logiciel depuis le Tchad.
-      </p>
-      <div class="hero-actions">
-        <a href="orientation.html" class="btn btn-primary">🧭 Trouver ma voie →</a>
-        <a href="plan4.html" class="btn btn-outline">Mon Plan PRO</a>
-        <a href="urgent.html" class="btn btn-outline">Opportunités</a>
-      </div>
+  <main>
+    <div class="topbar">
+      <h1>Plan de Carrière ⌄</h1>
+      <label class="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7570" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Chercher une bourse, un master…" />
+      </label>
+      <a href="orientation.html" class="btn">Faire le test <span class="plus">+</span></a>
     </div>
-  </header>
 
-  <!-- Plan PRO section on home -->
-  <section>
-    <div class="container">
-      <span class="section-label">Le Plan</span>
-      <h2>4 étapes pour devenir pro</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>📚 Fondations génie logiciel</h3>
-          <p>Algorithmes, structures de données, architecture logicielle, systèmes d'exploitation, bases de données.</p>
-          <div class="dur">Mois 1-3</div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>🛠️ Développement systèmes</h3>
-          <p>Concevoir et construire des systèmes back-end, API, CI/CD, architectures scalables, DevOps.</p>
-          <div class="dur">Mois 3-6</div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>🏅 Certifications pros</h3>
-          <p>AWS, Azure, Meta Backend, Google Cloud. Compétences recherchées par les entreprises.</p>
-          <div class="dur">Mois 6-9</div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <h3>💼 Ingénieur logiciel</h3>
-          <p>Freelance haut niveau, missions en génie logiciel, contributions open source, réseau pro.</p>
-          <div class="dur">Mois 9-12</div>
-        </div>
+    <div class="head">
+      <div>
+        <h2>Dashboard</h2>
+        <p>Suivi de mes candidatures et de ma reconversion en informatique.</p>
       </div>
-      <div style="text-align:center;margin-top:28px">
-        <a href="plan4.html" class="btn btn-primary">Voir le détail →</a>
-      </div>
+      <div class="range">📅 Oct. 2026 – Mai 2027</div>
     </div>
-  </section>
 
-  <!-- Navigation grid -->
-  <section class="alt">
-    <div class="container">
-      <span class="section-label">Navigation</span>
-      <h2>Tout le plan en un coup d'œil</h2>
-      <div class="nav-grid">
-        <a href="profil.html" class="nav-card">
-          <div class="ico">👤</div>
-          <h3>Profil</h3>
-          <p>Qui je suis, mon parcours</p>
-        </a>
-        <a href="competences.html" class="nav-card">
-          <div class="ico">⚡</div>
-          <h3>Compétences</h3>
-          <p>Mes acquis techniques</p>
-        </a>
-        <a href="objectifs.html" class="nav-card">
-          <div class="ico">🎯</div>
-          <h3>Objectifs</h3>
-          <p>Court, moyen, long terme</p>
-        </a>
-        <a href="orientation.html" class="nav-card">
-          <div class="ico">🧭</div>
-          <h3>Orientation</h3>
-          <p>Test : quelle voie en informatique</p>
-        </a>
-        <a href="plan4.html" class="nav-card">
-          <div class="ico">📋</div>
-          <h3>Plan PRO</h3>
-          <p>4 étapes vers le pro</p>
-        </a>
-        <a href="plan.html" class="nav-card">
-          <div class="ico">📅</div>
-          <h3>Timeline</h3>
-          <p>Calendrier 2026-2027</p>
-        </a>
-        <a href="plateformes.html" class="nav-card">
-          <div class="ico">📚</div>
-          <h3>Plateformes</h3>
-          <p>Ressources d'apprentissage</p>
-        </a>
-        <a href="certifications.html" class="nav-card">
-          <div class="ico">🏅</div>
-          <h3>Certifications</h3>
-          <p>Pas chères & reconnues</p>
-        </a>
-        <a href="urgent.html" class="nav-card">
-          <div class="ico">🔴</div>
-          <h3>Urgent</h3>
-          <p>Opportunités à saisir</p>
-        </a>
-        <a href="ecoles.html" class="nav-card">
-          <div class="ico">🏫</div>
-          <h3>Écoles gratuites</h3>
-          <p>Formations en Afrique</p>
-        </a>
-        <a href="grants.html" class="nav-card">
-          <div class="ico">💰</div>
-          <h3>Grants</h3>
-          <p>Financement startup</p>
-        </a>
-        <a href="bourses.html" class="nav-card">
-          <div class="ico">🌍</div>
-          <h3>Bourses</h3>
-          <p>Étudier gratuitement</p>
-        </a>
-        <a href="masters.html" class="nav-card">
-          <div class="ico">🎓</div>
-          <h3>Masters</h3>
-          <p>Programmes post-Licence</p>
-        </a>
-        <a href="freelance.html" class="nav-card">
-          <div class="ico">💼</div>
-          <h3>Freelance</h3>
-          <p>Plateformes pour clients</p>
-        </a>
-        <a href="ressources.html" class="nav-card">
-          <div class="ico">🔗</div>
-          <h3>Ressources</h3>
-          <p>Liens & coordonnées</p>
-        </a>
+    <div class="grid">
+      <div class="col">
+        <div class="kpis">
+          <div class="card kpi hero">
+            <span class="tag">Urgent</span>
+            <div class="when" id="next-when"></div>
+            <div class="what" id="next-what"></div>
+            <a href="urgent.html">Voir toutes les deadlines ›</a>
+          </div>
+          <div class="card kpi">
+            <div class="label">Opportunités ouvertes</div>
+            <div class="val" id="k-open"></div>
+            <div class="delta"><b id="k-month"></b> ferment dans les 30 jours</div>
+          </div>
+          <div class="card kpi">
+            <div class="label">Candidatures envoyées</div>
+            <div class="val" id="k-sent"></div>
+            <div class="delta"><b id="k-prep"></b> en préparation</div>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <h3>Prochaines deadlines <small id="list-count"></small></h3>
+            <div class="list" id="list"></div>
+            <p class="hint">Clique sur un statut pour le changer : À faire → En préparation → Envoyée → Pas pour moi.</p>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <h3>Deadlines par mois
+                <span class="legend"><span><i style="background:var(--green)"></i>Bourses & masters</span><span><i style="background:var(--lime)"></i>Formations</span></span>
+              </h3>
+              <div class="big" id="peak"></div>
+              <div class="bars" id="bars"></div>
+              <div class="months" id="months"></div>
+            </div>
+            <div class="card">
+              <h3>Mes compétences <a href="competences.html"><small>Détail ›</small></a></h3>
+              <div id="skills"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="container" style="text-align:center">
-      <span class="section-label">Priorité</span>
-      <h2>Actions immédiates</h2>
-      <div class="grid-3" style="text-align:left">
+      <div class="col">
         <div class="card">
-          <div class="card-icon" style="background:#2563eb20">1</div>
-          <h3>🧭 Choisir ma voie</h3>
-          <p>Faire le <a href="orientation.html" style="color:var(--accent)">test d'orientation</a>, puis tester 2 voies pendant 2 semaines chacune.</p>
+          <h3 style="justify-content:center">Suivi des candidatures</h3>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 42 42" id="donut"></svg>
+            <div class="donut-center"><span>Total</span><b id="d-total"></b></div>
+          </div>
+          <div class="dlegend" id="dlegend"></div>
+          <p class="tip" id="d-tip"></p>
+          <a href="bourses.html" class="btn wide">Préparer mon dossier</a>
         </div>
+
         <div class="card">
-          <div class="card-icon" style="background:#7c3aed20">2</div>
-          <h3>AIMS Structured Master</h3>
-          <p>Deadline <strong>4 novembre 2026</strong> — Master 100% financé, rentrée janvier 2027.</p>
+          <h3>Accès rapide</h3>
+          <div class="quick">
+            <a href="urgent.html?voie=front">📱 Front / Mobile</a>
+            <a href="urgent.html?voie=uiux">🎨 UI/UX</a>
+            <a href="urgent.html?voie=back">⚙️ Back-end</a>
+            <a href="urgent.html?voie=data">📊 Data & IA</a>
+            <a href="urgent.html?voie=cyber">🛡️ Cyber</a>
+            <a href="urgent.html?voie=cloud">☁️ Cloud</a>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-icon" style="background:#05966920">3</div>
-          <h3>DAAD In-Region & Ashesi</h3>
-          <p>Deadlines <strong>12 et 16 novembre 2026</strong> — Bourses complètes en Afrique.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon" style="background:#f59e0b20">4</div>
-          <h3>Bourse Eiffel 2027</h3>
-          <p>Contacter les écoles françaises <strong>avant fin novembre</strong> — jusqu'à 2 100€/mois.</p>
+
+        <div class="card promo">
+          <svg class="burst" width="120" height="120" viewBox="0 0 120 120" fill="#b4e04a"><path d="M60 0l6 48 34-34-28 40 48-6-46 14 40 28-46-18 12 48-20-44-20 44 12-48-46 18 40-28L0 54l48 6L20 14l34 34z" opacity=".9"/></svg>
+          <h3>Pas encore sûr de ta voie en informatique ?</h3>
+          <p>8 questions pour trouver les 2 métiers à tester en premier.</p>
+          <a href="orientation.html" class="btn dark wide">Faire le test d'orientation</a>
         </div>
       </div>
     </div>
-  </section>
+  </main>
+</div>
 
-  <footer>
-    &copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro. Mis à jour Octobre 2026.
-  </footer>
+<script>
+  // Opportunities with a dated deadline (dates marked est = estimated from last year's cycle)
+  const OPPS = [
+    { id: 'aims', name: 'AIMS Structured Master', ico: '🎓', type: 'bourse', date: '2026-11-04', where: 'Afrique du Sud' },
+    { id: 'daad-region', name: 'DAAD In-Country/In-Region', ico: '🏛️', type: 'bourse', date: '2026-11-12', where: 'Afrique' },
+    { id: 'ashesi', name: 'Mastercard Fdn @ Ashesi', ico: '🌍', type: 'bourse', date: '2026-11-16', where: 'Ghana' },
+    { id: 'eiffel', name: 'Bourse Eiffel (via école)', ico: '🗼', type: 'bourse', date: '2026-11-30', where: 'France', est: true },
+    { id: 'cmu', name: 'CMU Africa Mastercard', ico: '💻', type: 'bourse', date: '2026-12-15', where: 'Rwanda' },
+    { id: 'pau', name: 'Pan African University', ico: '🌍', type: 'bourse', date: '2026-12-15', where: 'Kenya / Nigeria…', est: true },
+    { id: 'andela', name: 'Andela Learning Community', ico: '📱', type: 'formation', date: '2026-12-31', where: 'En ligne' },
+    { id: 'ms4afrika', name: 'Microsoft 4Afrika Skills', ico: '☁️', type: 'formation', date: '2026-12-31', where: 'En ligne', est: true },
+    { id: 'cybersure', name: 'CYBERSURE Erasmus Mundus', ico: '🛡️', type: 'bourse', date: '2027-01-04', where: 'Norvège / Finlande' },
+    { id: 'cambridge', name: 'Cambridge Mastercard Fdn', ico: '🏰', type: 'bourse', date: '2027-01-06', where: 'Royaume-Uni', est: true },
+    { id: 'erasmus', name: 'Erasmus Mundus (IA, data)', ico: '⭐', type: 'bourse', date: '2027-01-15', where: 'Europe', est: true },
+    { id: 'hungaricum', name: 'Stipendium Hungaricum', ico: '🎻', type: 'bourse', date: '2027-01-15', where: 'Hongrie', est: true },
+    { id: 'turkiye', name: 'Türkiye Burslari', ico: '🕌', type: 'bourse', date: '2027-02-20', where: 'Turquie', est: true },
+    { id: 'quantum', name: 'AIMS Quantum Africa', ico: '⚛️', type: 'bourse', date: '2027-02-28', where: 'Afrique' },
+    { id: 'aims-ai', name: 'AIMS AI for Science (DeepMind)', ico: '🤖', type: 'bourse', date: '2027-03-06', where: 'Afrique du Sud', est: true },
+    { id: 'gks', name: 'Global Korea Scholarship', ico: '🏯', type: 'bourse', date: '2027-03-15', where: 'Corée du Sud', est: true },
+    { id: 'csc', name: 'Bourse CSC Chine', ico: '🐉', type: 'bourse', date: '2027-04-30', where: 'Chine', est: true },
+    { id: 'mext', name: 'MEXT (ambassade)', ico: '🗾', type: 'bourse', date: '2027-05-31', where: 'Japon', est: true }
+  ];
+  const SKILLS = [
+    ['HTML / CSS', 85], ['JavaScript / TypeScript', 65], ['Python / PHP', 55],
+    ['Bases de données (SQL)', 50], ['Algorithmes', 50], ['Git / CI/CD', 50], ['Architecture logicielle', 35]
+  ];
+  const STATUS = [
+    { key: 'todo', label: 'À faire', color: '#e98a3f' },
+    { key: 'prep', label: 'En préparation', color: '#2f7dd1' },
+    { key: 'sent', label: 'Envoyée', color: '#1f5c45' },
+    { key: 'skip', label: 'Pas pour moi', color: '#c9cfcb' }
+  ];
 
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  // Statuses are a personal checklist kept in this browser only
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('candidatures') || '{}'); } catch (e) {}
+  const save = () => { try { localStorage.setItem('candidatures', JSON.stringify(saved)); } catch (e) {} };
+  const statusOf = o => saved[o.id] || 'todo';
 
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('top-btn').classList.toggle('show', window.scrollY > 400);
-    });
-  </script>
+  const DAY = 86400000;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const daysLeft = o => Math.round((new Date(o.date + 'T00:00:00') - today) / DAY);
+  const fmt = d => new Date(d + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+  const open = OPPS.filter(o => daysLeft(o) >= 0).sort((a, b) => a.date.localeCompare(b.date));
 
+  function renderKpis() {
+    const next = open.find(o => statusOf(o) !== 'skip' && statusOf(o) !== 'sent') || open[0];
+    if (next) {
+      const d = daysLeft(next);
+      document.getElementById('next-when').textContent = `Prochaine deadline · ${fmt(next.date)}`;
+      document.getElementById('next-what').innerHTML = `${next.name} ferme <em>${d === 0 ? "aujourd'hui" : 'dans ' + d + ' jour' + (d > 1 ? 's' : '')}</em>`;
+    } else {
+      document.getElementById('next-what').textContent = 'Aucune deadline datée : mets la page à jour.';
+    }
+    document.getElementById('k-open').textContent = open.length;
+    document.getElementById('nav-count').textContent = open.length;
+    document.getElementById('k-month').textContent = open.filter(o => daysLeft(o) <= 30).length;
+    const active = open.filter(o => statusOf(o) !== 'skip');
+    document.getElementById('k-sent').innerHTML = `${active.filter(o => statusOf(o) === 'sent').length}<span style="font-size:1.1rem;color:var(--muted);font-weight:600"> / ${active.length}</span>`;
+    document.getElementById('k-prep').textContent = active.filter(o => statusOf(o) === 'prep').length;
+  }
+
+  function renderList() {
+    const q = document.getElementById('q').value.trim().toLowerCase();
+    const rows = open.filter(o => !q || (o.name + ' ' + o.where).toLowerCase().includes(q));
+    document.getElementById('list-count').textContent = `${rows.length} ouvertes`;
+    document.getElementById('list').innerHTML = rows.length ? rows.map(o => {
+      const s = STATUS.find(x => x.key === statusOf(o));
+      const d = daysLeft(o);
+      return `<div class="row">
+        <div class="ico">${o.ico}</div>
+        <div><b title="${o.name}">${o.name}</b><span>${fmt(o.date)}${o.est ? ' · estimée' : ''} · ${o.where}</span></div>
+        <div class="right"><button class="status ${s.key}" data-id="${o.id}">${s.label}</button>
+          <span class="days${d <= 14 ? ' hot' : ''}">J-${d}</span></div>
+      </div>`;
+    }).join('') : '<div class="empty">Aucun résultat. Regarde la page Opportunités.</div>';
+  }
+
+  function renderBars() {
+    const months = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(today.getFullYear(), today.getMonth() + i, 1);
+      months.push({ key: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`, label: d.toLocaleDateString('fr-FR', { month: 'short' }) });
+    }
+    const keyOf = o => o.date.slice(0, 7);
+    const counts = months.map(m => ({
+      b: open.filter(o => keyOf(o) === m.key && o.type === 'bourse').length,
+      f: open.filter(o => keyOf(o) === m.key && o.type === 'formation').length
+    }));
+    const max = Math.max(1, ...counts.map(c => Math.max(c.b, c.f)));
+    const peak = counts.reduce((best, c, i) => (c.b + c.f > best.n ? { n: c.b + c.f, i } : best), { n: 0, i: 0 });
+    document.getElementById('peak').innerHTML = `${peak.n} deadlines<small>en ${months[peak.i].label} — le mois le plus chargé</small>`;
+    document.getElementById('bars').innerHTML = counts.map((c, i) =>
+      `<div class="m" title="${months[i].label} : ${c.b} bourses, ${c.f} formations">
+        <div class="b b1" data-h="${c.b / max * 100}"></div><div class="b b2" data-h="${c.f / max * 100}"></div></div>`).join('');
+    document.getElementById('months').innerHTML = months.map(m => `<span>${m.label}</span>`).join('');
+  }
+
+  function renderSkills() {
+    document.getElementById('skills').innerHTML = SKILLS.map(([n, v]) =>
+      `<div class="skill"><div class="t"><span>${n}</span><b>${v} %</b></div><div class="track"><div class="fill" data-w="${v}"></div></div></div>`).join('');
+  }
+
+  function renderDonut() {
+    const total = open.length;
+    const parts = STATUS.map(s => ({ ...s, n: open.filter(o => statusOf(o) === s.key).length }));
+    const C = 2 * Math.PI * 15.915; // circumference = 100 for easy percentages
+    let offset = 0;
+    document.getElementById('donut').innerHTML =
+      `<circle cx="21" cy="21" r="15.915" fill="none" stroke="#f1f4ef" stroke-width="6"></circle>` +
+      parts.filter(p => p.n).map(p => {
+        const pct = p.n / total * 100;
+        const seg = `<circle cx="21" cy="21" r="15.915" fill="none" stroke="${p.color}" stroke-width="6"
+          stroke-dasharray="${Math.max(pct - 0.8, 0.1)} ${100 - Math.max(pct - 0.8, 0.1)}" stroke-dashoffset="${-offset}"></circle>`;
+        offset += pct;
+        return seg;
+      }).join('');
+    document.getElementById('d-total').textContent = total;
+    document.getElementById('dlegend').innerHTML = parts.map(p => `<span><i style="background:${p.color}"></i>${p.label} (${p.n})</span>`).join('');
+    const todo = parts[0].n;
+    document.getElementById('d-tip').textContent = todo
+      ? `Encore ${todo} candidature${todo > 1 ? 's' : ''} à traiter. Commence par celles qui ferment ce mois-ci.`
+      : 'Bravo, tout est traité ! Pense à vérifier les nouvelles opportunités.';
+  }
+
+  function animate() {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.querySelectorAll('.bars .b').forEach(b => b.style.height = b.dataset.h + '%');
+      document.querySelectorAll('.skill .fill').forEach(f => f.style.width = f.dataset.w + '%');
+    }));
+  }
+
+  function renderAll() { renderKpis(); renderList(); renderDonut(); }
+
+  document.getElementById('list').addEventListener('click', e => {
+    const btn = e.target.closest('.status');
+    if (!btn) return;
+    const i = STATUS.findIndex(s => s.key === (saved[btn.dataset.id] || 'todo'));
+    saved[btn.dataset.id] = STATUS[(i + 1) % STATUS.length].key;
+    save();
+    renderAll();
+  });
+  document.getElementById('q').addEventListener('input', renderList);
+
+  renderAll(); renderBars(); renderSkills(); animate();
+</script>
 </body>
 </html>
