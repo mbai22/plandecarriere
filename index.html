@@ -3,446 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard — Mbaihornom Willifred</title>
+  <title>Ma carrière — Mbaihornom Willifred</title>
+  <meta name="description" content="Mbaihornom Willifred, étudiant en Licence 3 au Tchad, futur ingénieur logiciel : parcours, compétences et objectifs." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
   <style>
-    :root {
-      --bg: #eef0ec;
-      --panel: #ffffff;
-      --side: #0f3a2b;
-      --side-2: #164a37;
-      --lime: #b4e04a;
-      --lime-soft: #e7f5c4;
-      --green: #1f5c45;
-      --text: #12201a;
-      --muted: #6b7570;
-      --line: #e6e9e4;
-      --orange: #e98a3f;
-      --red: #d9534f;
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    header.top { position: sticky; top: 0; z-index: 10; background: rgba(238, 240, 236, .85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    header.top .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; margin-right: auto; }
+    .logo .mark { width: 34px; height: 34px; border-radius: 10px; background: var(--side); display: grid; place-items: center; }
+    .links { display: flex; gap: 22px; font-size: 0.86rem; color: var(--muted); font-weight: 500; }
+    .links a:hover { color: var(--ink); }
+
+    .hero { padding: 64px 0 48px; }
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 6px 14px; font-size: 0.78rem; font-weight: 600; color: var(--green); }
+    .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #3fb36b; box-shadow: 0 0 0 4px #3fb36b26; }
+    .hero h1 { font-size: 3.2rem; line-height: 1.08; letter-spacing: -1.5px; font-weight: 800; margin: 20px 0 16px; }
+    .hero h1 span { color: var(--green); }
+    .hero h1 mark { background: linear-gradient(transparent 62%, var(--lime) 62%); color: inherit; padding: 0 4px; }
+    .hero p.lead { color: var(--muted); font-size: 1.08rem; max-width: 520px; margin-bottom: 28px; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta .btn { padding: 14px 22px; font-size: 0.92rem; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+    .chips span { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--muted); }
+    .chips .lucide { width: 15px; height: 15px; color: var(--green); }
+
+    .preview { background: var(--side); border-radius: 24px; padding: 26px; color: #fff; position: relative; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(15, 58, 43, .45); }
+    .preview .burst { position: absolute; right: -30px; top: -30px; opacity: .9; }
+    .preview .who { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; position: relative; }
+    .preview .who b { display: block; font-size: 1rem; }
+    .preview .who span { font-size: 0.78rem; color: #8fb3a1; }
+    .preview .box { background: #ffffff10; border: 1px solid #ffffff1c; border-radius: 16px; padding: 16px; margin-bottom: 12px; }
+    .preview .box small { color: #8fb3a1; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .preview .done { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; padding: 7px 0; }
+    .preview .done .lucide { color: var(--lime); width: 17px; height: 17px; }
+    .preview .bar { height: 8px; background: #ffffff1c; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+    .preview .bar i { display: block; height: 100%; background: var(--lime); border-radius: 4px; }
+    .preview .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .preview .num { font-size: 1.8rem; font-weight: 800; color: var(--lime); line-height: 1.1; }
+    .preview .lbl { font-size: 0.74rem; color: #cfe0d6; }
+
+    section.block { padding: 56px 0; }
+    .kicker { color: var(--green); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+    .block h2 { font-size: 1.9rem; letter-spacing: -0.5px; margin: 8px 0 28px; font-weight: 800; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 24px; }
+    .panel .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--lime-soft); display: grid; place-items: center; margin-bottom: 16px; }
+    .panel .ic .lucide { color: var(--green); width: 22px; height: 22px; }
+    .panel h3 { font-size: 1.02rem; margin-bottom: 8px; }
+    .panel p { color: var(--muted); font-size: 0.88rem; }
+
+    .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+    .skill { margin-bottom: 16px; }
+    .skill .t { display: flex; justify-content: space-between; font-size: 0.86rem; margin-bottom: 6px; font-weight: 500; }
+    .skill .t b { color: var(--green); }
+    .skill .track { height: 10px; background: var(--bg); border-radius: 5px; overflow: hidden; }
+    .skill .fill { height: 100%; background: linear-gradient(90deg, var(--green), #3d8a68); border-radius: 5px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack span { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; font-size: 0.82rem; font-weight: 500; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .step { position: relative; padding-bottom: 22px; }
+    .step:last-child { padding-bottom: 0; }
+    .step::before { content: ''; position: absolute; left: -26px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--lime); border: 3px solid var(--panel); box-shadow: 0 0 0 1px var(--line); }
+    .step .when { font-size: 0.74rem; color: var(--green); font-weight: 700; }
+    .step b { display: block; font-size: 0.95rem; margin: 2px 0; }
+    .step p { color: var(--muted); font-size: 0.84rem; }
+
+    .plan { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .plan .panel { padding: 20px; }
+    .plan .n { width: 32px; height: 32px; border-radius: 50%; background: var(--side); color: var(--lime); display: grid; place-items: center; font-weight: 800; margin-bottom: 12px; }
+    .plan .d { color: var(--green); font-size: 0.74rem; font-weight: 600; margin-top: 10px; }
+
+    .login { background: var(--side); border-radius: 24px; padding: 40px; color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden; }
+    .login h2 { color: #fff; margin: 6px 0 8px; }
+    .login p { color: #cfe0d6; max-width: 480px; font-size: 0.92rem; }
+    .login .kicker { color: var(--lime); }
+    .login .btn { background: var(--lime); color: var(--side); border-color: var(--lime); padding: 15px 26px; font-size: 0.95rem; }
+    .login .btn:hover { background: #c5ec66; }
+
+    footer.end { padding: 32px 0 40px; color: var(--text-dim); font-size: 0.8rem; }
+    footer.end .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    footer.end a { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    footer.end a:hover { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .hero .wrap, .two { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .plan { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 2.3rem; }
+      .links { display: none; }
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
-    a { color: inherit; text-decoration: none; }
-
-    .app { display: grid; grid-template-columns: 236px 1fr; min-height: 100vh; }
-
-    /* Sidebar */
-    .side { background: var(--side); color: #cfe0d6; padding: 26px 18px; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
-    .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 1.05rem; padding: 0 8px 28px; }
-    .brand svg { flex-shrink: 0; }
-    .side h4 { font-size: 0.68rem; letter-spacing: 1.4px; color: #8fb3a1; font-weight: 600; margin: 8px 10px 10px; }
-    .side nav a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; color: #cfe0d6; font-size: 0.88rem; margin-bottom: 2px; transition: background .2s; }
-    .side nav a:hover { background: var(--side-2); color: #fff; }
-    .side nav a.on { background: var(--side-2); color: #fff; font-weight: 600; box-shadow: inset 3px 0 0 var(--lime); }
-    .side nav a .ic { width: 18px; text-align: center; }
-    .side nav a .pill { margin-left: auto; background: var(--lime); color: var(--side); font-size: 0.68rem; font-weight: 700; padding: 1px 7px; border-radius: 10px; }
-    .side hr { border: 0; border-top: 1px solid #23523f; margin: 18px 6px; }
-    .me { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 14px 8px 0; border-top: 1px solid #23523f; }
-    .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--lime); color: var(--side); display: grid; place-items: center; font-weight: 800; }
-    .me b { color: #fff; font-size: 0.85rem; display: block; }
-    .me span { font-size: 0.72rem; color: #8fb3a1; }
-
-    /* Main */
-    main { padding: 0 28px 28px; min-width: 0; }
-    .topbar { display: flex; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); margin-bottom: 22px; flex-wrap: wrap; }
-    .topbar h1 { font-size: 1.15rem; font-weight: 700; margin-right: auto; display: inline-flex; align-items: center; gap: 6px; }
-    .search { display: flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; width: 300px; max-width: 100%; }
-    .search input { border: 0; outline: 0; font: inherit; font-size: 0.82rem; width: 100%; background: transparent; color: var(--text); }
-    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 22px; padding: 9px 16px; font-weight: 600; font-size: 0.82rem; border: 1px solid var(--line); background: var(--panel); cursor: pointer; font-family: inherit; color: var(--text); }
-    .btn.dark { background: var(--green); color: #fff; border-color: var(--green); }
-    .btn .plus { width: 18px; height: 18px; border-radius: 50%; background: var(--text); color: #fff; display: grid; place-items: center; font-size: 0.8rem; }
-
-    .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
-    .head h2 { font-size: 1.35rem; font-weight: 700; }
-    .head p { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
-    .range { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; font-size: 0.8rem; font-weight: 500; }
-
-    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; }
-    .col { display: grid; gap: 18px; align-content: start; min-width: 0; }
-    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; min-width: 0; }
-    .card h3 { font-size: 0.95rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 8px; }
-    .card h3 small { font-weight: 500; color: var(--muted); font-size: 0.75rem; }
-
-    .kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .kpi .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 14px; font-weight: 500; }
-    .kpi .val { font-size: 2.1rem; font-weight: 700; letter-spacing: -1px; }
-    .kpi .val sup { font-size: 1rem; vertical-align: top; margin-right: 2px; }
-    .kpi .delta { margin-top: 12px; font-size: 0.76rem; color: var(--muted); }
-    .kpi .delta b { color: var(--green); }
-    .kpi.hero { background: var(--side); color: #fff; border-color: var(--side); }
-    .kpi.hero .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; background: #ffffff1a; padding: 4px 10px; border-radius: 12px; }
-    .kpi.hero .tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
-    .kpi.hero .when { font-size: 0.72rem; color: #8fb3a1; margin: 16px 0 4px; }
-    .kpi.hero .what { font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
-    .kpi.hero .what em { color: var(--lime); font-style: normal; }
-    .kpi.hero a { display: inline-block; margin-top: 14px; font-size: 0.76rem; color: #cfe0d6; }
-
-    .split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 18px; }
-
-    /* Deadline list */
-    .list { display: grid; gap: 4px; max-height: 470px; overflow-y: auto; margin-right: -8px; padding-right: 8px; }
-    .row { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
-    .row:last-child { border-bottom: 0; }
-    .row .ico { width: 36px; height: 36px; border-radius: 10px; background: #f1f4ef; display: grid; place-items: center; font-size: 1.05rem; }
-    .row b { font-size: 0.84rem; font-weight: 600; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .row span { font-size: 0.72rem; color: var(--muted); }
-    .row .right { text-align: right; }
-    .status { border: 0; background: none; font: inherit; font-size: 0.76rem; font-weight: 600; cursor: pointer; padding: 2px 0; }
-    .status.todo { color: var(--orange); }
-    .status.prep { color: #2f7dd1; }
-    .status.sent { color: var(--green); }
-    .status.skip { color: #a3aaa6; text-decoration: line-through; }
-    .days { display: block; font-size: 0.7rem; color: var(--muted); }
-    .days.hot { color: var(--red); font-weight: 600; }
-    .hint { font-size: 0.72rem; color: var(--muted); margin-top: 10px; }
-    .empty { color: var(--muted); font-size: 0.82rem; padding: 20px 0; text-align: center; }
-
-    /* Bar chart */
-    .legend { display: flex; gap: 12px; font-size: 0.72rem; color: var(--muted); font-weight: 500; }
-    .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
-    .big { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
-    .big small { font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-left: 6px; }
-    .bars { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; height: 170px; align-items: end; margin-top: 18px; border-bottom: 1px solid var(--line); }
-    .bars .m { display: flex; gap: 4px; align-items: end; justify-content: center; height: 100%; position: relative; }
-    .bars .b { width: 12px; border-radius: 3px 3px 0 0; min-height: 3px; transition: height .8s cubic-bezier(.22,1,.36,1); }
-    .bars .b1 { background: var(--green); }
-    .bars .b2 { background: var(--lime); }
-    .months { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 6px; }
-
-    /* Skills */
-    .skill { margin-bottom: 12px; }
-    .skill .t { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 5px; }
-    .skill .t b { font-weight: 600; color: var(--orange); }
-    .skill .track { height: 14px; background: #f1f4ef; border-radius: 4px; overflow: hidden; }
-    .skill .fill { height: 100%; background: var(--lime); border-radius: 4px; width: 0; transition: width .9s cubic-bezier(.22,1,.36,1); }
-
-    /* Donut */
-    .donut-wrap { position: relative; width: 210px; height: 210px; margin: 6px auto 10px; }
-    .donut-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-    .donut-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
-    .donut-center span { font-size: 0.75rem; color: var(--muted); }
-    .donut-center b { font-size: 1.9rem; font-weight: 800; }
-    .dlegend { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; font-size: 0.72rem; color: var(--muted); margin-top: 12px; }
-    .dlegend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
-    .tip { text-align: center; color: var(--muted); font-size: 0.78rem; margin: 6px 12px 12px; }
-    .wide { width: 100%; justify-content: center; }
-
-    .promo { background: linear-gradient(160deg, #eef7da, #dcefb6); border-color: #d3e8a6; position: relative; overflow: hidden; }
-    .promo h3 { display: block; font-size: 1.2rem; font-weight: 700; line-height: 1.25; margin: 26px 0 8px; max-width: 220px; }
-    .promo p { font-size: 0.78rem; color: #4d5a52; margin-bottom: 16px; }
-    .promo .burst { position: absolute; right: -14px; top: -14px; }
-
-    .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .quick a { background: #f6f8f4; border: 1px solid var(--line); border-radius: 12px; padding: 10px; font-size: 0.78rem; font-weight: 500; display: flex; gap: 8px; align-items: center; }
-    .quick a:hover { border-color: var(--green); }
-
-    @media (max-width: 1180px) {
-      .grid { grid-template-columns: 1fr; }
-      .grid > .col:last-child { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    @media (max-width: 520px) {
+      .wrap { padding: 0 16px; }
+      .plan { grid-template-columns: 1fr; }
+      .login { padding: 28px 22px; }
+      .hero { padding: 40px 0 32px; }
     }
-    @media (max-width: 860px) {
-      .app { grid-template-columns: minmax(0, 1fr); }
-      .side { position: static; height: auto; padding: 14px 16px; min-width: 0; }
-      .side .brand { padding: 0 4px 10px; }
-      .side h4, .side hr, .me { display: none; }
-      .side nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-      .side nav::-webkit-scrollbar { display: none; }
-      .side nav a { white-space: nowrap; margin: 0; }
-      .side nav a.on { box-shadow: inset 0 -3px 0 var(--lime); }
-      main { padding: 0 16px 20px; }
-      .kpis, .split { grid-template-columns: 1fr; }
-      .search { width: 100%; order: 3; }
-    }
-
-    /* Lucide icons */
-    [data-lucide], .lucide { width: 18px; height: 18px; flex-shrink: 0; }
-    .side nav a .ic { display: inline-flex; align-items: center; justify-content: center; }
-    .side nav a .ic .lucide { width: 18px; height: 18px; }
-    .row .ico .lucide { width: 18px; height: 18px; color: var(--green); }
-    .quick a .lucide { width: 16px; height: 16px; color: var(--green); }
-    .range { display: inline-flex; align-items: center; gap: 8px; }
-    .range .lucide { width: 15px; height: 15px; color: var(--green); }
-    small .lucide { width: 13px; height: 13px; vertical-align: -2px; }
   </style>
 </head>
 <body>
-<div class="app">
-  <aside class="side">
-    <a href="index.html" class="brand">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b4e04a" stroke-width="2.4" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></svg>
-      Willifred
-    </a>
-    <h4>MENU</h4>
-    <nav>
-      <a href="index.html" class="on"><span class="ic"><i data-lucide="layout-dashboard"></i></span>Vue d'ensemble</a>
-      <a href="orientation.html"><span class="ic"><i data-lucide="compass"></i></span>Orientation</a>
-      <a href="urgent.html"><span class="ic"><i data-lucide="timer"></i></span>Opportunités <span class="pill" id="nav-count"></span></a>
-      <a href="bourses.html"><span class="ic"><i data-lucide="globe"></i></span>Bourses</a>
-      <a href="masters.html"><span class="ic"><i data-lucide="graduation-cap"></i></span>Masters</a>
-      <a href="competences.html"><span class="ic"><i data-lucide="zap"></i></span>Compétences</a>
-      <a href="plan4.html"><span class="ic"><i data-lucide="clipboard-list"></i></span>Plan PRO</a>
-    </nav>
-    <hr />
-    <h4>GÉNÉRAL</h4>
-    <nav>
-      <a href="profil.html"><span class="ic"><i data-lucide="user-round"></i></span>Profil</a>
-      <a href="ressources.html"><span class="ic"><i data-lucide="link"></i></span>Ressources</a>
-      <a href="accueil.html"><span class="ic"><i data-lucide="undo-2"></i></span>Site classique</a>
-    </nav>
-    <div class="me">
-      <div class="avatar">MW</div>
-      <div><b>Mbaihornom Willifred</b><span>Tchad · Licence 3</span></div>
+  <header class="top">
+    <div class="wrap">
+      <a href="index.html" class="logo">
+        <span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b4e04a" stroke-width="2.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></svg></span>
+        Ma carrière
+      </a>
+      <nav class="links">
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#plan">Plan</a>
+      </nav>
+      <a href="dashboard.html" class="btn btn-primary"><i data-lucide="log-in"></i>Connexion</a>
     </div>
-  </aside>
+  </header>
 
-  <main>
-    <div class="topbar">
-      <h1>Plan de Carrière <i data-lucide="chevron-down"></i></h1>
-      <label class="search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7570" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="Chercher une bourse, un master…" />
-      </label>
-      <a href="orientation.html" class="btn">Faire le test <span class="plus">+</span></a>
-    </div>
-
-    <div class="head">
+  <section class="hero">
+    <div class="wrap">
       <div>
-        <h2>Dashboard</h2>
-        <p>Suivi de mes candidatures et de ma reconversion en informatique.</p>
-      </div>
-      <div class="range"><i data-lucide="calendar"></i>Oct. 2026 – Mai 2027</div>
-    </div>
-
-    <div class="grid">
-      <div class="col">
-        <div class="kpis">
-          <div class="card kpi hero">
-            <span class="tag">Urgent</span>
-            <div class="when" id="next-when"></div>
-            <div class="what" id="next-what"></div>
-            <a href="urgent.html">Voir toutes les deadlines ›</a>
-          </div>
-          <div class="card kpi">
-            <div class="label">Opportunités ouvertes</div>
-            <div class="val" id="k-open"></div>
-            <div class="delta"><b id="k-month"></b> ferment dans les 30 jours</div>
-          </div>
-          <div class="card kpi">
-            <div class="label">Candidatures envoyées</div>
-            <div class="val" id="k-sent"></div>
-            <div class="delta"><b id="k-prep"></b> en préparation</div>
-          </div>
+        <span class="eyebrow"><span class="dot"></span>En formation active · 2026</span>
+        <h1>Mbaihornom Willifred,<br><span>futur ingénieur</span> <mark>logiciel</mark></h1>
+        <p class="lead">Étudiant en Licence 3 au Tchad, je construis ma carrière dans l'informatique : code, design d'interface et systèmes, avec des formations et des bourses internationales.</p>
+        <div class="cta">
+          <a href="dashboard.html" class="btn btn-primary"><i data-lucide="layout-dashboard"></i>Accéder à mon dashboard</a>
+          <a href="https://github.com/mbai22" target="_blank" rel="noopener" class="btn"><i data-lucide="github"></i>Mon GitHub</a>
         </div>
-
-        <div class="split">
-          <div class="card">
-            <h3>Prochaines deadlines <small id="list-count"></small></h3>
-            <div class="list" id="list"></div>
-            <p class="hint">Clique sur un statut pour le changer : À faire → En préparation → Envoyée → Pas pour moi.</p>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <h3>Deadlines par mois
-                <span class="legend"><span><i style="background:var(--green)"></i>Bourses & masters</span><span><i style="background:var(--lime)"></i>Formations</span></span>
-              </h3>
-              <div class="big" id="peak"></div>
-              <div class="bars" id="bars"></div>
-              <div class="months" id="months"></div>
-            </div>
-            <div class="card">
-              <h3>Mes compétences <a href="competences.html"><small>Détail <i data-lucide="chevron-right"></i></small></a></h3>
-              <div id="skills"></div>
-            </div>
-          </div>
+        <div class="chips">
+          <span><i data-lucide="map-pin"></i>N'Djamena, Tchad</span>
+          <span><i data-lucide="graduation-cap"></i>Licence 3 · Code</span>
+          <span><i data-lucide="languages"></i>Français · Anglais</span>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card">
-          <h3 style="justify-content:center">Suivi des candidatures</h3>
-          <div class="donut-wrap">
-            <svg viewBox="0 0 42 42" id="donut"></svg>
-            <div class="donut-center"><span>Total</span><b id="d-total"></b></div>
-          </div>
-          <div class="dlegend" id="dlegend"></div>
-          <p class="tip" id="d-tip"></p>
-          <a href="bourses.html" class="btn wide">Préparer mon dossier</a>
+      <div class="preview">
+        <svg class="burst" width="150" height="150" viewBox="0 0 120 120" fill="#b4e04a" opacity=".18"><path d="M60 0l6 48 34-34-28 40 48-6-46 14 40 28-46-18 12 48-20-44-20 44 12-48-46 18 40-28L0 54l48 6L20 14l34 34z"/></svg>
+        <div class="who">
+          <div class="avatar">MW</div>
+          <div><b>Mbaihornom Willifred</b><span>Génie logiciel · Développement</span></div>
         </div>
-
-        <div class="card">
-          <h3>Accès rapide</h3>
-          <div class="quick">
-            <a href="urgent.html?voie=front"><i data-lucide="smartphone"></i>Front / Mobile</a>
-            <a href="urgent.html?voie=uiux"><i data-lucide="palette"></i>UI/UX</a>
-            <a href="urgent.html?voie=back"><i data-lucide="server"></i>Back-end</a>
-            <a href="urgent.html?voie=data"><i data-lucide="chart-column"></i>Data & IA</a>
-            <a href="urgent.html?voie=cyber"><i data-lucide="shield-check"></i>Cyber</a>
-            <a href="urgent.html?voie=cloud"><i data-lucide="cloud"></i>Cloud</a>
-          </div>
+        <div class="box">
+          <small>Sélections 2026</small>
+          <div class="done"><i data-lucide="badge-check"></i>Tech4Africans — dev, data & IA</div>
+          <div class="done"><i data-lucide="badge-check"></i>FlutterFire Summer Camp</div>
+          <div class="done"><i data-lucide="badge-check"></i>Stage Codveda</div>
         </div>
-
-        <div class="card promo">
-          <svg class="burst" width="120" height="120" viewBox="0 0 120 120" fill="#b4e04a"><path d="M60 0l6 48 34-34-28 40 48-6-46 14 40 28-46-18 12 48-20-44-20 44 12-48-46 18 40-28L0 54l48 6L20 14l34 34z" opacity=".9"/></svg>
-          <h3>Pas encore sûr de ta voie en informatique ?</h3>
-          <p>8 questions pour trouver les 2 métiers à tester en premier.</p>
-          <a href="orientation.html" class="btn dark wide">Faire le test d'orientation</a>
+        <div class="row2">
+          <div class="box"><div class="num">85%</div><div class="lbl">HTML / CSS</div><div class="bar"><i style="width:85%"></i></div></div>
+          <div class="box"><div class="num">65%</div><div class="lbl">JavaScript</div><div class="bar"><i style="width:65%"></i></div></div>
         </div>
       </div>
     </div>
-  </main>
-</div>
+  </section>
 
-<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-<script>
-  // Opportunities with a dated deadline (dates marked est = estimated from last year's cycle)
-  const OPPS = [
-    { id: 'aims', name: 'AIMS Structured Master', ico: 'graduation-cap', type: 'bourse', date: '2026-11-04', where: 'Afrique du Sud' },
-    { id: 'daad-region', name: 'DAAD In-Country/In-Region', ico: 'landmark', type: 'bourse', date: '2026-11-12', where: 'Afrique' },
-    { id: 'ashesi', name: 'Mastercard Fdn @ Ashesi', ico: 'school', type: 'bourse', date: '2026-11-16', where: 'Ghana' },
-    { id: 'eiffel', name: 'Bourse Eiffel (via école)', ico: 'landmark', type: 'bourse', date: '2026-11-30', where: 'France', est: true },
-    { id: 'cmu', name: 'CMU Africa Mastercard', ico: 'cpu', type: 'bourse', date: '2026-12-15', where: 'Rwanda' },
-    { id: 'pau', name: 'Pan African University', ico: 'globe', type: 'bourse', date: '2026-12-15', where: 'Kenya / Nigeria…', est: true },
-    { id: 'andela', name: 'Andela Learning Community', ico: 'smartphone', type: 'formation', date: '2026-12-31', where: 'En ligne' },
-    { id: 'ms4afrika', name: 'Microsoft 4Afrika Skills', ico: 'cloud', type: 'formation', date: '2026-12-31', where: 'En ligne', est: true },
-    { id: 'cybersure', name: 'CYBERSURE Erasmus Mundus', ico: 'shield-check', type: 'bourse', date: '2027-01-04', where: 'Norvège / Finlande' },
-    { id: 'cambridge', name: 'Cambridge Mastercard Fdn', ico: 'book-open', type: 'bourse', date: '2027-01-06', where: 'Royaume-Uni', est: true },
-    { id: 'erasmus', name: 'Erasmus Mundus (IA, data)', ico: 'map', type: 'bourse', date: '2027-01-15', where: 'Europe', est: true },
-    { id: 'hungaricum', name: 'Stipendium Hungaricum', ico: 'landmark', type: 'bourse', date: '2027-01-15', where: 'Hongrie', est: true },
-    { id: 'turkiye', name: 'Türkiye Burslari', ico: 'map-pin', type: 'bourse', date: '2027-02-20', where: 'Turquie', est: true },
-    { id: 'quantum', name: 'AIMS Quantum Africa', ico: 'atom', type: 'bourse', date: '2027-02-28', where: 'Afrique' },
-    { id: 'aims-ai', name: 'AIMS AI for Science (DeepMind)', ico: 'brain-circuit', type: 'bourse', date: '2027-03-06', where: 'Afrique du Sud', est: true },
-    { id: 'gks', name: 'Global Korea Scholarship', ico: 'map-pin', type: 'bourse', date: '2027-03-15', where: 'Corée du Sud', est: true },
-    { id: 'csc', name: 'Bourse CSC Chine', ico: 'landmark', type: 'bourse', date: '2027-04-30', where: 'Chine', est: true },
-    { id: 'mext', name: 'MEXT (ambassade)', ico: 'map', type: 'bourse', date: '2027-05-31', where: 'Japon', est: true }
-  ];
-  const SKILLS = [
-    ['HTML / CSS', 85], ['JavaScript / TypeScript', 65], ['Python / PHP', 55],
-    ['Bases de données (SQL)', 50], ['Algorithmes', 50], ['Git / CI/CD', 50], ['Architecture logicielle', 35]
-  ];
-  const STATUS = [
-    { key: 'todo', label: 'À faire', color: '#e98a3f' },
-    { key: 'prep', label: 'En préparation', color: '#2f7dd1' },
-    { key: 'sent', label: 'Envoyée', color: '#1f5c45' },
-    { key: 'skip', label: 'Pas pour moi', color: '#c9cfcb' }
-  ];
+  <section class="block" id="apropos">
+    <div class="wrap">
+      <span class="kicker">À propos</span>
+      <h2>Ce qui me définit</h2>
+      <div class="cards">
+        <div class="panel">
+          <div class="ic"><i data-lucide="code-2"></i></div>
+          <h3>Développeur en devenir</h3>
+          <p>Je maîtrise le front-end (HTML/CSS, JavaScript) et je me forme au back-end, aux bases de données et à l'architecture logicielle.</p>
+        </div>
+        <div class="panel">
+          <div class="ic"><i data-lucide="palette"></i></div>
+          <h3>Designer & vidéaste</h3>
+          <p>Design graphique, montage vidéo et UI/UX : je sais concevoir ce que je code, pour des interfaces claires et agréables.</p>
+        </div>
+        <div class="panel">
+          <div class="ic"><i data-lucide="rocket"></i></div>
+          <h3>Ambition internationale</h3>
+          <p>Je vise un master en génie logiciel ou en IA grâce aux bourses, et des missions pour des clients partout dans le monde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Statuses are a personal checklist kept in this browser only
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem('candidatures') || '{}'); } catch (e) {}
-  const save = () => { try { localStorage.setItem('candidatures', JSON.stringify(saved)); } catch (e) {} };
-  const statusOf = o => saved[o.id] || 'todo';
+  <section class="block" id="competences" style="padding-top:0">
+    <div class="wrap">
+      <span class="kicker">Compétences</span>
+      <h2>Ma boîte à outils</h2>
+      <div class="two">
+        <div class="panel">
+          <div class="skill"><div class="t"><span>HTML / CSS</span><b>85%</b></div><div class="track"><div class="fill" style="width:85%"></div></div></div>
+          <div class="skill"><div class="t"><span>JavaScript / TypeScript</span><b>65%</b></div><div class="track"><div class="fill" style="width:65%"></div></div></div>
+          <div class="skill"><div class="t"><span>Python / PHP</span><b>55%</b></div><div class="track"><div class="fill" style="width:55%"></div></div></div>
+          <div class="skill"><div class="t"><span>Bases de données (SQL)</span><b>50%</b></div><div class="track"><div class="fill" style="width:50%"></div></div></div>
+          <div class="skill" style="margin-bottom:0"><div class="t"><span>Git / GitHub / CI-CD</span><b>50%</b></div><div class="track"><div class="fill" style="width:50%"></div></div></div>
+        </div>
+        <div class="panel">
+          <h3 style="margin-bottom:14px">Technologies</h3>
+          <div class="stack">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>TypeScript</span><span>Flutter</span><span>Firebase</span>
+            <span>Python</span><span>PHP</span><span>SQL</span><span>Git</span><span>GitHub</span><span>Figma</span>
+          </div>
+          <h3 style="margin:24px 0 14px">En apprentissage</h3>
+          <div class="stack">
+            <span>Architecture (SOLID)</span><span>System design</span><span>Docker</span><span>Cloud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  const DAY = 86400000;
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  const daysLeft = o => Math.round((new Date(o.date + 'T00:00:00') - today) / DAY);
-  const fmt = d => new Date(d + 'T00:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
-  const open = OPPS.filter(o => daysLeft(o) >= 0).sort((a, b) => a.date.localeCompare(b.date));
+  <section class="block" id="parcours" style="padding-top:0">
+    <div class="wrap two">
+      <div>
+        <span class="kicker">Parcours</span>
+        <h2>2026, l'année du déclic</h2>
+        <div class="panel">
+          <div class="timeline">
+            <div class="step"><span class="when">Juin → Sept. 2026</span><b>Tech4Africans (TechCrush)</b><p>Bootcamp de 3 mois en développement, data et IA, sélectionné avec une bourse de 95 %.</p></div>
+            <div class="step"><span class="when">Juil. → Oct. 2026</span><b>FlutterFire Summer Camp</b><p>90 jours de Flutter et Firebase, en français, pour créer des applications mobiles.</p></div>
+            <div class="step"><span class="when">2026</span><b>Stage Codveda</b><p>Candidature validée : premier stage en développement.</p></div>
+            <div class="step"><span class="when">2026 → 2027</span><b>Licence 3 Fondamentale en code</b><p>Dernière année de licence, avant un master en génie logiciel ou en IA.</p></div>
+          </div>
+        </div>
+      </div>
+      <div id="plan">
+        <span class="kicker">Plan</span>
+        <h2>4 étapes vers le pro</h2>
+        <div class="plan" style="grid-template-columns:1fr 1fr">
+          <div class="panel"><div class="n">1</div><h3>Fondations</h3><p>Algorithmes, structures de données, bases de données.</p><div class="d">Mois 1-3</div></div>
+          <div class="panel"><div class="n">2</div><h3>Systèmes</h3><p>API, back-end, CI/CD, architectures solides.</p><div class="d">Mois 3-6</div></div>
+          <div class="panel"><div class="n">3</div><h3>Certifications</h3><p>Cloud et certifications reconnues par les entreprises.</p><div class="d">Mois 6-9</div></div>
+          <div class="panel"><div class="n">4</div><h3>Ingénieur</h3><p>Missions, open source et réseau professionnel.</p><div class="d">Mois 9-12</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  function renderKpis() {
-    const next = open.find(o => statusOf(o) !== 'skip' && statusOf(o) !== 'sent') || open[0];
-    if (next) {
-      const d = daysLeft(next);
-      document.getElementById('next-when').textContent = `Prochaine deadline · ${fmt(next.date)}`;
-      document.getElementById('next-what').innerHTML = `${next.name} ferme <em>${d === 0 ? "aujourd'hui" : 'dans ' + d + ' jour' + (d > 1 ? 's' : '')}</em>`;
-    } else {
-      document.getElementById('next-what').textContent = 'Aucune deadline datée : mets la page à jour.';
-    }
-    document.getElementById('k-open').textContent = open.length;
-    document.getElementById('nav-count').textContent = open.length;
-    document.getElementById('k-month').textContent = open.filter(o => daysLeft(o) <= 30).length;
-    const active = open.filter(o => statusOf(o) !== 'skip');
-    document.getElementById('k-sent').innerHTML = `${active.filter(o => statusOf(o) === 'sent').length}<span style="font-size:1.1rem;color:var(--muted);font-weight:600"> / ${active.length}</span>`;
-    document.getElementById('k-prep').textContent = active.filter(o => statusOf(o) === 'prep').length;
-  }
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="login">
+        <div>
+          <span class="kicker">Espace personnel</span>
+          <h2>Mon dashboard de carrière</h2>
+          <p>Deadlines des bourses, suivi de mes candidatures, test d'orientation, compétences et plan d'action : tout est centralisé au même endroit.</p>
+        </div>
+        <a href="dashboard.html" class="btn"><i data-lucide="log-in"></i>Connexion au dashboard</a>
+      </div>
+    </div>
+  </section>
 
-  function renderList() {
-    const q = document.getElementById('q').value.trim().toLowerCase();
-    const rows = open.filter(o => !q || (o.name + ' ' + o.where).toLowerCase().includes(q));
-    document.getElementById('list-count').textContent = `${rows.length} ouvertes`;
-    document.getElementById('list').innerHTML = rows.length ? rows.map(o => {
-      const s = STATUS.find(x => x.key === statusOf(o));
-      const d = daysLeft(o);
-      return `<div class="row">
-        <div class="ico"><i data-lucide="${o.ico}"></i></div>
-        <div><b title="${o.name}">${o.name}</b><span>${fmt(o.date)}${o.est ? ' · estimée' : ''} · ${o.where}</span></div>
-        <div class="right"><button class="status ${s.key}" data-id="${o.id}">${s.label}</button>
-          <span class="days${d <= 14 ? ' hot' : ''}">J-${d}</span></div>
-      </div>`;
-    }).join('') : '<div class="empty">Aucun résultat. Regarde la page Opportunités.</div>';
-  }
+  <footer class="end">
+    <div class="wrap">
+      <span>&copy; 2026 Mbaihornom Willifred — Ma carrière</span>
+      <a href="https://github.com/mbai22" target="_blank" rel="noopener"><i data-lucide="github"></i>github.com/mbai22</a>
+    </div>
+  </footer>
 
-  function renderBars() {
-    const months = [];
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(today.getFullYear(), today.getMonth() + i, 1);
-      months.push({ key: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`, label: d.toLocaleDateString('fr-FR', { month: 'short' }) });
-    }
-    const keyOf = o => o.date.slice(0, 7);
-    const counts = months.map(m => ({
-      b: open.filter(o => keyOf(o) === m.key && o.type === 'bourse').length,
-      f: open.filter(o => keyOf(o) === m.key && o.type === 'formation').length
-    }));
-    const max = Math.max(1, ...counts.map(c => Math.max(c.b, c.f)));
-    const peak = counts.reduce((best, c, i) => (c.b + c.f > best.n ? { n: c.b + c.f, i } : best), { n: 0, i: 0 });
-    document.getElementById('peak').innerHTML = `${peak.n} deadlines<small>en ${months[peak.i].label} — le mois le plus chargé</small>`;
-    document.getElementById('bars').innerHTML = counts.map((c, i) =>
-      `<div class="m" title="${months[i].label} : ${c.b} bourses, ${c.f} formations">
-        <div class="b b1" data-h="${c.b / max * 100}"></div><div class="b b2" data-h="${c.f / max * 100}"></div></div>`).join('');
-    document.getElementById('months').innerHTML = months.map(m => `<span>${m.label}</span>`).join('');
-  }
-
-  function renderSkills() {
-    document.getElementById('skills').innerHTML = SKILLS.map(([n, v]) =>
-      `<div class="skill"><div class="t"><span>${n}</span><b>${v} %</b></div><div class="track"><div class="fill" data-w="${v}"></div></div></div>`).join('');
-  }
-
-  function renderDonut() {
-    const total = open.length;
-    const parts = STATUS.map(s => ({ ...s, n: open.filter(o => statusOf(o) === s.key).length }));
-    const C = 2 * Math.PI * 15.915; // circumference = 100 for easy percentages
-    let offset = 0;
-    document.getElementById('donut').innerHTML =
-      `<circle cx="21" cy="21" r="15.915" fill="none" stroke="#f1f4ef" stroke-width="6"></circle>` +
-      parts.filter(p => p.n).map(p => {
-        const pct = p.n / total * 100;
-        const seg = `<circle cx="21" cy="21" r="15.915" fill="none" stroke="${p.color}" stroke-width="6"
-          stroke-dasharray="${Math.max(pct - 0.8, 0.1)} ${100 - Math.max(pct - 0.8, 0.1)}" stroke-dashoffset="${-offset}"></circle>`;
-        offset += pct;
-        return seg;
-      }).join('');
-    document.getElementById('d-total').textContent = total;
-    document.getElementById('dlegend').innerHTML = parts.map(p => `<span><i style="background:${p.color}"></i>${p.label} (${p.n})</span>`).join('');
-    const todo = parts[0].n;
-    document.getElementById('d-tip').textContent = todo
-      ? `Encore ${todo} candidature${todo > 1 ? 's' : ''} à traiter. Commence par celles qui ferment ce mois-ci.`
-      : 'Bravo, tout est traité ! Pense à vérifier les nouvelles opportunités.';
-  }
-
-  function animate() {
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      document.querySelectorAll('.bars .b').forEach(b => b.style.height = b.dataset.h + '%');
-      document.querySelectorAll('.skill .fill').forEach(f => f.style.width = f.dataset.w + '%');
-    }));
-  }
-
-  // Turns every <i data-lucide="..."> into an SVG; re-run after each render that adds icons
-  function icons() { if (window.lucide) lucide.createIcons(); }
-
-  function renderAll() { renderKpis(); renderList(); renderDonut(); icons(); }
-
-  document.getElementById('list').addEventListener('click', e => {
-    const btn = e.target.closest('.status');
-    if (!btn) return;
-    const i = STATUS.findIndex(s => s.key === (saved[btn.dataset.id] || 'todo'));
-    saved[btn.dataset.id] = STATUS[(i + 1) % STATUS.length].key;
-    save();
-    renderAll();
-  });
-  document.getElementById('q').addEventListener('input', () => { renderList(); icons(); });
-
-  renderAll(); renderBars(); renderSkills(); animate();
-</script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script>if (window.lucide) lucide.createIcons();</script>
 </body>
 </html>

@@ -4,37 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Écoles gratuites — Mbaihornom Willifred</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
 </head>
-<body class="theme-pink">
-  <nav>
-    <div class="inner">
-      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="index.html">Dashboard</a>
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html">Urgent</a>
-        <a href="ecoles.html" class="active">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
-    </div>
-  </nav>
+<body>
 
-  <div class="page-header">
-    <h1>🏫 Écoles de code gratuites en Afrique</h1>
-    <p>Formations en présentiel ou en ligne accessibles</p>
-  </div>
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Écoles de code gratuites en Afrique</h2><p>Formations en présentiel ou en ligne accessibles</p></div></div>
 
   <section>
     <div class="container">
@@ -68,18 +48,20 @@
           </tbody>
         </table>
       </div>
-      <p style="color:#94a3b8;font-size:0.85rem;margin-top:14px">
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-top:14px">
         💡 Les écoles au Tchad (Wenaklabs, Chad Innovation, ONAPE, NIT, Programme IA) sont les plus accessibles. Nouveautés : ⚠️ <strong>Resilient Coders</strong> (Full Stack gratuit, 10 juil !), <strong>Seamfix NextGen</strong> (Full-Stack, 17 juil), <strong>OctoPrep</strong> (5 juil, 0$).
       </p>
       <div style="text-align:center;margin-top:32px">
         <a href="urgent.html" class="btn btn-primary">Voir les urgences →</a>
-        <a href="index.html" class="btn btn-outline">← Accueil</a>
+        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urgent — Mbaihornom Willifred</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
   <style>
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 22px; }
     .filters button {
@@ -18,7 +20,7 @@
     td a { color: var(--text-heading); text-decoration: none; border-bottom: 1px dotted var(--accent); }
     td a:hover { color: var(--accent); }
     h2.sub { font-size: 1.3rem; margin: 48px 0 18px; }
-    .note { color: #94a3b8; font-size: 0.85rem; margin-top: 14px; line-height: 1.8; }
+    .note { color: var(--text-muted); font-size: 0.85rem; margin-top: 14px; line-height: 1.8; }
     details { margin-top: 48px; }
     details summary { cursor: pointer; color: var(--text-heading); font-weight: 600; font-size: 1.1rem; margin-bottom: 16px; }
     details summary span { color: var(--text-dim); font-weight: 400; font-size: 0.85rem; }
@@ -26,35 +28,13 @@
     .empty { display: none; padding: 18px; color: var(--text-dim); font-size: 0.85rem; text-align: center; }
   </style>
 </head>
-<body class="theme-rose">
-  <nav>
-    <div class="inner">
-      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="index.html">Dashboard</a>
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html" class="active">Urgent</a>
-        <a href="ecoles.html">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
-    </div>
-  </nav>
+<body>
 
-  <div class="page-header">
-    <h1>🔴 Opportunités urgentes</h1>
-    <p>Mis à jour le 21 octobre 2026 — filtre par voie pour ne voir que ce qui te concerne</p>
-  </div>
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Opportunités urgentes</h2><p>Mis à jour le 21 octobre 2026 — filtre par voie pour ne voir que ce qui te concerne</p></div></div>
 
   <section>
     <div class="container">
@@ -485,13 +465,14 @@
         <a href="https://apply.aims-network.org" target="_blank" class="btn btn-primary" style="background:#ef4444">⚠️ AIMS (4 nov) →</a>
         <a href="https://www.campusfrance.org" target="_blank" class="btn btn-outline">Bourse Eiffel →</a>
         <a href="https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en" target="_blank" class="btn btn-outline">Catalogue Erasmus Mundus →</a>
-        <a href="index.html" class="btn btn-outline">← Accueil</a>
+        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
   <script>
     // Filter rows by career path ("voie"); rows tagged "all" fit every path
     function applyFilter(v) {
@@ -513,7 +494,8 @@
     });
     const initial = new URLSearchParams(location.search).get('voie');
     if (initial && document.querySelector(`#filters button[data-v="${initial}"]`)) applyFilter(initial);
-    window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});
   </script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

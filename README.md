@@ -10,8 +10,8 @@ Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel*
 
 | Page | Description |
 |---|---|
-| `index.html` | Dashboard : deadlines, suivi des candidatures, compétences |
-| `accueil.html` | Ancienne page d'accueil (site classique) |
+| `index.html` | Page vitrine « Ma carrière » avec bouton de connexion au dashboard |
+| `dashboard.html` | Dashboard : deadlines, suivi des candidatures, compétences |
 | `profil.html` | Profil personnel |
 | `competences.html` | Compétences techniques |
 | `objectifs.html` | Objectifs court/moyen/long terme |
@@ -28,13 +28,17 @@ Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel*
 | `freelance.html` | Plateformes freelance |
 | `ressources.html` | Liens et coordonnées |
 
-## 🎨 Thèmes
+## 🎨 Structure
 
-Chaque page a son propre thème de couleur via CSS custom properties (16 themes).
+Toutes les pages (sauf la vitrine) utilisent la même mise en page de dashboard :
+- `dashboard.css` : thème clair vert/citron et composants communs
+- `app.js` : barre latérale, barre du haut et menu mobile, générés sur chaque page
+
+Les icônes viennent de [Lucide](https://lucide.dev), chargé depuis unpkg.
 
 ## 🚀 Déploiement
 
-Hébergé sur GitHub Pages. Site statique — aucune dépendance, pur HTML/CSS.
+Hébergé sur GitHub Pages. Site statique en HTML/CSS/JS, sans étape de build.
 
 ## 📬 Contact
 

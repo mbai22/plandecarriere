@@ -4,43 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Objectifs — Mbaihornom Willifred</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
   <style>
     .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
     .card ul { list-style: none; padding: 0; }
-    .card ul li { color: #94a3b8; font-size: 0.88rem; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+    .card ul li { color: var(--text-muted); font-size: 0.88rem; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
     .card ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
   </style>
 </head>
-<body class="theme-amber">
-  <nav>
-    <div class="inner">
-      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="index.html">Dashboard</a>
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html" class="active">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html">Urgent</a>
-        <a href="ecoles.html">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
-    </div>
-  </nav>
+<body>
 
-  <div class="page-header">
-    <h1>🎯 Objectifs</h1>
-    <p>Devenir ingénieur en génie logiciel & développement systèmes</p>
-  </div>
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Objectifs</h2><p>Devenir ingénieur en génie logiciel & développement systèmes</p></div></div>
 
   <section>
     <div class="container">
@@ -81,13 +61,15 @@
       </div>
       <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="plan4.html" class="btn btn-primary">Plan PRO détaillé →</a>
-        <a href="index.html" class="btn btn-outline">← Accueil</a>
+        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

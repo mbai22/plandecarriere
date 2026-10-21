@@ -4,43 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bourses — Mbaihornom Willifred</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
   <style>
     h2.sub { font-size: 1.3rem; margin: 48px 0 18px; }
     tr.past td { color: var(--text-dim); }
     .tag-past { background: var(--bg); color: var(--text-dim); border: 1px solid var(--border-hover); }
-    .tag-no { background: color-mix(in srgb, #7f1d1d 80%, transparent); color: #fca5a5; border: 1px solid #7f1d1d; }
+    .tag-no { background: #fde4e2; color: #b42318; border: 1px solid #f5c2bd; }
   </style>
 </head>
-<body class="theme-indigo">
-  <nav>
-    <div class="inner">
-      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="index.html">Dashboard</a>
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html">Urgent</a>
-        <a href="ecoles.html">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html" class="active">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
-    </div>
-  </nav>
+<body>
 
-  <div class="page-header">
-    <h1>🌍 Bourses pour étudier gratuitement</h1>
-    <p>Pays et programmes accessibles depuis le Tchad — deadlines mises à jour le 21 octobre 2026</p>
-  </div>
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Bourses pour étudier gratuitement</h2><p>Pays et programmes accessibles depuis le Tchad — deadlines mises à jour le 21 octobre 2026</p></div></div>
 
   <section>
     <div class="container">
@@ -123,20 +103,22 @@
         </table>
       </div>
 
-      <p style="color:#94a3b8;font-size:0.85rem;margin-top:14px;line-height:1.8">
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-top:14px;line-height:1.8">
         ⚡ <strong>Priorités :</strong> AIMS (4 nov), DAAD In-Region (12 nov), Ashesi (16 nov), écoles françaises pour Eiffel (avant fin nov), CMU Africa (15 déc).<br>
         📁 <strong>Dossier commun à préparer :</strong> relevés de notes L1-L3 traduits, CV Europass, 2 lettres de recommandation, lettre de motivation, passeport valide, test d'anglais (Duolingo English Test = le moins cher).<br>
         ⚠️ Plusieurs dates viennent de sites relais ou sont estimées d'après l'année passée : <strong>vérifie toujours sur le site officiel</strong>.
       </p>
       <div style="text-align:center;margin-top:32px">
         <a href="urgent.html" class="btn btn-primary">Voir les urgences →</a>
-        <a href="index.html" class="btn btn-outline">← Accueil</a>
+        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Timeline — Mbaihornom Willifred</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
   <style>
     .timeline { position: relative; padding-left: 36px; }
     .timeline::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
@@ -16,35 +18,13 @@
     .timeline-item p { color: var(--text-muted); font-size: 0.88rem; }
   </style>
 </head>
-<body class="theme-orange">
-  <nav>
-    <div class="inner">
-      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
-      <div class="links">
-        <a href="index.html">Dashboard</a>
-        <a href="profil.html">Profil</a>
-        <a href="competences.html">Compétences</a>
-        <a href="objectifs.html">Objectifs</a>
-        <a href="orientation.html">Orientation</a>
-        <a href="plan4.html">Plan PRO</a>
-        <a href="plan.html" class="active">Timeline</a>
-        <a href="plateformes.html">Plateformes</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="urgent.html">Urgent</a>
-        <a href="ecoles.html">Écoles</a>
-        <a href="grants.html">Grants</a>
-        <a href="bourses.html">Bourses</a>
-        <a href="masters.html">Masters</a>
-        <a href="freelance.html">Freelance</a>
-        <a href="ressources.html">Ressources</a>
-      </div>
-    </div>
-  </nav>
+<body>
 
-  <div class="page-header">
-    <h1>📅 Timeline 2026-2027</h1>
-    <p>Les prochaines étapes dans le temps</p>
-  </div>
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Timeline 2026-2027</h2><p>Les prochaines étapes dans le temps</p></div></div>
 
   <section>
     <div class="container">
@@ -79,13 +59,15 @@
       </div>
       <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="plan4.html" class="btn btn-primary">Voir le Plan PRO →</a>
-        <a href="index.html" class="btn btn-outline">← Accueil</a>
+        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
-  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
