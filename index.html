@@ -46,7 +46,7 @@
     /* Main */
     main { padding: 0 28px 28px; min-width: 0; }
     .topbar { display: flex; align-items: center; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); margin-bottom: 22px; flex-wrap: wrap; }
-    .topbar h1 { font-size: 1.15rem; font-weight: 700; margin-right: auto; }
+    .topbar h1 { font-size: 1.15rem; font-weight: 700; margin-right: auto; display: inline-flex; align-items: center; gap: 6px; }
     .search { display: flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 8px 14px; width: 300px; max-width: 100%; }
     .search input { border: 0; outline: 0; font: inherit; font-size: 0.82rem; width: 100%; background: transparent; color: var(--text); }
     .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 22px; padding: 9px 16px; font-weight: 600; font-size: 0.82rem; border: 1px solid var(--line); background: var(--panel); cursor: pointer; font-family: inherit; color: var(--text); }
@@ -146,13 +146,24 @@
       .side { position: static; height: auto; padding: 14px 16px; min-width: 0; }
       .side .brand { padding: 0 4px 10px; }
       .side h4, .side hr, .me { display: none; }
-      .side nav { display: flex; gap: 4px; overflow-x: auto; }
+      .side nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+      .side nav::-webkit-scrollbar { display: none; }
       .side nav a { white-space: nowrap; margin: 0; }
       .side nav a.on { box-shadow: inset 0 -3px 0 var(--lime); }
       main { padding: 0 16px 20px; }
       .kpis, .split { grid-template-columns: 1fr; }
       .search { width: 100%; order: 3; }
     }
+
+    /* Lucide icons */
+    [data-lucide], .lucide { width: 18px; height: 18px; flex-shrink: 0; }
+    .side nav a .ic { display: inline-flex; align-items: center; justify-content: center; }
+    .side nav a .ic .lucide { width: 18px; height: 18px; }
+    .row .ico .lucide { width: 18px; height: 18px; color: var(--green); }
+    .quick a .lucide { width: 16px; height: 16px; color: var(--green); }
+    .range { display: inline-flex; align-items: center; gap: 8px; }
+    .range .lucide { width: 15px; height: 15px; color: var(--green); }
+    small .lucide { width: 13px; height: 13px; vertical-align: -2px; }
   </style>
 </head>
 <body>
@@ -164,20 +175,20 @@
     </a>
     <h4>MENU</h4>
     <nav>
-      <a href="index.html" class="on"><span class="ic">▦</span>Vue d'ensemble</a>
-      <a href="orientation.html"><span class="ic">🧭</span>Orientation</a>
-      <a href="urgent.html"><span class="ic">⏱</span>Opportunités <span class="pill" id="nav-count"></span></a>
-      <a href="bourses.html"><span class="ic">🌍</span>Bourses</a>
-      <a href="masters.html"><span class="ic">🎓</span>Masters</a>
-      <a href="competences.html"><span class="ic">⚡</span>Compétences</a>
-      <a href="plan4.html"><span class="ic">📋</span>Plan PRO</a>
+      <a href="index.html" class="on"><span class="ic"><i data-lucide="layout-dashboard"></i></span>Vue d'ensemble</a>
+      <a href="orientation.html"><span class="ic"><i data-lucide="compass"></i></span>Orientation</a>
+      <a href="urgent.html"><span class="ic"><i data-lucide="timer"></i></span>Opportunités <span class="pill" id="nav-count"></span></a>
+      <a href="bourses.html"><span class="ic"><i data-lucide="globe"></i></span>Bourses</a>
+      <a href="masters.html"><span class="ic"><i data-lucide="graduation-cap"></i></span>Masters</a>
+      <a href="competences.html"><span class="ic"><i data-lucide="zap"></i></span>Compétences</a>
+      <a href="plan4.html"><span class="ic"><i data-lucide="clipboard-list"></i></span>Plan PRO</a>
     </nav>
     <hr />
     <h4>GÉNÉRAL</h4>
     <nav>
-      <a href="profil.html"><span class="ic">👤</span>Profil</a>
-      <a href="ressources.html"><span class="ic">🔗</span>Ressources</a>
-      <a href="accueil.html"><span class="ic">↩</span>Site classique</a>
+      <a href="profil.html"><span class="ic"><i data-lucide="user-round"></i></span>Profil</a>
+      <a href="ressources.html"><span class="ic"><i data-lucide="link"></i></span>Ressources</a>
+      <a href="accueil.html"><span class="ic"><i data-lucide="undo-2"></i></span>Site classique</a>
     </nav>
     <div class="me">
       <div class="avatar">MW</div>
@@ -187,7 +198,7 @@
 
   <main>
     <div class="topbar">
-      <h1>Plan de Carrière ⌄</h1>
+      <h1>Plan de Carrière <i data-lucide="chevron-down"></i></h1>
       <label class="search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7570" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input id="q" type="search" placeholder="Chercher une bourse, un master…" />
@@ -200,7 +211,7 @@
         <h2>Dashboard</h2>
         <p>Suivi de mes candidatures et de ma reconversion en informatique.</p>
       </div>
-      <div class="range">📅 Oct. 2026 – Mai 2027</div>
+      <div class="range"><i data-lucide="calendar"></i>Oct. 2026 – Mai 2027</div>
     </div>
 
     <div class="grid">
@@ -241,7 +252,7 @@
               <div class="months" id="months"></div>
             </div>
             <div class="card">
-              <h3>Mes compétences <a href="competences.html"><small>Détail ›</small></a></h3>
+              <h3>Mes compétences <a href="competences.html"><small>Détail <i data-lucide="chevron-right"></i></small></a></h3>
               <div id="skills"></div>
             </div>
           </div>
@@ -263,12 +274,12 @@
         <div class="card">
           <h3>Accès rapide</h3>
           <div class="quick">
-            <a href="urgent.html?voie=front">📱 Front / Mobile</a>
-            <a href="urgent.html?voie=uiux">🎨 UI/UX</a>
-            <a href="urgent.html?voie=back">⚙️ Back-end</a>
-            <a href="urgent.html?voie=data">📊 Data & IA</a>
-            <a href="urgent.html?voie=cyber">🛡️ Cyber</a>
-            <a href="urgent.html?voie=cloud">☁️ Cloud</a>
+            <a href="urgent.html?voie=front"><i data-lucide="smartphone"></i>Front / Mobile</a>
+            <a href="urgent.html?voie=uiux"><i data-lucide="palette"></i>UI/UX</a>
+            <a href="urgent.html?voie=back"><i data-lucide="server"></i>Back-end</a>
+            <a href="urgent.html?voie=data"><i data-lucide="chart-column"></i>Data & IA</a>
+            <a href="urgent.html?voie=cyber"><i data-lucide="shield-check"></i>Cyber</a>
+            <a href="urgent.html?voie=cloud"><i data-lucide="cloud"></i>Cloud</a>
           </div>
         </div>
 
@@ -283,27 +294,28 @@
   </main>
 </div>
 
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script>
   // Opportunities with a dated deadline (dates marked est = estimated from last year's cycle)
   const OPPS = [
-    { id: 'aims', name: 'AIMS Structured Master', ico: '🎓', type: 'bourse', date: '2026-11-04', where: 'Afrique du Sud' },
-    { id: 'daad-region', name: 'DAAD In-Country/In-Region', ico: '🏛️', type: 'bourse', date: '2026-11-12', where: 'Afrique' },
-    { id: 'ashesi', name: 'Mastercard Fdn @ Ashesi', ico: '🌍', type: 'bourse', date: '2026-11-16', where: 'Ghana' },
-    { id: 'eiffel', name: 'Bourse Eiffel (via école)', ico: '🗼', type: 'bourse', date: '2026-11-30', where: 'France', est: true },
-    { id: 'cmu', name: 'CMU Africa Mastercard', ico: '💻', type: 'bourse', date: '2026-12-15', where: 'Rwanda' },
-    { id: 'pau', name: 'Pan African University', ico: '🌍', type: 'bourse', date: '2026-12-15', where: 'Kenya / Nigeria…', est: true },
-    { id: 'andela', name: 'Andela Learning Community', ico: '📱', type: 'formation', date: '2026-12-31', where: 'En ligne' },
-    { id: 'ms4afrika', name: 'Microsoft 4Afrika Skills', ico: '☁️', type: 'formation', date: '2026-12-31', where: 'En ligne', est: true },
-    { id: 'cybersure', name: 'CYBERSURE Erasmus Mundus', ico: '🛡️', type: 'bourse', date: '2027-01-04', where: 'Norvège / Finlande' },
-    { id: 'cambridge', name: 'Cambridge Mastercard Fdn', ico: '🏰', type: 'bourse', date: '2027-01-06', where: 'Royaume-Uni', est: true },
-    { id: 'erasmus', name: 'Erasmus Mundus (IA, data)', ico: '⭐', type: 'bourse', date: '2027-01-15', where: 'Europe', est: true },
-    { id: 'hungaricum', name: 'Stipendium Hungaricum', ico: '🎻', type: 'bourse', date: '2027-01-15', where: 'Hongrie', est: true },
-    { id: 'turkiye', name: 'Türkiye Burslari', ico: '🕌', type: 'bourse', date: '2027-02-20', where: 'Turquie', est: true },
-    { id: 'quantum', name: 'AIMS Quantum Africa', ico: '⚛️', type: 'bourse', date: '2027-02-28', where: 'Afrique' },
-    { id: 'aims-ai', name: 'AIMS AI for Science (DeepMind)', ico: '🤖', type: 'bourse', date: '2027-03-06', where: 'Afrique du Sud', est: true },
-    { id: 'gks', name: 'Global Korea Scholarship', ico: '🏯', type: 'bourse', date: '2027-03-15', where: 'Corée du Sud', est: true },
-    { id: 'csc', name: 'Bourse CSC Chine', ico: '🐉', type: 'bourse', date: '2027-04-30', where: 'Chine', est: true },
-    { id: 'mext', name: 'MEXT (ambassade)', ico: '🗾', type: 'bourse', date: '2027-05-31', where: 'Japon', est: true }
+    { id: 'aims', name: 'AIMS Structured Master', ico: 'graduation-cap', type: 'bourse', date: '2026-11-04', where: 'Afrique du Sud' },
+    { id: 'daad-region', name: 'DAAD In-Country/In-Region', ico: 'landmark', type: 'bourse', date: '2026-11-12', where: 'Afrique' },
+    { id: 'ashesi', name: 'Mastercard Fdn @ Ashesi', ico: 'school', type: 'bourse', date: '2026-11-16', where: 'Ghana' },
+    { id: 'eiffel', name: 'Bourse Eiffel (via école)', ico: 'landmark', type: 'bourse', date: '2026-11-30', where: 'France', est: true },
+    { id: 'cmu', name: 'CMU Africa Mastercard', ico: 'cpu', type: 'bourse', date: '2026-12-15', where: 'Rwanda' },
+    { id: 'pau', name: 'Pan African University', ico: 'globe', type: 'bourse', date: '2026-12-15', where: 'Kenya / Nigeria…', est: true },
+    { id: 'andela', name: 'Andela Learning Community', ico: 'smartphone', type: 'formation', date: '2026-12-31', where: 'En ligne' },
+    { id: 'ms4afrika', name: 'Microsoft 4Afrika Skills', ico: 'cloud', type: 'formation', date: '2026-12-31', where: 'En ligne', est: true },
+    { id: 'cybersure', name: 'CYBERSURE Erasmus Mundus', ico: 'shield-check', type: 'bourse', date: '2027-01-04', where: 'Norvège / Finlande' },
+    { id: 'cambridge', name: 'Cambridge Mastercard Fdn', ico: 'book-open', type: 'bourse', date: '2027-01-06', where: 'Royaume-Uni', est: true },
+    { id: 'erasmus', name: 'Erasmus Mundus (IA, data)', ico: 'map', type: 'bourse', date: '2027-01-15', where: 'Europe', est: true },
+    { id: 'hungaricum', name: 'Stipendium Hungaricum', ico: 'landmark', type: 'bourse', date: '2027-01-15', where: 'Hongrie', est: true },
+    { id: 'turkiye', name: 'Türkiye Burslari', ico: 'map-pin', type: 'bourse', date: '2027-02-20', where: 'Turquie', est: true },
+    { id: 'quantum', name: 'AIMS Quantum Africa', ico: 'atom', type: 'bourse', date: '2027-02-28', where: 'Afrique' },
+    { id: 'aims-ai', name: 'AIMS AI for Science (DeepMind)', ico: 'brain-circuit', type: 'bourse', date: '2027-03-06', where: 'Afrique du Sud', est: true },
+    { id: 'gks', name: 'Global Korea Scholarship', ico: 'map-pin', type: 'bourse', date: '2027-03-15', where: 'Corée du Sud', est: true },
+    { id: 'csc', name: 'Bourse CSC Chine', ico: 'landmark', type: 'bourse', date: '2027-04-30', where: 'Chine', est: true },
+    { id: 'mext', name: 'MEXT (ambassade)', ico: 'map', type: 'bourse', date: '2027-05-31', where: 'Japon', est: true }
   ];
   const SKILLS = [
     ['HTML / CSS', 85], ['JavaScript / TypeScript', 65], ['Python / PHP', 55],
@@ -353,7 +365,7 @@
       const s = STATUS.find(x => x.key === statusOf(o));
       const d = daysLeft(o);
       return `<div class="row">
-        <div class="ico">${o.ico}</div>
+        <div class="ico"><i data-lucide="${o.ico}"></i></div>
         <div><b title="${o.name}">${o.name}</b><span>${fmt(o.date)}${o.est ? ' · estimée' : ''} · ${o.where}</span></div>
         <div class="right"><button class="status ${s.key}" data-id="${o.id}">${s.label}</button>
           <span class="days${d <= 14 ? ' hot' : ''}">J-${d}</span></div>
@@ -415,7 +427,10 @@
     }));
   }
 
-  function renderAll() { renderKpis(); renderList(); renderDonut(); }
+  // Turns every <i data-lucide="..."> into an SVG; re-run after each render that adds icons
+  function icons() { if (window.lucide) lucide.createIcons(); }
+
+  function renderAll() { renderKpis(); renderList(); renderDonut(); icons(); }
 
   document.getElementById('list').addEventListener('click', e => {
     const btn = e.target.closest('.status');
@@ -425,7 +440,7 @@
     save();
     renderAll();
   });
-  document.getElementById('q').addEventListener('input', renderList);
+  document.getElementById('q').addEventListener('input', () => { renderList(); icons(); });
 
   renderAll(); renderBars(); renderSkills(); animate();
 </script>
