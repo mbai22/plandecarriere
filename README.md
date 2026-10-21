@@ -14,11 +14,12 @@ Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel*
 | `profil.html` | Profil personnel |
 | `competences.html` | Compétences techniques |
 | `objectifs.html` | Objectifs court/moyen/long terme |
+| `orientation.html` | Test d'orientation : 7 voies en informatique |
 | `plan4.html` | Plan PRO (4 étapes) |
 | `plan.html` | Timeline 2026-2027 |
 | `plateformes.html` | Plateformes d'apprentissage |
 | `certifications.html` | Certifications abordables |
-| `urgent.html` | Opportunités avec deadlines |
+| `urgent.html` | Opportunités avec deadlines, filtrables par voie |
 | `ecoles.html` | Écoles de code gratuites |
 | `grants.html` | Financements et grants |
 | `bourses.html` | Bourses d'études |
@@ -28,7 +29,7 @@ Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel*
 
 ## 🎨 Thèmes
 
-Chaque page a son propre thème de couleur via CSS custom properties (15 themes).
+Chaque page a son propre thème de couleur via CSS custom properties (16 themes).
 
 ## 🚀 Déploiement
 

@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urgent — Mbaihornom Willifred</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 22px; }
+    .filters button {
+      background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border);
+      padding: 7px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .filters button:hover { color: var(--text-heading); border-color: var(--border-hover); }
+    .filters button.on { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+    .tag-voie { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border-hover); margin: 1px 2px 1px 0; }
+    .tag-all { background: var(--bg); color: var(--text-dim); border: 1px dashed var(--border-hover); }
+    td a { color: var(--text-heading); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+    td a:hover { color: var(--accent); }
+    h2.sub { font-size: 1.3rem; margin: 48px 0 18px; }
+    .note { color: #94a3b8; font-size: 0.85rem; margin-top: 14px; line-height: 1.8; }
+    details { margin-top: 48px; }
+    details summary { cursor: pointer; color: var(--text-heading); font-weight: 600; font-size: 1.1rem; margin-bottom: 16px; }
+    details summary span { color: var(--text-dim); font-weight: 400; font-size: 0.85rem; }
+    tr.past td { color: var(--text-dim); }
+    .empty { display: none; padding: 18px; color: var(--text-dim); font-size: 0.85rem; text-align: center; }
+  </style>
 </head>
 <body class="theme-rose">
   <nav>
@@ -14,6 +34,7 @@
         <a href="profil.html">Profil</a>
         <a href="competences.html">Compétences</a>
         <a href="objectifs.html">Objectifs</a>
+        <a href="orientation.html">Orientation</a>
         <a href="plan4.html">Plan PRO</a>
         <a href="plan.html">Timeline</a>
         <a href="plateformes.html">Plateformes</a>
@@ -31,286 +52,438 @@
 
   <div class="page-header">
     <h1>🔴 Opportunités urgentes</h1>
-    <p>À saisir maintenant — ne tarde pas</p>
+    <p>Mis à jour le 21 octobre 2026 — filtre par voie pour ne voir que ce qui te concerne</p>
   </div>
 
   <section>
     <div class="container">
+      <div class="card" style="margin-bottom:40px;border-color:#14532d">
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <strong style="color:var(--text-heading);margin-right:6px">🏆 Mes sélections 2026 :</strong>
+          <span class="tag tag-done">✅ Tech4Africans (juin → sept.)</span>
+          <span class="tag tag-done">✅ FlutterFire Summer Camp (juil. → oct.)</span>
+          <span class="tag tag-done">✅ Stage Codveda</span>
+        </div>
+      </div>
+
       <span class="section-label">Urgent</span>
-      <h2>Opportunités à saisir maintenant</h2>
+      <h2>Deadlines des 4 prochains mois</h2>
+      <div class="filters" id="filters">
+        <button data-v="toutes" class="on">Toutes</button>
+        <button data-v="front">📱 Front / Mobile</button>
+        <button data-v="back">⚙️ Back-end</button>
+        <button data-v="uiux">🎨 UI/UX</button>
+        <button data-v="data">📊 Data & IA</button>
+        <button data-v="cyber">🛡️ Cyber</button>
+        <button data-v="cloud">☁️ Cloud</button>
+        <button data-v="support">🔧 Support / Réseaux</button>
+      </div>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Opportunité</th><th>Deadline</th><th>Coût</th><th>Détail</th></tr>
+            <tr><th>Opportunité</th><th>Voie</th><th>Deadline</th><th>Coût</th><th>Détail</th></tr>
           </thead>
           <tbody>
-            <tr style="background:color-mix(in srgb,#4ade80 6%,transparent)">
-              <td><strong>Tech4Africans</strong> (TechCrush) <span class="tag tag-done">✅ Sélectionné</span></td>
-              <td><span class="tag tag-hot">26 juin 2026</span></td>
-              <td><span class="tag tag-paid">~9$ (95% bourse)</span></td>
-              <td>3 mois, dev/data/IA, en ligne, pour Africains — <strong>accepté !</strong></td>
-            </tr>
-            <tr>
-              <td><strong>develoPPP Ventures</strong> (Allemagne)</td>
-              <td><span class="tag tag-hot">30 juin 2026</span></td>
-              <td><span class="tag tag-free">€100K</span></td>
-              <td>Grant non-dilutif pour startups innovantes</td>
-            </tr>
-            <tr style="background:color-mix(in srgb,#4ade80 6%,transparent)">
-              <td><strong>FlutterFire Summer Camp</strong> <span class="tag tag-done">✅ Sélectionné</span></td>
-              <td><span class="tag tag-hot">6 juillet 2026</span></td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>90j, Flutter+Firebase, français, en ligne — <strong>accepté !</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Open Startup</strong> (Afrique)</td>
-              <td><span class="tag tag-hot">31 juil 2026</span></td>
-              <td><span class="tag tag-free">$20K-$50K</span></td>
-              <td>Grant pour entrepreneurs africains</td>
-            </tr>
-            <tr>
-              <td><strong>CODAR Tech Africa</strong> (scholarship)</td>
-              <td><span class="tag tag-hot">30 juin 2026</span></td>
-              <td><span class="tag tag-free">0-100% bourse</span></td>
-              <td>Software engineering, dev, data — scholarship selon besoin</td>
-            </tr>
-            <tr>
-              <td><strong>MEST AI Startup Program</strong> (Ghana)</td>
-              <td><span class="tag tag-hot">20 juil 2026</span></td>
-              <td><span class="tag tag-free">Incubation + invest.</span></td>
-              <td>IA entrepreneurs, Afrique Ouest/Est, training + seed</td>
-            </tr>
-            <tr>
-              <td><strong>Stellenbosch MSc ML & AI</strong> (Afrique)</td>
-              <td><span class="tag tag-hot">31 août 2026</span></td>
+            <tr data-voie="data">
+              <td><strong><a href="https://apply.aims-network.org" target="_blank">AIMS Structured Master</a></strong> (Afrique du Sud) 🆕</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-hot">4 nov 2026 ⚠️</span></td>
               <td><span class="tag tag-free">100% bourse</span></td>
-              <td>Master ML/AI, pour étudiants africains, logement + vie</td>
+              <td>Master sciences mathématiques, rentrée janvier 2027, Cape Town</td>
             </tr>
-            <tr>
-              <td><strong>Mastercard Foundation @ Ashesi</strong></td>
-              <td><span class="tag tag-free">16 nov 2026</span></td>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.daad.de/en/" target="_blank">DAAD In-Country/In-Region</a></strong> 2027 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">12 nov 2026</span></td>
+              <td><span class="tag tag-free">100%</span></td>
+              <td>Master/PhD dans une université africaine partenaire, Afrique subsaharienne</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.ashesi.edu.gh" target="_blank">Mastercard Foundation @ Ashesi</a></strong></td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">16 nov 2026</span></td>
               <td><span class="tag tag-free">100%</span></td>
               <td>Frais + logement + vie + laptop. Ghana</td>
             </tr>
-            <tr>
-              <td><strong>Advance Africa</strong> (Access Bank + Udacity)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Nanodegree Data/Dev/Analytics, 100% en ligne</td>
+            <tr data-voie="cyber">
+              <td><strong><a href="https://haic.fi/admission-period-open-for-new-erasmus-mundus-programme-cybersure-masters-programme-in-cybersecurity-and-assurance/" target="_blank">CYBERSURE Erasmus Mundus</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Cyber</span></td>
+              <td><span class="tag tag-hot">16 nov 2026 → 4 jan 2027</span></td>
+              <td><span class="tag tag-free">Bourse complète</span></td>
+              <td>Master cybersécurité (Norvège + Finlande), frais + voyage + allocation mensuelle</td>
             </tr>
-            <tr>
-              <td><strong>FNB App Academy</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>React, UX, AI, Firebase, en ligne</td>
+            <tr data-voie="data back">
+              <td><strong><a href="https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en" target="_blank">Autres Erasmus Mundus</a></strong> (IA, data, logiciel) 🆕</td>
+              <td><span class="tag tag-voie">Data & IA</span><span class="tag tag-voie">Back-end</span></td>
+              <td><span class="tag tag-hot">déc 2026 → jan 2027</span></td>
+              <td><span class="tag tag-free">~1 400€/mois + frais</span></td>
+              <td>Chaque master a sa propre date : consulter le catalogue et postuler à 2-3 programmes</td>
             </tr>
-            <tr>
-              <td><strong>Wenaklabs « Makers Tchad »</strong> (D-CLIC/OIF)</td>
-              <td>À contacter (2e cohorte)</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>150 jeunes, IoT, design numérique, électronique — français, présentiel N'Djamena</td></tr>
-            <tr>
-              <td><strong>ONAPE + Mahrasoft Innovations</strong> (Tchad)</td>
-              <td>À contacter</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>50 jeunes, design graphique, animation, 3D, dev contenu interactif — N'Djamena</td></tr>
-            <tr>
-              <td><strong>OctoPrep Cohort 6</strong> (software engineering)</td>
-              <td><span class="tag tag-hot">5 juillet 2026</span></td>
-              <td><span class="tag tag-free">0$</span></td>
-              <td>Formation SE intensive, 12 semaines, remote — vient de sortir !</td></tr>
-            <tr>
-              <td><strong>Resilient Coders Fall 2026</strong> (Full Stack)</td>
-              <td><span class="tag tag-hot">10 juillet 2026 ⚠️</span></td>
-              <td><span class="tag tag-free">100% gratuit</span></td>
-              <td>Bootcamp Full Stack Engineering, 20 semaines, en ligne — deadline prolongée !</td></tr>
-            <tr>
-              <td><strong>PHA Laptop Scholarship Bootcamp</strong> (Cohort 2.5)</td>
-              <td><span class="tag tag-hot">10 juillet 2026 ⚠️</span></td>
-              <td><span class="tag tag-free">Gratuit + laptop à gagner</span></td>
-              <td>Backend, UI/UX, Cyber, Data, AI — formation + hackathon pour gagner un laptop</td></tr>
-            <tr>
-              <td><strong>DevCareer Coursera Scholarship</strong> (500 places)</td>
-              <td><span class="tag tag-hot">12 juillet 2026</span></td>
-              <td><span class="tag tag-free">100% gratuit</span></td>
-              <td>500 bourses, Software Dev, UX, Cyber, Data — certif Google/Meta/IBM, en ligne</td></tr>
-            <tr>
-              <td><strong>Seamfix NextGen Academy Cohort 8</strong></td>
-              <td><span class="tag tag-hot">17 juillet 2026</span></td>
-              <td><span class="tag tag-free">100% gratuit</span></td>
-              <td>6 mois, Full-Stack Engineering ou Product Design, certif + placement — Nigeria</td></tr>
-            <tr>
-              <td><strong>DAAD STEM Master</strong> (Allemagne)</td>
-              <td>2027 (variable)</td>
-              <td><span class="tag tag-free">100% frais + 934-1300€/mois</span></td>
-              <td>Bourse pour Master en sciences/ingénierie, tous pays africains</td></tr>
-            <tr>
-              <td><strong>Univ. of Pretoria Mastercard</strong> (Afrique du Sud)</td>
-              <td><span class="tag tag-hot">31 août 2026</span></td>
-              <td><span class="tag tag-free">100% frais + vie</span></td>
-              <td>Mastercard Foundation scholars, pour Africains, Afrique du Sud</td></tr>
-            <tr>
-              <td><strong>AU Digital & Innovation Fellowship</strong> (Éthiopie)</td>
-              <td>À surveiller</td>
-              <td><span class="tag tag-free">2 500€/mois</span></td>
-              <td>Fellowship 12 mois à Addis Abeba, Union Africaine, jeunes innovateurs</td></tr>
-            <tr>
-              <td><strong>Mono Backend Internship</strong> (Nigeria)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Payé</span></td>
-              <td>Stage backend remote, API/fintech, pour développeurs africains</td></tr>
-            <tr>
-              <td><strong>PNUD Tchad — Stagiaire Photo/Vidéo</strong></td>
-              <td>À surveiller</td>
-              <td><span class="tag tag-free">Indemnité</span></td>
-              <td>Stage photo/vidéo N'Djamena & Abéché, PNUD, immersion ONU</td></tr>
-            <tr>
-              <td><strong>Safitel Chad Scholarship</strong></td>
-              <td>Continue</td>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.campusfrance.org" target="_blank">Bourse Eiffel 2027</a></strong> (France) 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">nov-déc 2026 (école) · 6 jan 2027</span></td>
+              <td><span class="tag tag-free">jusqu'à 2 100€/mois</span></td>
+              <td>C'est l'école française qui te présente : postule d'abord au master, avant sa date interne</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>Cambridge Mastercard Foundation Scholars</strong> 2027 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">déc 2026 / jan 2027</span></td>
               <td><span class="tag tag-free">100%</span></td>
-              <td>Bourse Tchad → Sénégal puis France, informatique/management, français</td></tr>
-            <tr>
-              <td><strong>N'Djamena Institute of Technology (NIT)</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Bourses disponibles</span></td>
-              <td>Formations IT locales Tchad, délivre des diplômes + bourses d'études</td></tr>
-            <tr>
-              <td><strong>Programme IA Gouvernement Tchad</strong></td>
-              <td>Continue (déjà lancé)</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>2000 jeunes formés à l'IA, programme national tchadien</td></tr>
-            <tr>
-              <td><strong>NiangProgrammeur</strong> (Sénégal)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Développement web gratuit, français, communauté active Sénégal</td></tr>
-            <tr>
-              <td><strong>Code213</strong> (Algérie)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">100% gratuit</span></td>
-              <td>Formations digitales certifiantes, Algérie, francophone</td></tr>
-            <tr>
-              <td><strong>Suacode.ai</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Code et IA sur smartphone, français/anglais, adaptatif</td></tr>
-            <tr>
-              <td><strong>CodAfrik</strong> (Dakar)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Bootcamp gratuit 5 jours, Dakar, découverte code, français</td></tr>
-            <tr>
-              <td><strong>GATEWAY Program</strong> (Mastercard + CcHUB)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">0$</span></td>
-              <td>Graphic Design, UI/UX, Vidéo — formation + certif, 6 mois</td></tr>
-            <tr>
-              <td><strong>Want Skills</strong> (francophone)</td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Accès libre</span></td>
-              <td>Design, motion, montage vidéo — certificat optionnel payant</td>
+              <td>Master à Cambridge, date selon le cursus choisi</td>
             </tr>
-            <tr>
-              <td><strong>CNOU Tchad</strong> (bourses Algérie/Maroc)</td>
-              <td>Continue</td>
+            <tr data-voie="back data">
+              <td><strong>CMU Africa Mastercard</strong> (Rwanda) 🆕</td>
+              <td><span class="tag tag-voie">Back-end</span><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-hot">15 déc 2026 · final 15 jan 2027</span></td>
               <td><span class="tag tag-free">100%</span></td>
-              <td>Bourses gouvernementales pour Tchadiens</td>
+              <td>MS Information Technology, ECE ou Engineering AI — Carnegie Mellon à Kigali</td>
             </tr>
-            <tr>
-              <td><strong>Nithub x DataCamp</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Data Science, IA, en ligne</td>
+            <tr data-voie="all">
+              <td><strong>Pan African University (PAU)</strong> 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Appel attendu nov-déc 2026</td>
+              <td><span class="tag tag-free">100% + vie</span></td>
+              <td>Master Union Africaine (PAUSTI Kenya pour l'informatique) ; max 25 ans hommes / 28 ans femmes</td>
             </tr>
-            <tr>
-              <td><strong>DESDAI Tech Scholarship</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">Gratuit</span></td>
-              <td>Formation certifiante pour Africains</td>
-            </tr>
-            <tr>
-              <td><strong>Google Africa Developer Scholarship</strong> (GADS)</td>
-              <td><span class="tag tag-hot">31 août 2026</span></td>
-              <td><span class="tag tag-free">0$</span></td>
-              <td>Formation + certif. Google offerte, Android/Cloud, en ligne</td>
-            </tr>
-            <tr>
-              <td><strong>Microsoft Research PhD Fellowship</strong> (Afrique)</td>
-              <td><span class="tag tag-hot">1er oct. 2026</span></td>
-              <td><span class="tag tag-free">42 000$/an</span></td>
-              <td>PhD en CS/IA — stipend + voyage + mentorat Microsoft</td>
-            </tr>
-            <tr>
-              <td><strong>AUF FOAD</strong> (Diplômes à distance)</td>
-              <td><span class="tag tag-hot">14 sept 2026</span></td>
-              <td><span class="tag tag-free">Prise en charge partielle</span></td>
-              <td>Diplômes univ. Licence à Doctorat, 100% français, en ligne</td>
-            </tr>
-            <tr>
-              <td><strong>DataCamp DCA Scholarship</strong></td>
-              <td>Continue</td>
-              <td><span class="tag tag-free">0$ (licence $300)</span></td>
-              <td>Data Science, Python, SQL, IA — licence premium offerte</td>
-            </tr>
-            <tr>
-              <td><strong>Meta Research PhD Fellowship</strong> (Afrique)</td>
-              <td><span class="tag tag-hot">15 sept 2026</span></td>
-              <td><span class="tag tag-free">42 000$/an + stage Meta</span></td>
-              <td>PhD en CS/IA/ML — bourse complète + mentorat Meta Research</td>
-            </tr>
-            <tr>
-              <td><strong>AIMS Quantum Africa</strong> (IBM Quantum)</td>
-              <td><span class="tag tag-hot">28 fév 2027</span></td>
-              <td><span class="tag tag-free">100% frais + vie</span></td>
-              <td>Master en calcul quantique, campus AIMS Afrique, bourse complète</td>
-            </tr>
-            <tr>
+            <tr data-voie="front cloud data">
               <td><strong>Andela Learning Community</strong> (Google)</td>
+              <td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Cloud</span><span class="tag tag-voie">Data & IA</span></td>
               <td><span class="tag tag-hot">31 déc 2026</span></td>
               <td><span class="tag tag-free">Gratuit</span></td>
               <td>Dev Mobile, Cloud GCP, Data Engineering, ML — certif + placement Andela</td>
             </tr>
-            <tr>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.turkiyeburslari.gov.tr" target="_blank">Türkiye Burslari 2027</a></strong> (Turquie) 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">10 jan → 20 fév 2027</span></td>
+              <td><span class="tag tag-free">100% + allocation</span></td>
+              <td>Licence/Master/PhD, logement + assurance + billet. Dates prévues, annonce officielle fin décembre</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.campuschina.org" target="_blank">Bourse gouvernement chinois (CSC)</a></strong> 2027 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td><span class="tag tag-hot">déc 2026 → avr 2027</span></td>
+              <td><span class="tag tag-free">100% + 3 000 RMB/mois</span></td>
+              <td>Master en Chine, via l'ambassade (type A) ou une université (type B), moins de 35 ans</td>
+            </tr>
+            <tr data-voie="data">
+              <td><strong>AIMS Quantum Africa</strong> (IBM Quantum)</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-hot">28 fév 2027</span></td>
+              <td><span class="tag tag-free">100% frais + vie</span></td>
+              <td>Master en calcul quantique, campus AIMS Afrique, bourse complète</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.studyinkorea.go.kr" target="_blank">Global Korea Scholarship</a></strong> Master 2027 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Appel attendu fév-mars 2027</td>
+              <td><span class="tag tag-free">100% + coréen 1 an</span></td>
+              <td>Master en Corée du Sud ; préparer le dossier dès maintenant</td>
+            </tr>
+            <tr data-voie="data">
+              <td><strong><a href="https://ai.aims.ac.za" target="_blank">AIMS AI for Science</a></strong> (Google DeepMind) 🆕</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td>~ mars 2027 (à confirmer)</td>
+              <td><span class="tag tag-free">100% résidentiel</span></td>
+              <td>Master 1 an en IA appliquée aux sciences, Afrique du Sud</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>DAAD STEM Master</strong> (Allemagne)</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>2027 (variable)</td>
+              <td><span class="tag tag-free">100% frais + 934-1300€/mois</span></td>
+              <td>Bourse pour Master en sciences/ingénierie, tous pays africains</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="empty">Rien de daté pour cette voie : regarde le tableau « toute l'année » ci-dessous.</div>
+      </div>
+
+      <h2 class="sub">♻️ Ouvert toute l'année</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Opportunité</th><th>Voie</th><th>Deadline</th><th>Coût</th><th>Détail</th></tr>
+          </thead>
+          <tbody>
+            <tr data-voie="cyber">
+              <td><strong>Sycom Cybersecurity Scholarship</strong> 2026/27 🆕</td>
+              <td><span class="tag tag-voie">Cyber</span></td>
+              <td>Ouvert (date non publiée)</td>
+              <td><span class="tag tag-free">Bourse</span></td>
+              <td>Formation + préparation certif + mentorat, ouvert à toute l'Afrique</td>
+            </tr>
+            <tr data-voie="cyber">
+              <td><strong><a href="https://cybertalents.com" target="_blank">CyberTalents × Trend Micro</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Cyber</span></td>
+              <td>À vérifier</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>3 mois, 500 places Afrique + monde arabe ; CTF gratuits toute l'année</td>
+            </tr>
+            <tr data-voie="cyber">
+              <td><strong><a href="https://nexzer.org" target="_blank">Nexzer Academy</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Cyber</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit (20+ labs)</span></td>
+              <td>Labs pratiques de cybersécurité pour l'Afrique, bourse pour le plan Pro</td>
+            </tr>
+            <tr data-voie="support cyber">
+              <td><strong><a href="https://www.netacad.com" target="_blank">Cisco Networking Academy</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Support / Réseaux</span><span class="tag tag-voie">Cyber</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Cours gratuits</span></td>
+              <td>Réseaux, Linux, intro cybersécurité — en français, base pour le CCNA</td>
+            </tr>
+            <tr data-voie="cloud">
+              <td><strong><a href="https://skillbuilder.aws" target="_blank">AWS Skill Builder</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Cloud</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Cloud Practitioner : cours officiels gratuits, examen payant</td>
+            </tr>
+            <tr data-voie="front back">
+              <td><strong><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a></strong> 🆕</td>
+              <td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Back-end</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Certifications web, JavaScript, back-end ; tout en projets</td>
+            </tr>
+            <tr data-voie="data cyber">
+              <td><strong>ALX Africa</strong> 🆕</td>
+              <td><span class="tag tag-voie">Data & IA</span><span class="tag tag-voie">Cyber</span></td>
+              <td>Cohortes régulières</td>
+              <td><span class="tag tag-free">Souvent gratuit (Mastercard Fdn)</span></td>
+              <td>Data Analytics, Data Science, Cybersécurité, AI Career Essentials (6 sem.)</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>Orange Digital Center</strong> (réseau Afrique) 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Prochaines sessions</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Data/IA, cyber, DevOps + certifs Coursera ; pas de centre confirmé au Tchad → contacter Orange/Moov</td>
+            </tr>
+            <tr data-voie="front uiux cyber">
+              <td><strong>Force-N</strong> (Sénégal, Mastercard Fdn) 🆕</td>
+              <td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">UI/UX</span><span class="tag tag-voie">Cyber</span></td>
+              <td>Prochaine session (2026 close en mai)</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Formations certifiantes en ligne, moins de 36 ans, français</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong><a href="https://www.fun-mooc.fr" target="_blank">FUN MOOC</a></strong> 🆕</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>MOOC universitaires français en informatique, réseaux, IA</td>
+            </tr>
+            <tr data-voie="data front">
+              <td><strong>Advance Africa</strong> (Access Bank + Udacity)</td>
+              <td><span class="tag tag-voie">Data & IA</span><span class="tag tag-voie">Front / Mobile</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Nanodegree Data/Dev/Analytics, 100% en ligne</td>
+            </tr>
+            <tr data-voie="front uiux">
+              <td><strong>FNB App Academy</strong></td>
+              <td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">UI/UX</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>React, UX, AI, Firebase, en ligne</td>
+            </tr>
+            <tr data-voie="back">
+              <td><strong>Mono Backend Internship</strong> (Nigeria)</td>
+              <td><span class="tag tag-voie">Back-end</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Payé</span></td>
+              <td>Stage backend remote, API/fintech, pour développeurs africains</td>
+            </tr>
+            <tr data-voie="uiux">
+              <td><strong>GATEWAY Program</strong> (Mastercard + CcHUB)</td>
+              <td><span class="tag tag-voie">UI/UX</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">0$</span></td>
+              <td>Graphic Design, UI/UX, Vidéo — formation + certif, 6 mois</td>
+            </tr>
+            <tr data-voie="uiux">
+              <td><strong>Want Skills</strong> (francophone)</td>
+              <td><span class="tag tag-voie">UI/UX</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Accès libre</span></td>
+              <td>Design, motion, montage vidéo — certificat optionnel payant</td>
+            </tr>
+            <tr data-voie="uiux">
+              <td><strong>PNUD Tchad — Stagiaire Photo/Vidéo</strong></td>
+              <td><span class="tag tag-voie">UI/UX</span></td>
+              <td>À surveiller</td>
+              <td><span class="tag tag-free">Indemnité</span></td>
+              <td>Stage photo/vidéo N'Djamena & Abéché, PNUD, immersion ONU</td>
+            </tr>
+            <tr data-voie="data">
+              <td><strong>DataCamp DCA Scholarship</strong></td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">0$ (licence $300)</span></td>
+              <td>Data Science, Python, SQL, IA — licence premium offerte</td>
+            </tr>
+            <tr data-voie="data">
+              <td><strong>Nithub x DataCamp</strong></td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Data Science, IA, en ligne</td>
+            </tr>
+            <tr data-voie="data">
+              <td><strong>Programme IA Gouvernement Tchad</strong> 🇹🇩</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td>Continue (déjà lancé)</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>2000 jeunes formés à l'IA, programme national tchadien</td>
+            </tr>
+            <tr data-voie="support front">
+              <td><strong>Wenaklabs « Makers Tchad »</strong> (D-CLIC/OIF) 🇹🇩</td>
+              <td><span class="tag tag-voie">Support / Réseaux</span><span class="tag tag-voie">Front / Mobile</span></td>
+              <td>À contacter (2e cohorte)</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>150 jeunes, IoT, design numérique, électronique — français, présentiel N'Djamena</td>
+            </tr>
+            <tr data-voie="uiux">
+              <td><strong>ONAPE + Mahrasoft Innovations</strong> 🇹🇩</td>
+              <td><span class="tag tag-voie">UI/UX</span></td>
+              <td>À contacter</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>50 jeunes, design graphique, animation, 3D, dev contenu interactif — N'Djamena</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>N'Djamena Institute of Technology (NIT)</strong> 🇹🇩</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Bourses disponibles</span></td>
+              <td>Formations IT locales Tchad, délivre des diplômes + bourses d'études</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>Safitel Chad Scholarship</strong> 🇹🇩</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">100%</span></td>
+              <td>Bourse Tchad → Sénégal puis France, informatique/management, français</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>CNOU Tchad</strong> (bourses Algérie/Maroc) 🇹🇩</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">100%</span></td>
+              <td>Bourses gouvernementales pour Tchadiens</td>
+            </tr>
+            <tr data-voie="all">
               <td><strong>Mastercard Foundation Associates</strong></td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
               <td>Continue (rolling)</td>
               <td><span class="tag tag-free">12 mois payés</span></td>
-              <td>Stage payé pour jeunes Africains 18-35ans, via Talent2Africa (francophone)</td>
+              <td>Stage payé pour jeunes Africains 18-35 ans, via Talent2Africa (francophone)</td>
             </tr>
-            <tr>
+            <tr data-voie="all">
+              <td><strong>AU Digital & Innovation Fellowship</strong> (Éthiopie)</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>À surveiller</td>
+              <td><span class="tag tag-free">2 500€/mois</span></td>
+              <td>Fellowship 12 mois à Addis Abeba, Union Africaine, jeunes innovateurs</td>
+            </tr>
+            <tr data-voie="all">
               <td><strong>Digital Health Africa Internship</strong></td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
               <td>Continue</td>
               <td><span class="tag tag-free">6 mois remote</span></td>
               <td>Stage en santé digitale, 8-10h/sem, Tchad éligible, flexible</td>
             </tr>
-            <tr>
+            <tr data-voie="front">
+              <td><strong>NiangProgrammeur</strong> (Sénégal)</td>
+              <td><span class="tag tag-voie">Front / Mobile</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Développement web gratuit, français, communauté active Sénégal</td>
+            </tr>
+            <tr data-voie="front data">
+              <td><strong>Suacode.ai</strong></td>
+              <td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Data & IA</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Code et IA sur smartphone, français/anglais, adaptatif</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>Code213</strong> (Algérie)</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">100% gratuit</span></td>
+              <td>Formations digitales certifiantes, Algérie, francophone</td>
+            </tr>
+            <tr data-voie="all">
+              <td><strong>DESDAI Tech Scholarship</strong></td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
+              <td>Continue</td>
+              <td><span class="tag tag-free">Gratuit</span></td>
+              <td>Formation certifiante pour Africains</td>
+            </tr>
+            <tr data-voie="all">
               <td><strong>RYCM Digital Pathways</strong> (Coursera)</td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
               <td>Continue</td>
               <td><span class="tag tag-free">0$</span></td>
               <td>Accès premium Coursera, 6 parcours, certif vérifiée</td>
             </tr>
-            <tr>
+            <tr data-voie="all">
               <td><strong>Coursera Financial Aid</strong></td>
+              <td><span class="tag tag-all">Toutes voies</span></td>
               <td>Continue</td>
               <td><span class="tag tag-free">0$</span></td>
-              <td>Aide financière pour tous les cours certifiants, ~15j d'attente</td>
+              <td>Aide financière pour tous les cours certifiants (Google UX, Data, Cyber…), ~15j d'attente</td>
             </tr>
           </tbody>
         </table>
+        <div class="empty">Rien pour cette voie dans ce tableau.</div>
       </div>
-      <p style="color:#94a3b8;font-size:0.85rem;margin-top:14px">
-⚡ <strong>TOP actions urgentes :</strong> ⚠️ Resilient Coders (10 juil !), ⚠️ PHA Laptop (10 juil !), CODAR Tech Africa (30 juin !), DevCareer Coursera (12 juil), Seamfix NextGen (17 juil), MEST AI (20 juil), OctoPrep (5 juil), Meta PhD (15 sept), GADS (31 août), Stellenbosch MSc (31 août).<br>
-            💡 <strong>Design & Vidéo :</strong> GATEWAY Program (design/UI/UX/vidéo 0$), Want Skills (français), PNUD Tchad stages photo/vidéo.<br>
-            💡 <strong>Nouveautés continues :</strong> Africa4Code MyStack, Arc.dev, ✅ <strong>Codveda</strong> validé ! Meta PhD Fellowship (42K$/an, 15 sept), AIMS Quantum Africa (fév 2027), Andela Learning Community (Google), Microsoft 4Afrika, Amazon Bursary 2027, DAAD STEM, Mono Backend (payé), Mastercard Foundation Associates (12 mois).<br>
-            💡 <strong>🇹🇩 Tchad :</strong> Safitel (→Sénégal→France), NIT Tchad (bourses locales), Programme IA Gouv. Tchad (2000 jeunes), Wenaklabs D-CLIC, ONAPE+Mahrasoft.
+
+      <p class="note">
+        ⚡ <strong>TOP actions maintenant :</strong> ⚠️ AIMS Structured Master (4 nov !), DAAD In-Region (12 nov), Ashesi (16 nov), Bourse Eiffel → contacter les écoles <strong>avant fin novembre</strong>, CYBERSURE (ouvre le 16 nov), Andela (31 déc).<br>
+        🗓️ <strong>À préparer dès maintenant</strong> (relevés de notes, CV Europass, lettres de recommandation, test d'anglais) : Erasmus Mundus, Türkiye Burslari, CSC Chine, GKS Corée.<br>
+        ⚠️ Beaucoup de dates viennent de sites relais : <strong>toujours vérifier sur le site officiel</strong> avant de postuler.
       </p>
-      <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="https://opportunitiesforyouth.org/2026/07/09/resilient-coders-fall-2026-fellowship/" target="_blank" class="btn btn-primary" style="background:#ef4444">⚠️ Resilient Coders →</a>
-        <a href="https://cookuf.net/applications-extended-pha-laptop-scholarship-bootcamp-2026-cohort-2-5-open-to-all-africans/" target="_blank" class="btn btn-primary">PHA Laptop Bootcamp →</a>
-        <a href="https://octoprep.ai" target="_blank" class="btn btn-outline">OctoPrep Cohort 6 →</a>
-        <a href="https://mytrendcaster.com.ng/500-fully-funded-devcareer-coursera-scholarships-for-africans-in-2026-apply-before-july-12/" target="_blank" class="btn btn-primary">DevCareer Coursera →</a>
-        <a href="https://foundation.seamfix.com" target="_blank" class="btn btn-outline">Seamfix NextGen →</a>
-        <a href="https://techcrush.pro/scholarship" target="_blank" class="btn btn-outline">Tech4Africans →</a>
-        <a href="https://flutterfiresummercamp.com" target="_blank" class="btn btn-outline">FlutterFire Camp →</a>
+
+      <details>
+        <summary>📦 Deadlines passées en 2026 <span>— à resurveiller pour 2027</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Opportunité</th><th>Voie</th><th>Deadline 2026</th><th>Coût</th><th>Détail</th></tr>
+            </thead>
+            <tbody>
+              <tr class="past" data-voie="all"><td><strong>develoPPP Ventures</strong> (Allemagne)</td><td><span class="tag tag-all">Startup</span></td><td>30 juin</td><td>€100K</td><td>Grant non-dilutif pour startups innovantes</td></tr>
+              <tr class="past" data-voie="all"><td><strong>Open Startup</strong> (Afrique)</td><td><span class="tag tag-all">Startup</span></td><td>31 juil</td><td>$20K-$50K</td><td>Grant pour entrepreneurs africains</td></tr>
+              <tr class="past" data-voie="back data"><td><strong>CODAR Tech Africa</strong></td><td><span class="tag tag-voie">Back-end</span><span class="tag tag-voie">Data & IA</span></td><td>30 juin</td><td>0-100% bourse</td><td>Software engineering, dev, data</td></tr>
+              <tr class="past" data-voie="data"><td><strong>MEST AI Startup Program</strong> (Ghana)</td><td><span class="tag tag-voie">Data & IA</span></td><td>20 juil</td><td>Incubation + invest.</td><td>IA entrepreneurs, training + seed</td></tr>
+              <tr class="past" data-voie="back"><td><strong>OctoPrep</strong> (Cohort 6)</td><td><span class="tag tag-voie">Back-end</span></td><td>5 juil</td><td>0$</td><td>Formation SE intensive, 12 semaines, remote</td></tr>
+              <tr class="past" data-voie="front back"><td><strong>Resilient Coders</strong></td><td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Back-end</span></td><td>10 juil</td><td>Gratuit</td><td>Bootcamp Full Stack, 20 semaines</td></tr>
+              <tr class="past" data-voie="back uiux cyber data"><td><strong>PHA Laptop Scholarship Bootcamp</strong></td><td><span class="tag tag-all">Plusieurs</span></td><td>10 juil</td><td>Gratuit + laptop</td><td>Backend, UI/UX, Cyber, Data, AI</td></tr>
+              <tr class="past" data-voie="all"><td><strong>DevCareer Coursera Scholarship</strong></td><td><span class="tag tag-all">Plusieurs</span></td><td>12 juil</td><td>Gratuit</td><td>500 bourses Coursera (Google/Meta/IBM)</td></tr>
+              <tr class="past" data-voie="front uiux"><td><strong>Seamfix NextGen Academy</strong></td><td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">UI/UX</span></td><td>17 juil</td><td>Gratuit</td><td>Full-Stack ou Product Design, 6 mois</td></tr>
+              <tr class="past" data-voie="data"><td><strong>Stellenbosch MSc ML & AI</strong></td><td><span class="tag tag-voie">Data & IA</span></td><td>31 août</td><td>100%</td><td>Master ML/AI pour Africains</td></tr>
+              <tr class="past" data-voie="all"><td><strong>Univ. of Pretoria Mastercard</strong></td><td><span class="tag tag-all">Toutes voies</span></td><td>31 août</td><td>100%</td><td>Mastercard Foundation scholars</td></tr>
+              <tr class="past" data-voie="front cloud"><td><strong>Google Africa Developer Scholarship</strong></td><td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Cloud</span></td><td>31 août</td><td>0$</td><td>Android/Cloud + certif Google ; rouvre souvent au 1er semestre</td></tr>
+              <tr class="past" data-voie="all"><td><strong>AUF FOAD</strong></td><td><span class="tag tag-all">Toutes voies</span></td><td>14 sept</td><td>Partielle</td><td>Diplômes à distance en français</td></tr>
+              <tr class="past" data-voie="data"><td><strong>Meta Research PhD Fellowship</strong></td><td><span class="tag tag-voie">Data & IA</span></td><td>15 sept</td><td>42 000$/an</td><td>PhD CS/IA/ML</td></tr>
+              <tr class="past" data-voie="all"><td><strong>ASU Mastercard Foundation Scholars</strong></td><td><span class="tag tag-all">Toutes voies</span></td><td>27 sept</td><td>100%</td><td>Master innovation & tech, Arizona</td></tr>
+              <tr class="past" data-voie="data"><td><strong>Microsoft Research PhD Fellowship</strong></td><td><span class="tag tag-voie">Data & IA</span></td><td>1er oct</td><td>42 000$/an</td><td>PhD CS/IA</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <div style="text-align:center;margin-top:40px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="orientation.html" class="btn btn-primary">🧭 Trouver ma voie →</a>
+        <a href="https://apply.aims-network.org" target="_blank" class="btn btn-primary" style="background:#ef4444">⚠️ AIMS (4 nov) →</a>
+        <a href="https://www.campusfrance.org" target="_blank" class="btn btn-outline">Bourse Eiffel →</a>
+        <a href="https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en" target="_blank" class="btn btn-outline">Catalogue Erasmus Mundus →</a>
         <a href="index.html" class="btn btn-outline">← Accueil</a>
       </div>
     </div>
@@ -318,6 +491,28 @@
 
   <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
   <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-  <script>window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});</script>
+  <script>
+    // Filter rows by career path ("voie"); rows tagged "all" fit every path
+    function applyFilter(v) {
+      document.querySelectorAll('#filters button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+      document.querySelectorAll('.table-wrap').forEach(wrap => {
+        let shown = 0;
+        wrap.querySelectorAll('tbody tr').forEach(tr => {
+          const voies = tr.dataset.voie.split(' ');
+          const ok = v === 'toutes' || voies.includes(v) || voies.includes('all');
+          tr.style.display = ok ? '' : 'none';
+          if (ok) shown++;
+        });
+        const empty = wrap.querySelector('.empty');
+        if (empty) empty.style.display = shown ? 'none' : 'block';
+      });
+    }
+    document.getElementById('filters').addEventListener('click', e => {
+      if (e.target.dataset.v) applyFilter(e.target.dataset.v);
+    });
+    const initial = new URLSearchParams(location.search).get('voie');
+    if (initial && document.querySelector(`#filters button[data-v="${initial}"]`)) applyFilter(initial);
+    window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});
+  </script>
 </body>
 </html>

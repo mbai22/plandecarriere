@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orientation — Mbaihornom Willifred</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .intro { max-width: 760px; color: var(--text-muted); font-size: 0.95rem; margin: -18px 0 32px; }
+    .quiz { max-width: 760px; }
+    .q { margin-bottom: 22px; }
+    .q h3 { color: var(--text-heading); font-size: 0.98rem; font-weight: 600; margin-bottom: 10px; }
+    .q h3 span { color: var(--accent); margin-right: 6px; }
+    .opts { display: grid; gap: 8px; }
+    .opts label {
+      display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; cursor: pointer;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text-muted); font-size: 0.88rem; transition: all 0.2s;
+    }
+    .opts label:hover { border-color: var(--border-hover); color: var(--text); }
+    .opts input { margin-top: 3px; accent-color: var(--accent); }
+    .opts input:checked + span { color: var(--text-heading); }
+    .opts label:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+    .progress { color: var(--text-dim); font-size: 0.82rem; margin: 6px 0 16px; }
+    #result { display: none; margin-top: 28px; }
+    .bar { margin-bottom: 14px; }
+    .bar .info { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 5px; }
+    .bar .info span:first-child { color: var(--text); }
+    .bar .info span:last-child { color: var(--accent); font-weight: 600; }
+    .bar .track { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+    .bar .fill { height: 100%; background: var(--gradient); border-radius: 4px; width: 0; transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .path h3 { color: var(--text-heading); font-size: 1.05rem; margin-bottom: 6px; }
+    .path .ico { font-size: 1.6rem; margin-bottom: 8px; }
+    .path p { color: var(--text-muted); font-size: 0.86rem; margin-bottom: 10px; }
+    .path dl { font-size: 0.82rem; display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; margin-top: 12px; }
+    .path dt { color: var(--text-dim); white-space: nowrap; }
+    .path dd { color: var(--text); }
+    .path .start { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.82rem; color: var(--text-muted);
+      background: color-mix(in srgb, var(--accent) 8%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
+    .path .start strong { color: var(--accent); }
+    .path.top { border-color: var(--accent); }
+    .path a.more { display: inline-block; margin-top: 12px; color: var(--accent); font-size: 0.82rem; text-decoration: none; }
+    .path a.more:hover { text-decoration: underline; }
+    .weeks { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .week { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .week .when { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .week h3 { color: var(--text-heading); font-size: 0.95rem; margin: 6px 0; }
+    .week p { color: var(--text-muted); font-size: 0.84rem; }
+  </style>
+</head>
+<body class="theme-emerald">
+  <nav>
+    <div class="inner">
+      <a href="index.html" class="logo-link"><span class="logo">Mbaihornom Willifred</span></a>
+      <div class="links">
+        <a href="profil.html">Profil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="objectifs.html">Objectifs</a>
+        <a href="orientation.html" class="active">Orientation</a>
+        <a href="plan4.html">Plan PRO</a>
+        <a href="plan.html">Timeline</a>
+        <a href="plateformes.html">Plateformes</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="urgent.html">Urgent</a>
+        <a href="ecoles.html">Écoles</a>
+        <a href="grants.html">Grants</a>
+        <a href="bourses.html">Bourses</a>
+        <a href="masters.html">Masters</a>
+        <a href="freelance.html">Freelance</a>
+        <a href="ressources.html">Ressources</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>🧭 Orientation</h1>
+    <p>Quel métier de l'informatique me correspond vraiment ?</p>
+  </div>
+
+  <!-- Quiz -->
+  <section>
+    <div class="container">
+      <span class="section-label">Étape 1</span>
+      <h2>Le test : 8 questions, 3 minutes</h2>
+      <p class="intro">Réponds à l'instinct, pas à ce qui « paie le plus ». Le test classe 7 voies selon tes goûts et ton point de départ (HTML/CSS, JavaScript, Flutter, design & vidéo). Ce n'est pas une décision : c'est une liste de 2 voies à <strong>essayer</strong>.</p>
+      <form class="quiz" id="quiz"></form>
+      <div class="progress" id="progress">0 / 8 réponses</div>
+      <button class="btn btn-primary" id="go" type="button">Voir mes voies →</button>
+
+      <div id="result" class="card">
+        <span class="section-label">Ton résultat</span>
+        <h3 style="color:var(--text-heading);margin-bottom:6px" id="res-title"></h3>
+        <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:20px" id="res-text"></p>
+        <div id="bars"></div>
+        <p style="color:var(--text-dim);font-size:0.8rem;margin-top:16px">👉 Ensuite : fais le mini-projet de tes 2 premières voies (voir les cartes ci-dessous) pendant 2 semaines chacune.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paths -->
+  <section class="alt">
+    <div class="container">
+      <span class="section-label">Étape 2</span>
+      <h2>Les 7 voies en informatique</h2>
+      <p class="intro">Pour chaque voie : ce que tu fais au quotidien, ce qu'il faut apprendre, et la faisabilité depuis le Tchad. Les durées sont des ordres de grandeur pour quelqu'un qui étudie sérieusement 2-3 h par jour.</p>
+      <div class="grid-3" id="paths"></div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section>
+    <div class="container">
+      <span class="section-label">Étape 3</span>
+      <h2>Décider en 6 semaines (sans se tromper)</h2>
+      <div class="weeks">
+        <div class="week"><div class="when">Semaines 1-2</div><h3>Essai voie n°1</h3><p>Fais le mini-projet de ta 1re voie. Note chaque soir : « j'ai eu envie de continuer ? » (oui / non).</p></div>
+        <div class="week"><div class="when">Semaines 3-4</div><h3>Essai voie n°2</h3><p>Même chose avec la 2e voie. Mets les deux projets sur GitHub, même imparfaits.</p></div>
+        <div class="week"><div class="when">Semaine 5</div><h3>Parler à 3 pros</h3><p>Écris sur LinkedIn à 3 personnes qui font ces métiers en Afrique : « Qu'est-ce que tu fais une journée type ? »</p></div>
+        <div class="week"><div class="when">Semaine 6</div><h3>Choisir & postuler</h3><p>Garde la voie où tu avais le plus de « oui ». Filtre la page <a href="urgent.html" style="color:var(--accent)">Urgent</a> sur cette voie et postule à 3 programmes.</p></div>
+      </div>
+      <div class="card" style="margin-top:28px">
+        <h3 style="color:var(--text-heading);margin-bottom:8px">💡 Mon avis honnête sur ton profil</h3>
+        <p style="color:var(--text-muted);font-size:0.9rem">Tu n'as pas besoin de repartir de zéro. Ton point fort est rare : tu sais <strong>coder une interface</strong> (HTML/CSS 85 %, JS 65 %, Flutter) <strong>et</strong> tu sais <strong>faire du design et de la vidéo</strong>. Les voies où ces deux atouts comptent ensemble sont <strong>Front-end / Mobile</strong> et <strong>UI/UX Design</strong>. Ce sont aussi celles où l'on trouve le plus vite des clients en freelance depuis N'Djamena. Si tu aimes surtout la logique et les systèmes, garde le <strong>Back-end</strong> (ton plan actuel). La Data, la Cyber et le Cloud sont de très bonnes voies, mais elles demandent de repartir de plus loin.</p>
+      </div>
+      <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="urgent.html" class="btn btn-primary">Opportunités par voie →</a>
+        <a href="index.html" class="btn btn-outline">← Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  <button id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>
+    const PATHS = {
+      front: { ico: '📱', name: 'Développeur Front-end / Mobile',
+        what: 'Tu construis ce que les gens voient et touchent : sites, applis Android/iOS, tableaux de bord.',
+        learn: 'JavaScript avancé, React ou Flutter, appels d’API, Git, tests',
+        time: '4-8 mois', remote: 'Facile (freelance, remote)', local: 'Moyenne (agences, ONG, startups)',
+        start: 'Tu y es presque : HTML/CSS 85 %, JS 65 %, FlutterFire Camp.',
+        project: 'Recrée en Flutter l’appli d’une boutique ou d’un service tchadien (catalogue + panier).' },
+      back: { ico: '⚙️', name: 'Développeur Back-end / Génie logiciel',
+        what: 'Tu conçois la logique invisible : API, bases de données, paiements, sécurité des données.',
+        learn: 'Python ou Node.js, SQL, conception d’API, Docker, architecture (SOLID)',
+        time: '8-12 mois', remote: 'Bonne (remote)', local: 'Moyenne (banques, télécoms)',
+        start: 'C’est ton plan actuel : Python/PHP 55 %, SQL 50 %.',
+        project: 'Une API de réservation (bus N’Djamena–Moundou) avec base de données et authentification.' },
+      uiux: { ico: '🎨', name: 'UI/UX & Product Designer',
+        what: 'Tu imagines l’expérience : recherche utilisateur, maquettes Figma, prototypes, tests.',
+        learn: 'Figma, recherche utilisateur, design system, accessibilité, prototypage',
+        time: '4-6 mois', remote: 'Facile (freelance)', local: 'Faible à moyenne',
+        start: 'Ton design graphique et ta vidéo sont un vrai avantage, et tu sais coder ce que tu dessines.',
+        project: 'Refais dans Figma le parcours d’un site administratif tchadien + étude de cas avant/après.' },
+      data: { ico: '📊', name: 'Data Analyst / Data & IA',
+        what: 'Tu fais parler les chiffres : tableaux de bord, statistiques, puis modèles d’IA.',
+        learn: 'Excel, SQL, Python (pandas), visualisation, statistiques ; puis machine learning',
+        time: '6-10 mois (analyst), 12-24 mois (IA)', remote: 'Moyenne', local: 'Bonne (ONG, ONU, banques)',
+        start: 'SQL 50 % et Python 55 % sont une bonne base. Les ONG au Tchad recrutent des profils data.',
+        project: 'Analyse les prix des produits de base sur les marchés de N’Djamena et publie un tableau de bord.' },
+      cyber: { ico: '🛡️', name: 'Cybersécurité',
+        what: 'Tu protèges les systèmes : trouver les failles, surveiller les attaques, réagir aux incidents.',
+        learn: 'Réseaux, Linux, bases du hacking éthique, CTF, certifs (Security+, CEH…)',
+        time: '10-18 mois', remote: 'Moyenne', local: 'Croissante (banques, télécoms, État)',
+        start: 'À construire : réseaux & systèmes à 35 %. Beaucoup de bourses de master existent en cyber.',
+        project: 'Fais 10 défis débutants sur TryHackMe ou CyberTalents et écris un compte rendu pour chacun.' },
+      cloud: { ico: '☁️', name: 'Cloud / DevOps',
+        what: 'Tu fais tourner les applis en production : serveurs, déploiements automatiques, supervision.',
+        learn: 'Linux, réseaux, Docker, CI/CD, AWS/Azure/GCP, Terraform',
+        time: '10-15 mois', remote: 'Bonne (remote)', local: 'Faible pour l’instant',
+        start: 'Git/CI 50 %. Demande une bonne connexion pour pratiquer.',
+        project: 'Déploie ton site sur un serveur Linux avec Docker et un déploiement automatique GitHub Actions.' },
+      support: { ico: '🔧', name: 'Support IT / Administrateur réseaux',
+        what: 'Tu fais marcher l’informatique d’une organisation : postes, réseau, utilisateurs, sauvegardes.',
+        learn: 'Windows/Linux, réseaux (CCNA), Active Directory, matériel, scripts',
+        time: '3-6 mois', remote: 'Faible (sur site)', local: 'Forte (ONG, administrations, PME)',
+        start: 'Voie la plus rapide vers un salaire local, et un tremplin vers Cloud ou Cyber.',
+        project: 'Monte un petit réseau virtuel (Packet Tracer) avec 2 sous-réseaux, un DHCP et un pare-feu.' }
+    };
+
+    const QUESTIONS = [
+      { q: 'Qu’est-ce qui te donne le plus de satisfaction ?', a: [
+        ['Voir un résultat visuel que des gens utilisent', { front: 3, uiux: 2 }],
+        ['Résoudre un problème logique compliqué', { back: 3, data: 2 }],
+        ['Chercher la faille, enquêter', { cyber: 3 }],
+        ['Que tout tourne sans panne, de façon fiable', { cloud: 3, support: 2 }] ] },
+      { q: 'Ton talent en design & vidéo, tu veux…', a: [
+        ['L’utiliser au cœur de mon métier', { uiux: 3, front: 1 }],
+        ['Le garder comme un plus', { front: 2, data: 1 }],
+        ['M’en éloigner, je préfère la technique pure', { back: 2, cyber: 1, cloud: 1 }] ] },
+      { q: 'Les maths et les statistiques…', a: [
+        ['J’aime bien', { data: 3, back: 1 }],
+        ['Ça va, sans plus', { back: 1, cloud: 1, cyber: 1 }],
+        ['Je préfère éviter', { front: 1, uiux: 2, support: 1 }] ] },
+      { q: 'Dans 12 mois, tu veux gagner ta vie comment ?', a: [
+        ['Freelance avec des clients à l’international', { front: 2, uiux: 2 }],
+        ['Un emploi stable au Tchad (entreprise, ONG, État)', { support: 3, data: 2, cyber: 1 }],
+        ['En remote pour une entreprise étrangère', { back: 2, cloud: 2, front: 1 }],
+        ['En master avec une bourse à l’étranger', { data: 2, cyber: 2, back: 1 }] ] },
+      { q: 'Tu préfères travailler…', a: [
+        ['Avec des gens : clients, utilisateurs, collègues', { uiux: 2, support: 2 }],
+        ['Seul, concentré pendant des heures', { back: 2, data: 1, cyber: 1 }],
+        ['Un peu des deux', { front: 2, cloud: 1 }] ] },
+      { q: 'Ta connexion internet et ton ordinateur sont…', a: [
+        ['Limités (petite connexion, PC modeste)', { front: 1, uiux: 1, back: 1, support: 2 }],
+        ['Corrects', { data: 1, cloud: 2, cyber: 1 }] ] },
+      { q: 'Quand quelque chose casse, ton réflexe :', a: [
+        ['Comprendre pourquoi, ligne par ligne', { back: 2, cyber: 2 }],
+        ['Réparer vite pour que ça remarche', { support: 2, cloud: 2 }],
+        ['Repenser pour que l’utilisateur ne tombe plus dessus', { uiux: 2, front: 1 }] ] },
+      { q: 'Quel mini-projet tu ferais ce week-end ?', a: [
+        ['Une appli Flutter pour une boutique tchadienne', { front: 3 }],
+        ['Redessiner dans Figma un site administratif', { uiux: 3 }],
+        ['Analyser les prix du marché avec Python', { data: 3 }],
+        ['Un défi de hacking éthique (CTF)', { cyber: 3 }],
+        ['Une API de réservation avec base de données', { back: 3 }],
+        ['Mettre un site en ligne sur un serveur Linux', { cloud: 2, support: 1 }] ] }
+    ];
+
+    // Highest possible score per path, used to turn raw points into a %
+    const MAX = {};
+    Object.keys(PATHS).forEach(k => {
+      MAX[k] = QUESTIONS.reduce((sum, q) => sum + Math.max(0, ...q.a.map(a => a[1][k] || 0)), 0);
+    });
+
+    const quiz = document.getElementById('quiz');
+    quiz.innerHTML = QUESTIONS.map((q, i) => `
+      <div class="q">
+        <h3><span>${i + 1}.</span>${q.q}</h3>
+        <div class="opts">${q.a.map((a, j) => `
+          <label><input type="radio" name="q${i}" value="${j}"><span>${a[0]}</span></label>`).join('')}
+        </div>
+      </div>`).join('');
+
+    const answered = () => QUESTIONS.filter((_, i) => quiz.querySelector(`input[name=q${i}]:checked`)).length;
+    quiz.addEventListener('change', () => {
+      document.getElementById('progress').textContent = `${answered()} / ${QUESTIONS.length} réponses`;
+    });
+
+    function renderPaths(order) {
+      document.getElementById('paths').innerHTML = order.map((k, i) => {
+        const p = PATHS[k];
+        return `<div class="card path${i < 2 && order !== DEFAULT ? ' top' : ''}" id="p-${k}">
+          <div class="ico">${p.ico}</div>
+          <h3>${p.name}</h3>
+          <p>${p.what}</p>
+          <dl>
+            <dt>À apprendre</dt><dd>${p.learn}</dd>
+            <dt>Employable en</dt><dd>${p.time}</dd>
+            <dt>Remote</dt><dd>${p.remote}</dd>
+            <dt>Au Tchad</dt><dd>${p.local}</dd>
+          </dl>
+          <div class="start"><strong>Toi :</strong> ${p.start}</div>
+          <div class="start"><strong>Mini-projet test :</strong> ${p.project}</div>
+          <a class="more" href="urgent.html?voie=${k}">Opportunités pour cette voie →</a>
+        </div>`;
+      }).join('');
+    }
+    const DEFAULT = Object.keys(PATHS);
+    renderPaths(DEFAULT);
+
+    document.getElementById('go').addEventListener('click', () => {
+      const score = Object.fromEntries(DEFAULT.map(k => [k, 0]));
+      QUESTIONS.forEach((q, i) => {
+        const c = quiz.querySelector(`input[name=q${i}]:checked`);
+        if (c) Object.entries(q.a[c.value][1]).forEach(([k, v]) => score[k] += v);
+      });
+      const n = answered();
+      const res = document.getElementById('result');
+      res.style.display = 'block';
+      if (n < 4) {
+        document.getElementById('res-title').textContent = 'Réponds à au moins 4 questions';
+        document.getElementById('res-text').textContent = 'Il faut un peu plus de réponses pour un résultat utile.';
+        document.getElementById('bars').innerHTML = '';
+        return;
+      }
+      const pct = k => Math.round(100 * score[k] / MAX[k]);
+      const order = [...DEFAULT].sort((a, b) => pct(b) - pct(a));
+      document.getElementById('res-title').textContent = `${PATHS[order[0]].ico} ${PATHS[order[0]].name}  +  ${PATHS[order[1]].ico} ${PATHS[order[1]].name}`;
+      document.getElementById('res-text').textContent = `Ce sont tes 2 voies à tester en premier (${n}/${QUESTIONS.length} réponses). Elles sont mises en avant dans les cartes ci-dessous.`;
+      document.getElementById('bars').innerHTML = order.map(k => `
+        <div class="bar"><div class="info"><span>${PATHS[k].ico} ${PATHS[k].name}</span><span>${pct(k)} %</span></div>
+        <div class="track"><div class="fill" data-w="${pct(k)}"></div></div></div>`).join('');
+      requestAnimationFrame(() => requestAnimationFrame(() =>
+        document.querySelectorAll('#bars .fill').forEach(f => f.style.width = f.dataset.w + '%')));
+      renderPaths(order);
+      res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    window.addEventListener('scroll',()=>{document.getElementById('top-btn').classList.toggle('show',window.scrollY>400);});
+  </script>
+</body>
+</html>

@@ -192,6 +192,7 @@ footer { text-align: center; padding: 32px 24px; color: var(--text-dim); font-si
 .theme-indigo { --accent: #818cf8; --accent2: #a5b4fc; --accent-rgb: 129, 140, 248; --accent2-rgb: 165, 180, 252; --gradient: linear-gradient(135deg, #4f46e5, #818cf8); --btn-shadow: rgba(79, 70, 229, 0.35); --selection: rgba(79, 70, 229, 0.25); }
 .theme-cyan   { --accent: #22d3ee; --accent2: #67e8f9; --accent-rgb: 34, 211, 238; --accent2-rgb: 103, 232, 249; --gradient: linear-gradient(135deg, #0891b2, #22d3ee); --btn-shadow: rgba(8, 145, 178, 0.35); --selection: rgba(8, 145, 178, 0.25); }
 .theme-slate  { --accent: #94a3b8; --accent2: #cbd5e1; --accent-rgb: 148, 163, 184; --accent2-rgb: 203, 213, 225; --gradient: linear-gradient(135deg, #475569, #94a3b8); --btn-shadow: rgba(71, 85, 105, 0.35); --selection: rgba(71, 85, 105, 0.25); }
+.theme-emerald { --accent: #34d399; --accent2: #6ee7b7; --accent-rgb: 52, 211, 153; --accent2-rgb: 110, 231, 183; --gradient: linear-gradient(135deg, #059669, #34d399); --btn-shadow: rgba(5, 150, 105, 0.35); --selection: rgba(5, 150, 105, 0.25); }
 .theme-fuchsia { --accent: #e879f9; --accent2: #f0abfc; --accent-rgb: 232, 121, 249; --accent2-rgb: 240, 171, 252; --gradient: linear-gradient(135deg, #c026d3, #e879f9); --btn-shadow: rgba(192, 38, 211, 0.35); --selection: rgba(192, 38, 211, 0.25); }
 
 @media (max-width: 640px) {
