@@ -4,7 +4,7 @@ Site web personnel présentant mon plan de carrière en **Génie Logiciel & Dév
 
 ## 🎯 Objectif
 
-Passer de Licence 3 Fondamentale en Code à **Ingénieur Logiciel professionnel** via un plan structuré en 4 étapes, en exploitant les ressources gratuites et bourses internationales.
+Licence obtenue à l'Université de Dschang : poursuivre en master pour passer à **Ingénieur Logiciel professionnel** via un plan structuré en 4 étapes, en exploitant les ressources gratuites et bourses internationales.
 
 ## 📄 Pages
 
