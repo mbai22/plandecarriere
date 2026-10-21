@@ -64,6 +64,8 @@ main .lucide { width: 1.1em; height: 1.1em; vertical-align: -0.18em; }
 .side nav a .pill:empty { display: none; }
 .me { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 16px 8px 0; border-top: 1px solid #23523f; }
 .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--lime); color: var(--side); display: grid; place-items: center; font-weight: 800; flex-shrink: 0; }
+/* Zoomed-in crop of the full-length portrait so the face fills the circle */
+.avatar.photo { background: #dfeec0 url("assets/profil.webp") 52% 17% / 250% auto no-repeat; }
 .me b { color: #fff; font-size: 0.84rem; display: block; }
 .me span { font-size: 0.72rem; color: #8fb3a1; }
 .me a { margin-left: auto; color: #8fb3a1; display: grid; place-items: center; padding: 6px; border-radius: 8px; }

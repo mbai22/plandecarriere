@@ -38,7 +38,7 @@
       ${NAV.map(g => `<h4>${g.title}</h4><nav>${g.items.map(([href, icon, label, pill]) =>
         `<a href="${href}"${href === page ? ' class="on"' : ''}><i data-lucide="${icon}"></i>${label}${pill ? `<span class="pill" id="${pill}"></span>` : ''}</a>`).join('')}</nav>`).join('')}
       <div class="me">
-        <div class="avatar">MW</div>
+        <div class="avatar photo" role="img" aria-label="Mbaihornom Willifred"></div>
         <div><b>Mbaihornom Willifred</b><span>Tchad · Licence 3</span></div>
         <a href="index.html" title="Déconnexion"><i data-lucide="log-out"></i></a>
       </div>`;
