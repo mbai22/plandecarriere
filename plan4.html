@@ -18,7 +18,7 @@
     .step .dur { display: inline-block; background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent); padding: 2px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; margin-top: 10px; }
     .step ul { list-style: none; padding: 0; margin-top: 10px; }
     .step ul li { color: var(--text-muted); font-size: 0.84rem; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
-    .step ul li::before { content: '✓'; color: #2f8a4c; font-weight: 700; flex-shrink: 0; }
+    .step ul li::before { content: ''; width: 15px; height: 15px; flex-shrink: 0; background: #2f8a4c; -webkit-mask: var(--check-icon) center / contain no-repeat; mask: var(--check-icon) center / contain no-repeat; }
   </style>
 </head>
 <body>
@@ -32,7 +32,7 @@
   <section style="padding:40px 24px 24px">
     <div class="container">
       <div style="background:color-mix(in srgb,#2f8a4c 6%,transparent);border:1px solid #14532d;border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <span style="font-size:1.8rem">✅</span>
+        <span style="font-size:1.8rem"><i data-lucide="circle-check" class="i-ok"></i></span>
         <div style="flex:1;min-width:200px">
           <p style="color:#2f8a4c;font-weight:700;font-size:0.95rem">Tu es déjà en route !</p>
           <p style="color:var(--text-muted);font-size:0.85rem">Sélectionné à <strong>Tech4Africans</strong> (dév/data/IA) et <strong>FlutterFire Summer Camp</strong> (Flutter+Firebase) — été 2026</p>
@@ -46,20 +46,20 @@
   <section>
     <div class="container">
       <span class="section-label">Étape 1 — Urgente</span>
-      <h2>⚙️ Fondations en génie logiciel & algorithmique</h2>
+      <h2><i data-lucide="cog"></i> Fondations en génie logiciel & algorithmique</h2>
       <p style="color:var(--text-muted);margin-bottom:24px;max-width:700px">
         Objectif : maîtriser les bases universelles du génie logiciel — algorithmes, structures de données, architecture. <strong>Tech4Africans + FlutterFire Summer Camp en parallèle</strong>.
       </p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>✅ Tech4Africans — dev/data/IA</h3>
+          <h3><i data-lucide="circle-check" class="i-ok"></i> Tech4Africans — dev/data/IA</h3>
           <p>3 mois intensifs en ligne. Dev full-stack, data, IA. Complète avec des projets concrets sur GitHub.</p>
           <span class="dur">26 juin → sept. 2026</span>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>✅ FlutterFire Summer Camp</h3>
+          <h3><i data-lucide="circle-check" class="i-ok"></i> FlutterFire Summer Camp</h3>
           <p>90 jours Flutter + Firebase. Développement d'applications mobiles multiplateformes. Français.</p>
           <span class="dur">6 juil. → oct. 2026</span>
         </div>
@@ -72,7 +72,7 @@
       </div>
       <div style="margin-top:24px;background:var(--bg);border-radius:12px;padding:20px 24px;border:1px solid var(--border)">
         <p style="color:var(--text-muted);font-size:0.88rem">
-          <strong style="color:var(--accent)">🚀 Livrables :</strong> 2 programmes terminés, 100 problèmes résolus, base algorithmique solide.
+          <strong style="color:var(--accent)"><i data-lucide="rocket"></i> Livrables :</strong> 2 programmes terminés, 100 problèmes résolus, base algorithmique solide.
         </p>
       </div>
     </div>
@@ -82,7 +82,7 @@
   <section class="alt">
     <div class="container">
       <span class="section-label">Étape 2</span>
-      <h2>🏗️ Concevoir des systèmes logiciels</h2>
+      <h2><i data-lucide="building-2"></i> Concevoir des systèmes logiciels</h2>
       <p style="color:var(--text-muted);margin-bottom:24px;max-width:700px">
         Objectif : passer du code qui marche au logiciel bien conçu — architecture, design patterns, clean code, systèmes backend.
       </p>
@@ -108,7 +108,7 @@
       </div>
       <div style="margin-top:24px;background:var(--bg);border-radius:12px;padding:20px 24px;border:1px solid var(--border)">
         <p style="color:var(--text-muted);font-size:0.88rem">
-          <strong style="color:var(--accent)">🚀 Livrables :</strong> 1 système backend complet sur GitHub, schéma DB optimisé, patterns appliqués.
+          <strong style="color:var(--accent)"><i data-lucide="rocket"></i> Livrables :</strong> 1 système backend complet sur GitHub, schéma DB optimisé, patterns appliqués.
         </p>
       </div>
     </div>
@@ -118,7 +118,7 @@
   <section>
     <div class="container">
       <span class="section-label">Étape 3</span>
-      <h2>☁️ DevOps, Cloud & certifications pro</h2>
+      <h2><i data-lucide="cloud"></i> DevOps, Cloud & certifications pro</h2>
       <p style="color:var(--text-muted);margin-bottom:24px;max-width:700px">
         Objectif : maîtriser le déploiement, l'infrastructure et décrocher des certifications recherchées par les entreprises.
       </p>
@@ -144,7 +144,7 @@
       </div>
       <div style="margin-top:24px;background:var(--bg);border-radius:12px;padding:20px 24px;border:1px solid var(--border)">
         <p style="color:var(--text-muted);font-size:0.88rem">
-          <strong style="color:var(--accent)">🚀 Livrables :</strong> Certification AWS, pipeline CI/CD fonctionnel, déploiement automatisé.
+          <strong style="color:var(--accent)"><i data-lucide="rocket"></i> Livrables :</strong> Certification AWS, pipeline CI/CD fonctionnel, déploiement automatisé.
         </p>
       </div>
     </div>
@@ -154,7 +154,7 @@
   <section class="alt">
     <div class="container">
       <span class="section-label">Étape 4</span>
-      <h2>💼 Ingénieur logiciel freelance & open source</h2>
+      <h2><i data-lucide="briefcase"></i> Ingénieur logiciel freelance & open source</h2>
       <p style="color:var(--text-muted);margin-bottom:24px;max-width:700px">
         Objectif : monétiser ses compétences en génie logiciel — missions haut niveau, contributions open source, réseau professionnel.
       </p>
@@ -180,7 +180,7 @@
       </div>
       <div style="margin-top:24px;background:var(--bg);border-radius:12px;padding:20px 24px;border:1px solid var(--border)">
         <p style="color:var(--text-muted);font-size:0.88rem">
-          <strong style="color:var(--accent)">🚀 Livrables :</strong> Contributions open source, missions régulières 1500$+/mois, réseau professionnel.
+          <strong style="color:var(--accent)"><i data-lucide="rocket"></i> Livrables :</strong> Contributions open source, missions régulières 1500$+/mois, réseau professionnel.
         </p>
       </div>
     </div>
@@ -214,8 +214,8 @@
         </div>
       </div>
       <div style="margin-top:28px">
-        <a href="urgent.html" class="btn btn-primary">Voir les opportunités →</a>
-        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+        <a href="urgent.html" class="btn btn-primary">Voir les opportunités <i data-lucide="arrow-right"></i></a>
+        <a href="dashboard.html" class="btn btn-outline"><i data-lucide="arrow-left"></i>Dashboard</a>
       </div>
     </div>
   </section>

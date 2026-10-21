@@ -32,7 +32,11 @@
     .bar .track { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
     .bar .fill { height: 100%; background: var(--gradient); border-radius: 4px; width: 0; transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
     .path h3 { color: var(--text-heading); font-size: 1.05rem; margin-bottom: 6px; }
-    .path .ico { font-size: 1.6rem; margin-bottom: 8px; }
+    .path .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--lime-soft); display: grid; place-items: center; margin-bottom: 12px; }
+    .path .ico .lucide { width: 22px; height: 22px; color: var(--green); }
+    #res-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    #res-title .plus { color: var(--text-dim); }
+    .bar .info .lucide { width: 15px; height: 15px; vertical-align: -3px; color: var(--green); }
     .path p { color: var(--text-muted); font-size: 0.86rem; margin-bottom: 10px; }
     .path dl { font-size: 0.82rem; display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; margin-top: 12px; }
     .path dt { color: var(--text-dim); white-space: nowrap; }
@@ -66,14 +70,14 @@
       <p class="intro">Réponds à l'instinct, pas à ce qui « paie le plus ». Le test classe 7 voies selon tes goûts et ton point de départ (HTML/CSS, JavaScript, Flutter, design & vidéo). Ce n'est pas une décision : c'est une liste de 2 voies à <strong>essayer</strong>.</p>
       <form class="quiz" id="quiz"></form>
       <div class="progress" id="progress">0 / 8 réponses</div>
-      <button class="btn btn-primary" id="go" type="button">Voir mes voies →</button>
+      <button class="btn btn-primary" id="go" type="button">Voir mes voies <i data-lucide="arrow-right"></i></button>
 
       <div id="result" class="card">
         <span class="section-label">Ton résultat</span>
         <h3 style="color:var(--text-heading);margin-bottom:6px" id="res-title"></h3>
         <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:20px" id="res-text"></p>
         <div id="bars"></div>
-        <p style="color:var(--text-dim);font-size:0.8rem;margin-top:16px">👉 Ensuite : fais le mini-projet de tes 2 premières voies (voir les cartes ci-dessous) pendant 2 semaines chacune.</p>
+        <p style="color:var(--text-dim);font-size:0.8rem;margin-top:16px"><i data-lucide="arrow-right"></i> Ensuite : fais le mini-projet de tes 2 premières voies (voir les cartes ci-dessous) pendant 2 semaines chacune.</p>
       </div>
     </div>
   </section>
@@ -100,12 +104,12 @@
         <div class="week"><div class="when">Semaine 6</div><h3>Choisir & postuler</h3><p>Garde la voie où tu avais le plus de « oui ». Filtre la page <a href="urgent.html" style="color:var(--accent)">Urgent</a> sur cette voie et postule à 3 programmes.</p></div>
       </div>
       <div class="card" style="margin-top:28px">
-        <h3 style="color:var(--text-heading);margin-bottom:8px">💡 Mon avis honnête sur ton profil</h3>
+        <h3 style="color:var(--text-heading);margin-bottom:8px"><i data-lucide="lightbulb"></i> Mon avis honnête sur ton profil</h3>
         <p style="color:var(--text-muted);font-size:0.9rem">Tu n'as pas besoin de repartir de zéro. Ton point fort est rare : tu sais <strong>coder une interface</strong> (HTML/CSS 85 %, JS 65 %, Flutter) <strong>et</strong> tu sais <strong>faire du design et de la vidéo</strong>. Les voies où ces deux atouts comptent ensemble sont <strong>Front-end / Mobile</strong> et <strong>UI/UX Design</strong>. Ce sont aussi celles où l'on trouve le plus vite des clients en freelance depuis N'Djamena. Si tu aimes surtout la logique et les systèmes, garde le <strong>Back-end</strong> (ton plan actuel). La Data, la Cyber et le Cloud sont de très bonnes voies, mais elles demandent de repartir de plus loin.</p>
       </div>
       <div style="text-align:center;margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="urgent.html" class="btn btn-primary">Opportunités par voie →</a>
-        <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+        <a href="urgent.html" class="btn btn-primary">Opportunités par voie <i data-lucide="arrow-right"></i></a>
+        <a href="dashboard.html" class="btn btn-outline"><i data-lucide="arrow-left"></i>Dashboard</a>
       </div>
     </div>
   </section>
@@ -115,43 +119,43 @@
 </div>
   <script>
     const PATHS = {
-      front: { ico: '📱', name: 'Développeur Front-end / Mobile',
+      front: { ico: 'smartphone', name: 'Développeur Front-end / Mobile',
         what: 'Tu construis ce que les gens voient et touchent : sites, applis Android/iOS, tableaux de bord.',
         learn: 'JavaScript avancé, React ou Flutter, appels d’API, Git, tests',
         time: '4-8 mois', remote: 'Facile (freelance, remote)', local: 'Moyenne (agences, ONG, startups)',
         start: 'Tu y es presque : HTML/CSS 85 %, JS 65 %, FlutterFire Camp.',
         project: 'Recrée en Flutter l’appli d’une boutique ou d’un service tchadien (catalogue + panier).' },
-      back: { ico: '⚙️', name: 'Développeur Back-end / Génie logiciel',
+      back: { ico: 'cog', name: 'Développeur Back-end / Génie logiciel',
         what: 'Tu conçois la logique invisible : API, bases de données, paiements, sécurité des données.',
         learn: 'Python ou Node.js, SQL, conception d’API, Docker, architecture (SOLID)',
         time: '8-12 mois', remote: 'Bonne (remote)', local: 'Moyenne (banques, télécoms)',
         start: 'C’est ton plan actuel : Python/PHP 55 %, SQL 50 %.',
         project: 'Une API de réservation (bus N’Djamena–Moundou) avec base de données et authentification.' },
-      uiux: { ico: '🎨', name: 'UI/UX & Product Designer',
+      uiux: { ico: 'palette', name: 'UI/UX & Product Designer',
         what: 'Tu imagines l’expérience : recherche utilisateur, maquettes Figma, prototypes, tests.',
         learn: 'Figma, recherche utilisateur, design system, accessibilité, prototypage',
         time: '4-6 mois', remote: 'Facile (freelance)', local: 'Faible à moyenne',
         start: 'Ton design graphique et ta vidéo sont un vrai avantage, et tu sais coder ce que tu dessines.',
         project: 'Refais dans Figma le parcours d’un site administratif tchadien + étude de cas avant/après.' },
-      data: { ico: '📊', name: 'Data Analyst / Data & IA',
+      data: { ico: 'chart-column', name: 'Data Analyst / Data & IA',
         what: 'Tu fais parler les chiffres : tableaux de bord, statistiques, puis modèles d’IA.',
         learn: 'Excel, SQL, Python (pandas), visualisation, statistiques ; puis machine learning',
         time: '6-10 mois (analyst), 12-24 mois (IA)', remote: 'Moyenne', local: 'Bonne (ONG, ONU, banques)',
         start: 'SQL 50 % et Python 55 % sont une bonne base. Les ONG au Tchad recrutent des profils data.',
         project: 'Analyse les prix des produits de base sur les marchés de N’Djamena et publie un tableau de bord.' },
-      cyber: { ico: '🛡️', name: 'Cybersécurité',
+      cyber: { ico: 'shield-check', name: 'Cybersécurité',
         what: 'Tu protèges les systèmes : trouver les failles, surveiller les attaques, réagir aux incidents.',
         learn: 'Réseaux, Linux, bases du hacking éthique, CTF, certifs (Security+, CEH…)',
         time: '10-18 mois', remote: 'Moyenne', local: 'Croissante (banques, télécoms, État)',
         start: 'À construire : réseaux & systèmes à 35 %. Beaucoup de bourses de master existent en cyber.',
         project: 'Fais 10 défis débutants sur TryHackMe ou CyberTalents et écris un compte rendu pour chacun.' },
-      cloud: { ico: '☁️', name: 'Cloud / DevOps',
+      cloud: { ico: 'cloud', name: 'Cloud / DevOps',
         what: 'Tu fais tourner les applis en production : serveurs, déploiements automatiques, supervision.',
         learn: 'Linux, réseaux, Docker, CI/CD, AWS/Azure/GCP, Terraform',
         time: '10-15 mois', remote: 'Bonne (remote)', local: 'Faible pour l’instant',
         start: 'Git/CI 50 %. Demande une bonne connexion pour pratiquer.',
         project: 'Déploie ton site sur un serveur Linux avec Docker et un déploiement automatique GitHub Actions.' },
-      support: { ico: '🔧', name: 'Support IT / Administrateur réseaux',
+      support: { ico: 'wrench', name: 'Support IT / Administrateur réseaux',
         what: 'Tu fais marcher l’informatique d’une organisation : postes, réseau, utilisateurs, sauvegardes.',
         learn: 'Windows/Linux, réseaux (CCNA), Active Directory, matériel, scripts',
         time: '3-6 mois', remote: 'Faible (sur site)', local: 'Forte (ONG, administrations, PME)',
@@ -222,7 +226,7 @@
       document.getElementById('paths').innerHTML = order.map((k, i) => {
         const p = PATHS[k];
         return `<div class="card path${i < 2 && order !== DEFAULT ? ' top' : ''}" id="p-${k}">
-          <div class="ico">${p.ico}</div>
+          <div class="ico"><i data-lucide="${p.ico}"></i></div>
           <h3>${p.name}</h3>
           <p>${p.what}</p>
           <dl>
@@ -233,9 +237,10 @@
           </dl>
           <div class="start"><strong>Toi :</strong> ${p.start}</div>
           <div class="start"><strong>Mini-projet test :</strong> ${p.project}</div>
-          <a class="more" href="urgent.html?voie=${k}">Opportunités pour cette voie →</a>
+          <a class="more" href="urgent.html?voie=${k}">Opportunités pour cette voie <i data-lucide="arrow-right"></i></a>
         </div>`;
       }).join('');
+      if (window.renderIcons) window.renderIcons();
     }
     const DEFAULT = Object.keys(PATHS);
     renderPaths(DEFAULT);
@@ -257,10 +262,10 @@
       }
       const pct = k => Math.round(100 * score[k] / MAX[k]);
       const order = [...DEFAULT].sort((a, b) => pct(b) - pct(a));
-      document.getElementById('res-title').textContent = `${PATHS[order[0]].ico} ${PATHS[order[0]].name}  +  ${PATHS[order[1]].ico} ${PATHS[order[1]].name}`;
+      document.getElementById('res-title').innerHTML = `<i data-lucide="${PATHS[order[0]].ico}"></i> ${PATHS[order[0]].name} <span class="plus">+</span> <i data-lucide="${PATHS[order[1]].ico}"></i> ${PATHS[order[1]].name}`;
       document.getElementById('res-text').textContent = `Ce sont tes 2 voies à tester en premier (${n}/${QUESTIONS.length} réponses). Elles sont mises en avant dans les cartes ci-dessous.`;
       document.getElementById('bars').innerHTML = order.map(k => `
-        <div class="bar"><div class="info"><span>${PATHS[k].ico} ${PATHS[k].name}</span><span>${pct(k)} %</span></div>
+        <div class="bar"><div class="info"><span><i data-lucide="${PATHS[k].ico}"></i> ${PATHS[k].name}</span><span>${pct(k)} %</span></div>
         <div class="track"><div class="fill" data-w="${pct(k)}"></div></div></div>`).join('');
       requestAnimationFrame(() => requestAnimationFrame(() =>
         document.querySelectorAll('#bars .fill').forEach(f => f.style.width = f.dataset.w + '%')));
