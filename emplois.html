@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emplois Tchad — Mbaihornom Willifred</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <style>
+    tr.past td { color: var(--text-dim); }
+    .tag-past { background: var(--bg); color: var(--text-dim); border: 1px solid var(--border-hover); }
+    .tag-voie { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border-hover); margin: 1px 2px 1px 0; }
+    td a { color: var(--ink); border-bottom: 1px dotted var(--green); }
+    td a:hover { color: var(--green); }
+    .note { color: var(--text-muted); font-size: 0.84rem; margin-top: 14px; line-height: 1.8; }
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .fact { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .fact .lucide { width: 22px; height: 22px; color: var(--green); margin-bottom: 8px; }
+    .fact b { display: block; font-size: 0.92rem; margin-bottom: 4px; }
+    .fact p { color: var(--muted); font-size: 0.82rem; }
+    .who h3 { display: flex; align-items: center; gap: 8px; font-size: 0.98rem; margin-bottom: 8px; }
+    .who h3 .lucide { color: var(--green); }
+    .who p { color: var(--muted); font-size: 0.84rem; }
+    .who .ex { margin-top: 10px; font-size: 0.78rem; color: var(--text-dim); }
+    .roles td:first-child { font-weight: 600; }
+    .steps { counter-reset: s; display: grid; gap: 12px; }
+    .steps li { list-style: none; counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+    .steps li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--side); color: var(--lime); display: grid; place-items: center; font-weight: 800; }
+    .steps b { display: block; margin-bottom: 2px; }
+    .steps p { color: var(--muted); font-size: 0.84rem; }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+  <aside class="side" id="side"></aside>
+  <main>
+  <div class="topbar"></div>
+  <div class="head"><div><h2>Emplois informatique au Tchad</h2><p>Offres, employeurs et sites d'emploi à N'Djamena dans mon domaine — mis à jour le 27 octobre 2026</p></div></div>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Le marché</span>
+      <h2>Ce qu'il faut savoir sur N'Djamena</h2>
+      <div class="facts">
+        <div class="fact"><i data-lucide="map-pin"></i><b>Presque tout est à N'Djamena</b><p>Sièges des entreprises, ministères, ONU et ONG : la grande majorité des emplois formels IT sont dans la capitale.</p></div>
+        <div class="fact"><i data-lucide="hand-heart"></i><b>Les ONG recrutent le plus</b><p>Avec la réponse humanitaire (réfugiés du Soudan), ONU et ONG cherchent des profils data, gestion de l'information et ICT.</p></div>
+        <div class="fact"><i data-lucide="users"></i><b>Le réseau compte beaucoup</b><p>Au Tchad, le recrutement passe souvent par recommandation : candidatures spontanées et contacts directs sont indispensables.</p></div>
+        <div class="fact"><i data-lucide="trending-up"></i><b>Profils recherchés</b><p>Techniciens réseaux, développeurs, administrateurs de bases de données, cybersécurité, analystes de données.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Offres repérées</span>
+      <h2>Annonces IT et data à N'Djamena (2026)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Poste</th><th>Employeur</th><th>Voie</th><th>Statut</th><th>Ce qu'il faut savoir</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><a href="https://www.lesopportunites.com/opportunite/tchad/avis-de-recrutement/informatique-electronique/long-developpement-humain-durable-dhd-lance-un-recrutement-pour-le-poste-de-chargee-de-la-gestion-des-donnees-base-a-ndjamena-au-tchad/" target="_blank" rel="noopener">Chargé(e) de la gestion des données</a></strong></td>
+              <td>ONG Développement Humain Durable (DHD)</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-hot">Ouvert · date non publiée</span></td>
+              <td>Candidature par formulaire KoboToolbox — postule vite</td>
+            </tr>
+            <tr>
+              <td><strong><a href="https://www.unjobnet.org/countries/Chad" target="_blank" rel="noopener">Information Management Manager</a></strong> (réponse Soudan)</td>
+              <td>Solidarités International</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-paid">À vérifier</span></td>
+              <td>Poste senior, mais bon exemple du métier « gestion de l'information »</td>
+            </tr>
+            <tr class="past">
+              <td><strong><a href="https://www.jobrapide.org/offres/avis-recrutement/la-fondation-hirondelle-recrute-une-technicienne-en-informatique-ndjamena-tchad-2/" target="_blank" rel="noopener">Technicien(ne) en informatique</a></strong></td>
+              <td>Fondation Hirondelle (média)</td>
+              <td><span class="tag tag-voie">Support / Réseaux</span></td>
+              <td><span class="tag tag-past">Clos le 20 août 2026</span></td>
+              <td>Média qui recrute aussi en vidéo et journalisme : à suivre de près</td>
+            </tr>
+            <tr class="past">
+              <td><strong><a href="https://www.jobrapide.org/offres/avis-recrutement/world-vision-recrute-pour-le-poste-dict-officer-ndjamena-tchad/" target="_blank" rel="noopener">ICT Officer</a></strong></td>
+              <td>World Vision</td>
+              <td><span class="tag tag-voie">Support / Réseaux</span><span class="tag tag-voie">Cloud</span></td>
+              <td><span class="tag tag-past">Clos le 20 mai 2026</span></td>
+              <td>Poste type en ONG : parc informatique, réseau, comptes Microsoft 365</td>
+            </tr>
+            <tr class="past">
+              <td><strong><a href="https://www.jobrapide.org/offres/avis-recrutement/international-ngo-safety-organisation-inso-recrute-pour-le-poste-dinformation-officer-ndjamena-tchad/" target="_blank" rel="noopener">Information Officer</a></strong></td>
+              <td>INSO</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-past">Clos le 26 juin 2026</span></td>
+              <td>Collecte et analyse d'informations de sécurité pour les ONG</td>
+            </tr>
+            <tr class="past">
+              <td><strong><a href="https://www.jobrapide.org/offres/avis-recrutement/long-developpement-humain-durable-dhd-recrute-une-assistante-aux-donnees-quantitatives-ndjamena-tchad/" target="_blank" rel="noopener">Assistant(e) aux données quantitatives</a></strong></td>
+              <td>ONG DHD</td>
+              <td><span class="tag tag-voie">Data & IA</span></td>
+              <td><span class="tag tag-past">Clos le 17 août 2026</span></td>
+              <td>Niveau d'entrée accessible avec une Licence</td>
+            </tr>
+            <tr class="past">
+              <td><strong><a href="https://www.jobrapide.org/offres/stage/appel-a-candidatures-pour-le-recrutement-de-deux-2-stagiaires-en-economie-finances-et-dun-1-stagiaire-en-informatique-ndjamena-tchad/" target="_blank" rel="noopener">Stagiaire en informatique</a></strong> (Bac+3, 3 mois)</td>
+              <td>Programme partenaire</td>
+              <td><span class="tag tag-voie">Support / Réseaux</span></td>
+              <td><span class="tag tag-past">Clos le 6 fév 2026</span></td>
+              <td>Exemple de stage ouvert aux titulaires d'une Licence</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        <i data-lucide="info"></i> Les offres IT publiées en ligne sont rares au Tchad et se ferment vite (souvent 2 à 3 semaines). Les annonces closes restent ici comme <strong>modèles</strong> : elles montrent les postes qui reviennent et ce que les employeurs demandent. Vérifie toujours la date limite sur l'annonce d'origine.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Où chercher</span>
+      <h2>Sites à consulter chaque semaine</h2>
+      <div class="links-grid">
+        <a href="https://www.emploi.td" target="_blank" rel="noopener">emploi.td</a>
+        <a href="https://tchadannonces.com/" target="_blank" rel="noopener">Tchad Annonces</a>
+        <a href="https://www.jobrapide.org/region/tchad/" target="_blank" rel="noopener">JobRapide — Tchad</a>
+        <a href="https://www.lesopportunites.com/opportunite/tchad/avis-de-recrutement/informatique-electronique/" target="_blank" rel="noopener">Opportunités du Monde — IT Tchad</a>
+        <a href="https://www.taf4all.fr/emploi/tchad/ndjamena" target="_blank" rel="noopener">Taf4All — N'Djamena</a>
+        <a href="https://reliefweb.int/jobs?search=country.exact:%22Chad%22" target="_blank" rel="noopener">ReliefWeb — Chad</a>
+        <a href="https://unjobs.org/duty_stations/ndj" target="_blank" rel="noopener">UN Jobs — N'Djamena</a>
+        <a href="https://www.impactpool.org/countries/Chad" target="_blank" rel="noopener">Impactpool — Chad</a>
+        <a href="https://www.unjobnet.org/countries/Chad" target="_blank" rel="noopener">UNjobnet — Chad</a>
+        <a href="https://www.linkedin.com/jobs/search/?location=N%27Djamena" target="_blank" rel="noopener">LinkedIn — N'Djamena</a>
+      </div>
+      <p class="note"><i data-lucide="bell"></i> Astuce : crée une alerte e-mail sur ReliefWeb (filtre « Chad » + « Information and Communications Technology ») et sur LinkedIn pour « N'Djamena ».</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Qui recrute</span>
+      <h2>Employeurs IT à N'Djamena</h2>
+      <div class="grid-3 who">
+        <div class="card">
+          <h3><i data-lucide="hand-heart"></i>ONU & ONG internationales</h3>
+          <p>Le plus gros recruteur de profils data et ICT : gestion de l'information, bases de données, KoboToolbox, réseaux et support.</p>
+          <div class="ex">Ex. : PNUD, UNICEF, PAM, HCR, OIM, World Vision, NRC, ACTED, Plan International, Solidarités International, INSO</div>
+        </div>
+        <div class="card">
+          <h3><i data-lucide="radio-tower"></i>Opérateurs télécoms</h3>
+          <p>Réseaux, systèmes, applications mobiles et paiement mobile. Recrutements moins fréquents mais postes stables.</p>
+          <div class="ex">Ex. : Airtel Tchad, Moov Africa Tchad</div>
+        </div>
+        <div class="card">
+          <h3><i data-lucide="landmark"></i>Banques & microfinance</h3>
+          <p>Support informatique, sécurité, applications bancaires et mobile banking.</p>
+          <div class="ex">Ex. : banques commerciales et institutions de microfinance de la place</div>
+        </div>
+        <div class="card">
+          <h3><i data-lucide="building-2"></i>Administration & agences</h3>
+          <p>Transformation numérique de l'État, programmes nationaux de formation au numérique et à l'IA.</p>
+          <div class="ex">Ex. : agences du numérique et ministères, projets financés par les bailleurs</div>
+        </div>
+        <div class="card">
+          <h3><i data-lucide="clapperboard"></i>Médias & communication</h3>
+          <p>Ton atout design + vidéo : techniciens, monteurs, chargés de communication digitale.</p>
+          <div class="ex">Ex. : Fondation Hirondelle, agences de communication, stages photo/vidéo du PNUD</div>
+        </div>
+        <div class="card">
+          <h3><i data-lucide="rocket"></i>Startups, agences web & PME</h3>
+          <p>Sites web, applications et missions freelance : idéal pour un premier revenu et un portfolio local.</p>
+          <div class="ex">Ex. : incubateurs comme WenakLabs, agences web, commerces qui veulent un site</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Pour ton profil</span>
+      <h2>Postes accessibles avec ta Licence</h2>
+      <div class="table-wrap roles">
+        <table>
+          <thead>
+            <tr><th>Poste</th><th>Voie</th><th>Où on le trouve</th><th>À montrer dans ta candidature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Assistant(e) gestion des données / IM</td><td><span class="tag tag-voie">Data & IA</span></td><td>ONG, ONU</td><td>Excel avancé, KoboToolbox/ODK, Power BI, SQL ; un tableau de bord en exemple</td></tr>
+            <tr><td>Assistant(e) IT / ICT Officer junior</td><td><span class="tag tag-voie">Support / Réseaux</span></td><td>ONG, banques, PME</td><td>Réseaux, Windows/Linux, Microsoft 365, maintenance ; certif Cisco NetAcad</td></tr>
+            <tr><td>Développeur(se) web / mobile</td><td><span class="tag tag-voie">Front / Mobile</span><span class="tag tag-voie">Back-end</span></td><td>Startups, télécoms, agences web, freelance</td><td>Projets GitHub en ligne, appli Flutter (FlutterFire), site d'un client local</td></tr>
+            <tr><td>Chargé(e) de communication digitale / multimédia</td><td><span class="tag tag-voie">UI/UX</span></td><td>ONG, médias, entreprises</td><td>Portfolio design et vidéo, réseaux sociaux, Figma</td></tr>
+            <tr><td>Stagiaire informatique</td><td><span class="tag tag-voie">Toutes voies</span></td><td>ONU, banques, télécoms</td><td>Lettre ciblée, disponibilité, Licence + formations 2026 (Tech4Africans, Codveda)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Plan d'action</span>
+      <h2>Décrocher un poste en 4 semaines</h2>
+      <ol class="steps">
+        <li><div><b>Prépare un CV en français ET en anglais</b><p>Les ONG et l'ONU recrutent souvent en anglais. Mets en avant ta Licence de l'Université de Dschang, Tech4Africans, FlutterFire et ton stage Codveda.</p></div></li>
+        <li><div><b>Ajoute une compétence data « ONG »</b><p>KoboToolbox (gratuit) et Power BI reviennent dans les annonces : 1 à 2 semaines suffisent pour faire un premier projet à montrer.</p></div></li>
+        <li><div><b>Envoie 10 candidatures spontanées</b><p>Opérateurs télécoms, 3 banques, 5 ONG : CV + courte lettre + lien vers ton site et ton GitHub.</p></div></li>
+        <li><div><b>Active ton réseau</b><p>Anciens de Dschang au Tchad, LinkedIn, incubateurs et événements tech à N'Djamena : au Tchad, beaucoup de postes se pourvoient par recommandation.</p></div></li>
+      </ol>
+      <div style="text-align:center;margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="freelance.html" class="btn btn-primary">Trouver des missions freelance <i data-lucide="arrow-right"></i></a>
+        <a href="dashboard.html" class="btn btn-outline"><i data-lucide="arrow-left"></i>Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">&copy; 2026 Mbaihornom Willifred — Plan de Carrière Pro.</footer>
+  </main>
+</div>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

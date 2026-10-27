@@ -5,6 +5,7 @@
       ['dashboard.html', 'layout-dashboard', "Vue d'ensemble"],
       ['orientation.html', 'compass', 'Orientation'],
       ['urgent.html', 'timer', 'Opportunités', 'nav-count'],
+      ['emplois.html', 'building-2', 'Emplois Tchad'],
       ['bourses.html', 'globe', 'Bourses'],
       ['masters.html', 'graduation-cap', 'Masters'],
       ['grants.html', 'hand-coins', 'Grants'],

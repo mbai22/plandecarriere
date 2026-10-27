@@ -20,6 +20,7 @@ Licence obtenue à l'Université de Dschang : poursuivre en master pour passer �
 | `plan.html` | Timeline 2026-2027 |
 | `plateformes.html` | Plateformes d'apprentissage |
 | `certifications.html` | Certifications abordables |
+| `emplois.html` | Emplois informatique au Tchad (N'Djamena) : offres, employeurs, sites |
 | `urgent.html` | Opportunités avec deadlines, filtrables par voie |
 | `ecoles.html` | Écoles de code gratuites |
 | `grants.html` | Financements et grants |
